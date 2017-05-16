@@ -17,13 +17,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             .state('tab', {
                 url: '/tab',
                 abstract: true,
-                templateUrl: 'templates/tabs.html'
+                templateUrl: 'pages/tabs.html'
             })
             .state('tab.message', {
                 url: '/message',
                 views: {
                     'tab-message': {
-                        templateUrl: 'templates/tab-message.html',
+                        templateUrl: 'pages/message/message.html',
                         controller: 'MessageCtrl'
                     }
                 }
@@ -32,7 +32,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 url: '/farm',
                 views: {
                     'tab-farm': {
-                        templateUrl: 'templates/tab-farm.html',
+                        templateUrl: 'pages/farm/farm.html',
                         controller: 'FarmCtrl'
                     }
                 }
@@ -41,7 +41,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 url: '/service',
                 views: {
                     'tab-service': {
-                        templateUrl: 'templates/tab-service.html',
+                        templateUrl: 'pages/service/service.html',
                         controller: 'ServiceCtrl'
                     }
                 }
@@ -50,7 +50,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 url: '/account',
                 views: {
                     'tab-account': {
-                        templateUrl: 'templates/tab-account.html',
+                        templateUrl: 'pages/account/account.html',
                         controller: 'AccountCtrl'
                     }
                 }

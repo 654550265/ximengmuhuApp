@@ -1,36 +1,45 @@
+.message-list {
+  padding: 0.33333rem 0.26667rem 0.33333rem 0.26667rem;
+  font-size: 18px;
+  line-height: 1; }
+  .message-list span {
+    position: relative;
+    top: -0.33333rem;
+    left: 7px; }
+  .message-list img {
+    width: 1.06667rem;
+    height: 1.06667rem; }
 
-
-
-/*下导航按钮改变图标！*/
 .bar-message {
-    background: url(../img/message.png) no-repeat center;
-    background-size: 28px 28px; }
+  background: url(../img/message.png) no-repeat center;
+  background-size: 28px 28px; }
 
 .tab-item-active .bar-message {
-    background: url(../img/message-active.png) no-repeat center;
-    background-size: 28px 28px; }
+  background: url(../img/message-active.png) no-repeat center;
+  background-size: 28px 28px; }
 
 .bar-farm {
-    background: url(../img/farm-ion.png) no-repeat center;
-    background-size: 28px 28px; }
+  background: url(../img/farm-ion.png) no-repeat center;
+  background-size: 28px 28px; }
 
 .tab-item-active .bar-farm {
-    background: url(../img/farm-ion-active.png) no-repeat center;
-    background-size: 28px 28px; }
+  background: url(../img/farm-ion-active.png) no-repeat center;
+  background-size: 28px 28px; }
 
 .bar-service {
-    background: url(../img/service.png) no-repeat center;
-    background-size: 28px 28px; }
+  background: url(../img/service.png) no-repeat center;
+  background-size: 28px 28px; }
 
 .tab-item-active .bar-service {
-    background: url(../img/service-active.png) no-repeat center;
-    background-size: 28px 28px; }
+  background: url(../img/service-active.png) no-repeat center;
+  background-size: 28px 28px; }
 
 .bar-account {
-    background: url(../img/account.png) no-repeat center;
-    background-size: 28px 28px; }
+  background: url(../img/account.png) no-repeat center;
+  background-size: 28px 28px; }
 
 .tab-item-active .bar-account {
-    background: url(../img/account-active.png) no-repeat center;
-    background-size: 28px 28px;
-    /**/ }
+  background: url(../img/account-active.png) no-repeat center;
+  background-size: 28px 28px; }
+
+/*# sourceMappingURL=style.css.map */
