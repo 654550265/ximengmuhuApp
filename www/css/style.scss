@@ -1,0 +1,37 @@
+$designWidth: 750px;
+@function pxTorem($px){
+  @return $px / ($designWidth/10) * 1rem;
+}
+.bar-message {
+  background: url(../img/message.png) no-repeat center;
+  background-size: 28px 28px; }
+
+.tab-item-active .bar-message {
+  background: url(../img/message-active.png) no-repeat center;
+  background-size: 28px 28px; }
+
+.bar-farm {
+  background: url(../img/farm-ion.png) no-repeat center;
+  background-size: 28px 28px; }
+
+.tab-item-active .bar-farm {
+  background: url(../img/farm-ion-active.png) no-repeat center;
+  background-size: 28px 28px; }
+
+.bar-service {
+  background: url(../img/service.png) no-repeat center;
+  background-size: 28px 28px; }
+
+.tab-item-active .bar-service {
+  background: url(../img/service-active.png) no-repeat center;
+  background-size: 28px 28px; }
+
+.bar-account {
+  background: url(../img/account.png) no-repeat center;
+  background-size: 28px 28px; }
+
+.tab-item-active .bar-account {
+  background: url(../img/account-active.png) no-repeat center;
+  background-size: 28px 28px;
+}
+
