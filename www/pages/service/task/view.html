@@ -1,0 +1,85 @@
+<ion-view view-title="任务详情" class="farmadd">
+    <ion-content>
+        <form novalidate ng-submit="SaveOrderAll()">
+            <div class="list">
+                <div class="item">
+                    农场
+                    <span class="item-note">{{showItem.ComName}}</span>
+                </div>
+                <div class="item">
+                    栋舍
+                    <span class="item-note">{{showItem.PenName}}</span>
+                </div>
+                <div class="item">
+                    栏舍
+                    <span class="item-note">{{showItem.PlainName}}</span>
+                </div>
+                <div class="item">
+                    任务名称
+                    <span class="item-note">{{showItem.OrderName}}</span>
+                </div>
+                <div class="item">
+                    任务时间
+                    <span class="item-note">{{showItem.CreateTime | date:"yyyy/MM/dd hh:mm"}}</span>
+                </div>
+                <div ng-if="showItem.WLList.length > 0">
+                    <div class="item item-divider">
+                        物料
+                    </div>
+                    <ion-list class="addhouse" ng-if="showItem.IsFlag == 0">
+                        <ion-item class="plannum-item" ng-repeat="item in showItem.WLList">
+                            {{item.WLName}}（{{item.WLUnits}}）
+                            <div class="plannum-input">
+                                <i class="icon button-icon ion-ios-minus-outline minus positive" ng-click="minus(item, $index)"></i>
+                                <input type="number" class="plannum" ng-model="item.WLNum">
+                                <i class="icon button-icon ion-ios-plus plus positive" ng-click="plus(item)"></i>
+                            </div>
+                        </ion-item>
+                    </ion-list>
+                    <div ng-if="showItem.IsFlag != 0" class="item" ng-repeat="item in showItem.WLList">
+                        {{item.WLName}}（{{item.WLUnits}}）
+                        <span class="item-note">{{item.WLNum}}</span>
+                    </div>
+                </div>
+                <div ng-if="showItem.ZXPic">
+                    <div class="item item-divider">
+                        执行照片
+                    </div>
+                    <div class="item item-body">
+                        <img class="full-image" ng-src="{{uploadurl+showItem.ZXPic}}" />
+                    </div>
+                </div>
+                <div ng-if="showItem.FlagContentB">
+                    <div class="item">
+                        评价
+                        <span class="item-note">
+                            <div star-rating rating-value="rating.current" max="rating.max"></div>
+                            <div class="disable"></div>
+                        </span>
+                    </div>
+                    <div class="item item-body" ng-if="showItem.PJPic">
+                        <img class="full-image" ng-src="{{uploadurl+showItem.PJPic}}" />
+                    </div>
+                </div>
+                <div class="item" ng-if="showItem.Remark">
+                    备注
+                    <span class="item-note">{{showItem.Remark}}</span>
+                </div>
+            </div>
+            <div class="list" ng-show="showItem.IsFlag == 0">
+                <div ng-show="showOther.IsPhoto !== 3">
+                    <div class="item item-icon-right">
+                        照片
+                        <i class="icon ion-ios-camera" ng-click="takePhoto()"></i>
+                    </div>
+                    <div class="item item-body" ng-show="myImage">
+                        <img id="myImage" class="full-image" />
+                    </div>
+                </div>
+                <div class="padding">
+                    <button class="button button-block button-balanced">完成</button>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

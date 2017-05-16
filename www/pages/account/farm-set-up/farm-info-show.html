@@ -1,0 +1,43 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <a class="button button-clear" ng-click="farmInfoModal.hide()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </a>
+        </div>
+        <div class="title">农场信息</div>
+        <div class="buttons" ng-if="showSetBut">
+            <a class="button button-clear" ng-click="showSetFarmInfo()">
+                设置
+            </a>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <div class="item">
+                <span>农场名称：</span>
+                <span class="item-note">
+                    {{currentFarms[nowIndex].CommName}}
+                </span>
+            </div>
+            <div class="item">
+                <span>农场电话：</span>
+                <span class="item-note">
+                    {{currentFarms[nowIndex].CommTel}}
+                </span>
+            </div>
+            <div class="item">
+                <span>农场地址：</span>
+                <span class="item-note">
+                    {{currentFarms[nowIndex].CommAddress}}
+                </span>
+            </div>
+            <div class="item">
+                <span>联系人：</span>
+                <span class="item-note">
+                    {{currentFarms[nowIndex].CreatePerson}}
+                </span>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

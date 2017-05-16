@@ -1,0 +1,287 @@
+<ion-modal-view class="farm-feed">
+  <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hideCure()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">治疗记录</div>
+        <div class="buttons"  ng-click="showDetails(3)" ng-if="ckZLiao">
+           <button class="button button-clear my-btn-font">
+              查看
+           </button>
+        </div>
+  </ion-header-bar>
+    <ion-content class="has-footer">
+        <div class="button-bar" ng-if="switchHeaderNavBar">
+            <a class="button" ng-click="showAModul()" ng-class="showA == true ? 'btActive' : ''"><span>按栋舍操作</span></a>
+          <!--  <a class="button" ng-click="showBModul()" ng-class="showB == true ? 'btActive' : ''"><span>按批次操作</span></a>-->
+            <a class="button" ng-click="showCModul()" ng-class="showC == true ? 'btActive' : ''"><span>按耳号操作</span></a>
+        </div>
+        <div class="header">
+            <div class="item table-top">
+                <div>
+                    单号：{{farmCure.OrrID}}
+                </div>
+                <!-- <div>
+                    批次号：{{farmCure.BathID}}
+                </div> -->
+                <div>
+                    <div>
+                        操作人：{{uerName}}
+                    </div>
+                    <div class="date" ng-click="getDate('cure')">
+                        日期：{{farmCure.SysDate}}<img src="img/date-picker.png" class="time-picker"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list forms">
+            <div>
+                <div ng-if="showA">
+                    <div class="item item-divider"><span>治疗对象</span></div>
+                    <div class="item item-input item-select">
+                        <i>*</i>
+                        <div class="input-label">
+                            <span class="star-space">治疗对象：</span>
+                        </div>
+                        <select ng-model="farmCure.PenName" ng-change="choosePen(3)">
+                            <option ng-repeat="item in CurrentPensList">{{item.PlainName}}</option>
+                        </select>
+                    </div>
+                    <div class="item item-input item-select">
+                        <i>*</i>
+                        <div class="input-label">
+                            <span class="star-space">目标栏位：</span>
+                        </div>
+                        <select ng-model="farmCure.PlainName" ng-change="choosePlain(3)">
+                            <option ng-repeat="item in usefulPlains">{{item.PlainName}}</option>
+                        </select>
+                    </div>
+                    <div class="item">
+                        <span class="star-space">存栏数：</span>
+                    <span class="item-note">
+                        {{farmCure.NumberOf}}
+                    </span>
+                    </div>
+                    <div class="item item-divider"><span>检查结果</span></div>
+                    <div class="item item-input item-select">
+                        <i>*</i>
+                        <div class="input-label">
+                            <span class="star-space">检查结果：</span>
+                        </div>
+                        <select ng-model="farmCure.InspectResult">
+                            <option ng-repeat="item in cureResultList">{{item}}</option>
+                        </select>
+                    </div>
+                    <div class="item item-input item-select">
+                        <i>*</i>
+                        <div class="input-label">
+                            <span class="star-space">治疗措施：</span>
+                        </div>
+                        <select ng-model="farmCure.Treatment">
+                            <option ng-repeat="item in TreatmentList">{{item}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div ng-if="showC">
+                    <div class="item item-divider"><span>治疗对象</span></div>
+                    <div class="item item-input" ng-show="switchHeaderNavBar">
+                        <i>*</i>
+                        <div class="input-label">
+                            <span class="star-space">治疗对象：</span>
+                        </div>
+                        <input class="sweep-input" type="text" placeholder="请使用蓝牙或输入耳标号" ng-model="farmCure.PNO"/>
+                     <!--   <div class="right-sweep" ng-click="serchBlu(4)">
+                            <img src="img/sweep.png"/>
+                        </div>-->
+                    </div>
+                    <div class="item" ng-hide="switchHeaderNavBar">
+                        <span class="star-space">对象耳号：</span>
+                    <span class="item-note">
+                       {{farmCure.PNO}}
+                    </span>
+                    </div>
+                    <div class="item">
+                        <span class="star-space">所在位置：</span>
+                         <span class="item-note">
+                           {{farmCure.PenName}} {{farmCure.PlainName}}
+                        </span>
+                    </div>
+                    <div class="item item-divider"><span>检查结果</span></div>
+                    <div class="item item-input item-select">
+                        <i>*</i>
+                        <div class="input-label">
+                            <span class="star-space">检查结果：</span>
+                        </div>
+                        <select ng-model="farmCure.InspectResult">
+                            <option ng-repeat="item in cureResultList">{{item}}</option>
+                        </select>
+                    </div>
+                    <div class="item item-input item-select">
+                        <i>*</i>
+                        <div class="input-label">
+                            <span class="star-space">治疗措施：</span>
+                        </div>
+                        <select ng-model="farmCure.Treatment">
+                            <option ng-repeat="item in TreatmentList">{{item}}</option>
+                        </select>
+                    </div>
+                   <!-- <div class="item">
+                        <span class="star-space">当前处于：</span>
+                        <span class="item-note">
+                            保育期
+                        </span>
+                    </div>-->
+                </div>
+                <div class="item item-divider">
+                    <span>药品名称</span>
+                    <i class="icon ion-plus-circled addFood" ng-click="addFeed(3)"></i>
+                </div>
+                <ion-list class="addfeed">
+                    <ion-item ng-hide="noticeFeed">
+                        请点击右侧加号按钮添加药品
+                    </ion-item>
+                    <ion-item class="plannum-item" ng-repeat="item in DFeeds">
+                        {{item.PFName}}（{{item.FeedUnits}}）
+                        <div class="plannum-input">
+                            <i class="icon button-icon ion-ios-minus-outline minus positive" ng-click="feddNmuberMinus(item, $index)"></i>
+                            <input type="number" class="plannum" ng-model="item.PFNum">
+                            <i class="icon button-icon ion-ios-plus plus positive" ng-click="feddNmuberPlus(item)"></i>
+                        </div>
+                        <ion-option-button class="button-assertive" ng-click="deleteFeed($index)">删除</ion-option-button>
+                    </ion-item>
+                </ion-list>
+                <div class="item item-divider"><span>备注</span></div>
+                <label class="item item-input">
+                    <textarea placeholder="填写备注" ng-model="farmCure.Remark"></textarea>
+                </label>
+                <div>
+                    <div class="item item-icon-right">
+                        照片
+                        <i class="icon ion-ios-camera" ng-click="takePhoto()"></i>
+                    </div>
+                    <div class="item item-body" ng-show="myImage">
+                        <img id="myImage" class="full-image" />
+                    </div>
+                </div>
+            </div>
+           <!-- <div ng-if="showB">
+                <div class="item item-divider"><span>治疗对象</span></div>
+                <div class="item item-input item-select">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">治疗对象：</span>
+                    </div>
+                    <select>
+                        <option selected="">请选择批次</option>
+                        <option>批次01</option>
+                        <option>批次02</option>
+                        <option>批次03</option>
+                    </select>
+                </div>
+                <div class="item">
+                    <span class="star-space">按批次存栏总数：</span>
+                    <span class="item-note">
+
+                    </span>
+                </div>
+                <div class="item">
+                    <span class="star-space">个体编号：</span>
+                    <span class="item-note">
+
+                    </span>
+                </div>
+                <label class="item item-input">
+                    xxxxxxxxxxxxxxxx
+                </label>
+                <div class="item item-divider"><span>检查结果</span></div>
+                <div class="item item-input item-select">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">检查结果：</span>
+                    </div>
+                    <select>
+                        <option selected="">正常</option>
+                        <option>产后厌食</option>
+                        <option>催胎</option>
+                        <option>低温</option>
+                        <option>发热</option>
+                        <option>肺炎</option>
+                        <option>腹泻</option>
+                        <option>感染</option>
+                        <option>关节炎</option>
+                        <option>咳嗽</option>
+                        <option>拉血</option>
+                        <option>链球菌</option>
+                        <option>螨虫</option>
+                        <option>难产</option>
+                        <option>内出血</option>
+                        <option>皮肤病</option>
+                        <option>驱虫</option>
+                        <option>神经</option>
+                        <option>呕吐</option>
+                        <option>脱肛</option>
+                        <option>脱宫</option>
+                        <option>哮喘</option>
+                        <option>炎症</option>
+                        <option>应激</option>
+                        <option>增生性肠炎</option>
+                        <option>子宫炎</option>
+                        <option>其他</option>
+                    </select>
+                </div>
+                <div class="item item-input item-select">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">治疗措施：</span>
+                    </div>
+                    <select>
+                        <option selected="">隔离</option>
+                        <option>未隔离</option>
+                    </select>
+                </div>
+                <div class="item item-divider"><span>药品</span></div>
+                <div class="item">
+                    <span class="star-space">药品01</span>
+                    <span class="item-note">
+
+                    </span>
+                </div>
+                <div class="item">
+                    <span class="star-space">药品02</span>
+                    <span class="item-note">
+
+                    </span>
+                </div>
+                <div class="item">
+                    <span class="star-space">点击加载更多</span>
+                    <span class="item-note">
+
+                    </span>
+                </div>
+                <div class="item item-divider"><span>备注</span></div>
+                <label class="item item-input">
+                    <div class="input-label">
+                        <span class="star-space">备注：</span>
+                    </div>
+                    <input type="text" placeholder="填写备注">
+                </label>
+                <label class="item item-input">
+                    <div class="input-label">
+                        <span class="star-space">照片：</span>
+                    </div>
+                    <input type="text" placeholder="添加照片">
+                </label>
+            </div>-->
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button button-balanced" ng-click="hideCure()">返回</a>
+            <a class="button button-balanced" ng-click="saveFarmCure(1)">保存并添加</a>
+            <a class="button button-balanced" ng-click="saveFarmCure(2)">保存并退出</a>
+        </div>
+    </div>
+</ion-modal-view>

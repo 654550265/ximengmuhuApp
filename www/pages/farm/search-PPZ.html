@@ -1,0 +1,15 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hidePPZ()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">选择品种名</div>
+    </ion-header-bar>
+    <ion-content>
+        <ion-radio ng-repeat="item in PPZs" ng-click="setPPZ(item)">
+            {{item.SpeciesName}}
+        </ion-radio>
+    </ion-content>
+</ion-modal-view>

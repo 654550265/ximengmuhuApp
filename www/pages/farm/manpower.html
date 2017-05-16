@@ -1,0 +1,176 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hideManpower()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">人工费用</div>
+    </ion-header-bar>
+    <ion-content class="has-footer">
+        <div class="list forms">
+            <div class="item table-top">
+                <div>
+                    单号：{{purchase.PensSpaceId}}
+                </div>
+                <div>
+                    <div>
+                        操作人：{{uerName}}
+                    </div>
+                    <div class="date" ng-click="getDate('purchase')">
+                        日期：{{purchase.NowDate}}
+                    </div>
+                </div>
+            </div>
+            <div class="item item-divider"><span>收款单位</span></div>
+          <!--  <div class="item item-input">
+                <div class="input-label">
+                    <span class="star-space">支出项目：</span>
+                </div>
+                <select>
+                    <option selected="">人工费用</option>
+                    <option>节假日</option>
+                    <option>奖金</option>
+                </select>
+
+            </div>-->
+            <div class="item item-input">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">收款人：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.Payee">
+            </div>
+            <div class="item item-input">
+                <div class="input-label">
+                    <span class="star-space">所属单位：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.Affiliations">
+            </div>
+            <div class="item item-divider"><span>人工成本金额计算器</span></div>
+            <div class="item item-input item-select">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">计算方式：</span>
+                </div>
+                <select ng-model="mode" ng-change="changervar(mode)">
+                    <option value="1">按天结算</option>
+                    <option value="2">按时结算</option>
+                    <option value="3">按工作量结算</option>
+                    <option value="4">一次性结算</option>
+                </select>
+            </div>
+            <label class="item item-input" ng-show="asWhat ==4 ? true : false">
+                <i class="front-input">*</i>
+                <div class="input-label">
+                    <span class="star-space">结算金额(元)：</span>   <!--一次性计算金额-->
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.Pay" ng-blur="showNum(purchase.Pay)">
+            </label>
+            <label class="item item-input"  ng-show="asWhat ==1 ? true : false">
+                <i class="front-input">*</i>
+                <div class="input-label">
+                    <span class="star-space">每天(元)：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.Price" ng-change="showPay()">
+            </label>
+            <label class="item item-input"  ng-show="asWhat ==2 ? true : false">
+                <i class="front-input">*</i>
+                <div class="input-label">
+                    <span class="star-space">每小时(元)：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.Price" ng-change="showPay()">
+            </label>
+            <label class="item item-input"  ng-show="asWhat ==3 ? true : false">
+                <i class="front-input">*</i>
+                <div class="input-label">
+                    <span class="star-space">每件(元)：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.Price" ng-change="showPay()">
+            </label>
+            <div class="item item-input" ng-show="asWhat ==1 ? true : false">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">天数：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.PurchaseNmuber" ng-blur="showNum2()"  ng-change="showPay()">
+            </div>
+            <div class="item item-input" ng-show="asWhat ==2 ? true : false">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">工时：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.PurchaseNmuber" ng-blur="showNum2()" ng-change="showPay()">
+            </div>
+            <div class="item item-input" ng-show="asWhat ==3 ? true : false">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">工作量：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.PurchaseNmuber" ng-blur="showNum2()" ng-change="showPay()">
+            </div>
+          <!--  <li class="item item-toggle">
+                <span class="star-space">有没有其他需要扣除的费用：</span>
+                <label class="toggle toggle-clam">
+                    <input type="checkbox">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>-->
+            <div class="item item-divider"><span>支出金额</span></div>
+           <!-- <label class="item item-input">
+                <div class="input-label">
+                    <span class="star-space">支付金额(元)：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.Pay" ng-blur="showNum(purchase.Pay)" ng-value="purchase.PurchaseNmuber * purchase.Price">
+            </label>-->
+           <!-- <div class="item" ng-show="asWhat==4">
+                <span class="star-space">支付金额(元)：</span>
+                <span class="item-note">
+                       {{purchase.Pay}}
+                </span>
+            </div>-->
+            <div class="item"> <!-- ng-hide="asWhat==4"-->
+                <span class="star-space">支付金额(元)：</span>
+                <span class="item-note">
+                      <!-- {{purchase.PurchaseNmuber * purchase.Price}}-->
+                    {{purchase.Pay}}
+                </span>
+            </div>
+            <div class="item">
+                <span class="star-space">金额大写：</span>
+                <span class="item-note">
+                       {{chineseUpcase}}
+                </span>
+            </div>
+          <!--  <div class="item item-input item-select">
+                <div class="input-label">
+                    <span class="star-space">结算方式：</span>
+                </div>
+                <select>
+                    <optin>现金结算</optin>
+                    <optin>网银转账</optin>
+                    <optin>银行汇款</optin>
+                </select>
+            </div>-->
+            <div class="item item-divider"><span>备注</span></div>
+            <label class="item item-input">
+                <textarea placeholder="填写备注" ng-model="purchase.Remark"></textarea>
+            </label>
+          <!--  <label class="item item-input">
+                <div class="input-label">
+                    <span class="star-space">照片：</span>
+                </div>
+                <input type="text" placeholder="添加照片" ng-model="puchase.pic">
+            </label>-->
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button button-balanced" ng-click="hideManpower()">取消</a>
+            <a class="button button-balanced" ng-click="saveDayAccout(0)">保存并添加</a>
+            <a class="button button-balanced" ng-click="saveDayAccout(1)">保存并退出</a>
+        </div>
+    </div>
+</ion-modal-view>

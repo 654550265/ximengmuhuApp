@@ -1,0 +1,16 @@
+<ion-modal-view>
+    <div class="bar bar-header item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="text" placeholder="输入搜索内容" ng-model="search.data" ng-keyup="searchEarNo()">
+        </label>
+        <button class="button button-assertive" ng-click="hideEarNo()">
+            取消
+        </button>
+    </div>
+    <ion-content class="has-header has-footer">
+        <div class="list">
+            <ion-radio ng-model="out.EarNo" ng-repeat="item in EarNos" ng-value="item.DWNo" ng-click="hideEarNo()">{{item.DWNo}}</ion-radio>
+        </div>
+    </ion-content>
+</ion-modal-view>

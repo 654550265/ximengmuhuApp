@@ -1,0 +1,33 @@
+<ion-view view-title="找回密码" class="page_register">
+    <ion-content>
+        <form name="myForm" novalidate ng-submit="doForget()">
+            <div class="list register-list">
+                <label class="item item-input">
+                    <span class="input-label">+86</span>
+                    <input type="number" ng-model="regData.mobile" placeholder="请输入手机号" required>
+                </label>
+                <div class="item item-input">
+                    <span class="input-label">验证码</span>
+                    <input class="code" type="number" ng-model="regData.code" placeholder="请输入验证码" required>
+                    <a class="button button-small button-balanced btnyanz" ng-click="SendMessage(2)" ng-show="!isSend">
+                        获取验证码
+                    </a>
+                    <a class="button button-small button-dark btnyanz" ng-show="isSend">
+                        {{time}}秒后重试
+                    </a>
+                </div>
+                <label class="item item-input">
+                    <span class="input-label">新密码</span>
+                    <input type="password" ng-model="regData.pwd" placeholder="请输入6-32个字符" required>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">新密码</span>
+                    <input type="password" ng-model="regData.pwdtwo" placeholder="请输入6-32个字符" required>
+                </label>
+                <button class="button button-block button-balanced btn-register">
+                    提交
+                </button>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

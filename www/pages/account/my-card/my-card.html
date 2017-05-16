@@ -1,0 +1,59 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <a class="button button-clear" ng-click="backToAccount()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </a>
+        </div>
+        <div class="title">我的名片</div>
+        <div class="buttons">
+            <a class="button button-clear" ng-click="showSetMyCard()">
+               设置
+            </a>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list setcard">
+            <div class="item item-avatar item-input">
+                <img ng-src="{{showMyInformation.avatar}}">
+                <div class="input-label">
+                    头像
+                </div>
+            </div>
+            <div class="item">
+                <span>姓名</span>
+                <span class="item-note">
+                   {{showMyInformation.myname}}
+            </span>
+            </div>
+            <div class="item" ng-click="showMyQRCode()">
+                <span>我的二维码</span>
+                <img class="my-code" src="img/search-code.png" />
+            </div>
+            <div class="item">
+                <span>性别</span>
+                <span class="item-note">
+                   {{showMyInformation.sex}}
+            </span>
+            </div>
+            <div class="item">
+                <span>手机号码</span>
+                <span class="item-note">
+                   {{showMyInformation.phoneNumber}}
+            </span>
+            </div>
+            <div class="item">
+                <span>邮箱</span>
+                <span class="item-note">
+                     {{showMyInformation.email}}
+                </span>
+            </div>
+            <div class="item">
+                <span>地区</span>
+                <span class="item-note">
+                   {{showMyInformation.location}}
+            </span>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

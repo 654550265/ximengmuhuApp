@@ -1,0 +1,37 @@
+<ion-view view-title="视频监控" class="page-video">
+    <div class="bar bar-subheader" ng-click="selectFarm($event)" ng-if="farms.length > 0">
+        <h2 class="title"><span>{{farm.CommName}}<i class="select-down"></i></span></h2>
+    </div>
+    <ion-content ng-class="farms.length > 0 ? 'has-subheader' : ''" overflow-scroll="true">
+        <div class="list">
+            <div ng-if="farms.length > 0" ng-repeat="item in farm.Pens">
+                <div class="item" ng-class="item.Cameras.length > 0 ? 'item-icon-right' : ''" ng-click="item.isopen = !item.isopen">
+                    {{item.PenName}}
+                    <i class="icon ion-ios-arrow-right" ng-if="item.Cameras.length > 0 && !item.isopen"></i>
+                    <i class="icon ion-ios-arrow-down" ng-if="item.Cameras.length > 0 &&item.isopen"></i>
+                    <span class="item-note" ng-if="item.Cameras.length === 0">
+                      暂无摄像头
+                    </span>
+                </div>
+                <div class="videos" ng-if="item.isopen">
+                    <div class="video" ng-repeat="subitem in item.videos">
+                        <div class="row">
+                            <div class="col" ng-repeat="video in subitem">
+                                <div class="video-warp" ng-if="video.CameraId">
+                                    <div class="bg" ng-class="video.CameraType === 1 ? 'video2' : 'video1'" ng-click="openVideo(video)"></div>
+                                    <div class="name" ng-if="video.canSet" ng-click="showSetting(video)">
+                                        {{video.Alias}}<a class="setting"></a>
+                                    </div>
+                                    <div class="name" ng-if="!video.canSet">
+                                        {{video.Alias}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center item" ng-if="farms.length === 0">暂无</div>
+        </div>
+    </ion-content>
+</ion-view>

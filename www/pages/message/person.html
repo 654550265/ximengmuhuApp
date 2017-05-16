@@ -1,0 +1,22 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-assertive" ng-click="cancel()">
+                取消
+            </button>
+        </div>
+        <div class="title">请选择人员</div>
+        <div class="buttons">
+            <button class="button button-positive" ng-click="savePerson()">
+                保存
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-footer">
+        <ion-checkbox ng-repeat="item in allPersons" ng-model="item.checked">{{item.MyName}} {{item.Name}}</ion-checkbox>
+        <ion-checkbox collection-repeat="item in tests" item-height="55px" item-width="100%">{{item}}</ion-checkbox>
+    </ion-content>
+    <div class="bar bar-footer selectall">
+        <ion-checkbox ng-model="selectall.checked" ng-click="chooseall()">全选</ion-checkbox>
+    </div>
+</ion-modal-view>

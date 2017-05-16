@@ -1,0 +1,83 @@
+<ion-modal-view class="farm-feed">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hideout()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">淘汰</div>
+    </ion-header-bar>
+    <ion-content class="has-footer">
+        <div class="button-bar">
+            <a class="button" ng-click="showAModul()" ng-class="showA == true ? 'btActive' : ''"><span>按栋舍操作</span></a>
+            <a class="button" ng-click="showBModul()" ng-class="showB == true ? 'btActive' : ''"><span>按耳号操作</span></a>
+        </div>
+        <div class="list forms">
+            <div class="header">
+                <div class="item table-top">
+                    <div>
+                        单号：{{out.TTNo}}
+                    </div>
+                    <div>
+                        <div>
+                            操作人：{{uerName}}
+                        </div>
+                        <div class="date" ng-click="getDate('taotai')">
+                            日期：{{out.date}}<img src="img/date-picker.png" class="time-picker" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-divider"><span>淘汰对象</span></div>
+            <div class="item">
+                当前栋舍
+                <span class="item-note">
+                    {{out.ppName}}
+                </span>
+            </div>
+            <div class="item">
+                当前栏位
+                <span class="item-note">
+                    {{out.PlainName}}
+                </span>
+            </div>
+            <div ng-if="showA">
+                <label class="item item-input">
+                    <span class="input-label">淘汰数量</span>
+                    <input type="text" placeholder="淘汰数量" ng-model="out.ttCount">
+                </label>
+            </div>
+            <div ng-if="showB">
+                <label class="item my-click-item" ng-click="showChooseEarNu(1)">
+                    请点击选择耳标号
+                </label>
+                <ion-list>
+                    <ion-item class="item-divider">
+                        耳标号：
+                    </ion-item>
+                    <ion-item ng-repeat="item in showEarNos">
+                        {{item}}
+                    </ion-item>
+                </ion-list>
+            </div>
+            <div class="zw"></div>
+            <div class="item item-divider"><span>拍照</span></div>
+            <div>
+                <div class="item item-icon-right">
+                    照片
+                    <i class="icon ion-ios-camera" ng-click="takePhoto()"></i>
+                </div>
+                <div class="item item-body" ng-show="myImage">
+                    <img id="myImage" class="full-image" />
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button button-balanced" ng-click="hideout()">返回</a>
+            <a class="button button-balanced" ng-click="saveout()">保存</a>
+        </div>
+    </div>
+</ion-modal-view>
+

@@ -1,0 +1,9 @@
+<ion-modal-view class="search_modal" ng-click="hideSearch()">
+    <div class="search">
+        <div class="out-warp" ng-click="$event.stopPropagation()">
+            <input id="focusme" type="text" placeholder="请输入耳标号" ng-model="sendPNO.PNO" />
+            <i class="ion ion-search" ng-click="showSearchDetailsModal()"></i>
+            <!-- <b ng-click="serchBlu(1)"></b> -->
+        </div>
+    </div>
+</ion-modal-view>

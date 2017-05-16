@@ -1,0 +1,23 @@
+<ion-modal-view class="farmadd">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="cancelModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">取消关联</div>
+        <div class="buttons">
+            <button class="button button-clear my-btn-font" ng-click="saveCancel()">
+                保存
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <ion-checkbox ng-model="item.checked" ng-repeat="item in cancelColumns" ng-value="item.Id">
+                {{item.PlainName}}
+                <span class="item-note">{{item.ComName}}/{{item.PenName}}</span>
+            </ion-checkbox>
+        </div>
+    </ion-content>
+</ion-modal-view>

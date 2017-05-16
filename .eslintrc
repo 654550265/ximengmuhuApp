@@ -1,0 +1,15 @@
+{
+  "env": {  
+    "browser": true,  
+  },
+  "rules": {
+    "block-scoped-var": 2,
+
+    "no-undef": 0,
+
+    "semi": 2,
+    "quotes": [0, "double"],
+    "comma-dangle": [2, "only-multiline"], 
+    "comma-style": [2, "last"],
+  }
+}

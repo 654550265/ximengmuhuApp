@@ -1,0 +1,44 @@
+<ion-view view-title="标准管理">
+    <ion-nav-buttons side="right">
+        <a class="button button-clear my-btn-font" href="#/tab/service/standard/add">
+            添加
+        </a>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader">
+        <div class="button-bar">
+            <a class="button" ng-click="showAModul()" ng-class="showA == true ? 'button-balanced' : ''"><span>全部</span></a>
+            <a class="button" ng-click="showBModul()" ng-class="showB == true ? 'button-balanced' : ''"><span>使用中</span></a>
+            <a class="button" ng-click="showCModul()" ng-class="showC == true ? 'button-balanced' : ''"><span>未使用</span></a>
+        </div>
+    </div>
+    <ion-content class="has-subheader" ng-class="activeChecked ? 'has-footer' : ''">
+        <div class="list forms">
+            <div class="item text-center" ng-if="standards.length === 0">
+                暂无
+            </div>
+            <div class="feed-standard" ng-repeat="item in standards">
+                <div class="left nocheck" ng-if="!item.checked" ng-click="chooseStandard(item)"></div>
+                <div class="left checked" ng-if="item.checked" ng-click="chooseStandard(item)"></div>
+                <!-- <div ng-click="chooseStandard(item)" class="button-cover"></div> -->
+                <div class="right" ng-click="edit(item, $event)">
+                    <div class="header">{{item.TaskAllName}}<i class="icon ion-trash-a  delete" ng-click="deleteStandard(item, $event)"></i></div>
+                    <div class="standardContent">
+                        <p>创建日期：{{item.CreateTime}}</p>
+                        <p>周期：{{item.TaskList}}</p>
+                        <p>备注：{{item.TRemark}}</p>
+                        <div ng-class="item.showmore? 'more' : 'less'"><span class="balanced">已关联对象：</span>{{item.PensList}}</div>
+                    </div>
+                    <div class="text-center">
+                        <a class="button button-balanced button-clear " ng-class="item.showmore? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'" ng-click="showMore(item, $event)"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer" ng-if="activeChecked">
+        <div class="button-bar">
+            <a class="button button-assertive" ng-click="cancelRelated()">取消关联</a>
+            <a class="button button-balanced" ng-click="showRelated()">关联栋舍</a>
+        </div>
+    </div>
+</ion-view>

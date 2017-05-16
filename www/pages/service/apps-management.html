@@ -1,0 +1,71 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hideAppsManagementAdd()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">添加/管理</div>
+  </ion-header-bar>
+    <ion-content>
+        <div class="button-bar">
+            <a class="button" ng-click="showAModul()"  ng-class="showA == true ? 'btActive' : ''"><span>推荐应用</span></a>
+            <a class="button" ng-click="showBModul()"  ng-class="showB == true ? 'btActive' : ''"><span>定制应用</span></a>
+            <a class="button" ng-click="showCModul()"  ng-class="showC == true ? 'btActive' : ''"><span>管理应用</span></a>
+        </div>
+        <div class="list apps-management">
+            <div ng-if="showA">
+              <div class="my-slide">
+                    <ion-slide-box auto-play="true" does-continue="true" slide-interval="3000">
+                        <ion-slide>
+                            <div class="box1">
+                                <div class="banner"><img src="img/banner1.jpg"/></div>
+                            </div>
+                        </ion-slide>
+                        <ion-slide>
+                            <div class="box1">
+                                <div class="banner"><img src="img/banner2.jpg"/></div>
+                            </div>
+                        </ion-slide>
+                        <ion-slide>
+                            <div class="box1">
+                                <div class="banner"><img src="img/banner1.jpg"/></div>
+                            </div>
+                        </ion-slide>
+                    </ion-slide-box>
+                </div>
+                <div class="row">
+                    <div class="col"><div class="bt-switch my-active">硬件</div></div>
+                    <div class="col"><div class="bt-switch">管理</div></div>
+                    <div class="col"><div class="bt-switch">工具</div></div>
+                </div>
+                <div class="item">
+                    <img src="img/sensor.png"/>
+                    <p>传感器</p>
+                    <div>查看</div>
+                </div>
+                <div class="item">
+                    <img src="img/Video-surveillance.png"/>
+                    <p>视频监控</p>
+                    <div>查看</div>
+                </div>
+                <div class="item">
+                    <img src="img/contorller.png"/>
+                    <p>控制器</p>
+                    <div>开通</div>
+                </div>
+                <div class="item">
+                    <img src="img/Weigh.png"/>
+                    <p>称重系统</p>
+                    <div>开通</div>
+                </div>
+            </div>
+            <div ng-if="showB">
+
+            </div>
+            <div ng-if="showC">
+
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,18 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hidePMohter()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">选择母号</div>
+    </ion-header-bar>
+    <ion-content>
+        <ion-radio ng-repeat="item in PMohters" ng-model="item.checked" ng-click="setPMohter(item)">
+            <span ng-if="item.GId">{{item.GId}}</span><span ng-if="item.GUId">({{item.GUId}})</span>
+        </ion-radio>
+<!--         <ion-checkbox ng-repeat="item in PMohters" ng-model="item.checked">
+            <span ng-if="item.GId">{{item.GId}}</span><span ng-if="item.GUId">({{item.GUId}})</span>
+        </ion-checkbox> -->
+    </ion-content>
+</ion-modal-view>

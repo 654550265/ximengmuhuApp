@@ -1,0 +1,66 @@
+<ion-modal-view class="positions">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="exitAssessModel()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">权限管理</div>
+        <div class="buttons">
+            <button class="button button-clear my-btn-font" ng-click="confirmAssessModel()">
+                完成
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="assess">
+        <div class="assess-header">
+            <div class="up">
+                <div class="left">
+                    角色名称
+                </div>
+                <div class="right">
+                    {{thisAssessPositon.pname}}
+                </div>
+            </div>
+            <div class="up">
+                <div class="left">
+                    备&emsp;&emsp;注
+                </div>
+                <div class="right">
+                    {{thisAssessPositon.Remark}}
+                </div>
+            </div>
+            <div class="down">
+                <span>提示：</span>各成员的角色根据其工作的内容定义。根据角色的分类会收到相应的角色消息通知。
+            </div>
+        </div>
+        <div class="assess-body">
+            <div class="my-title">角色权限配置</div>
+            <div class="left">
+                <div class="assess-item" ng-repeat="assessShowObject in assessShowObjectList" ng-click="assessChooseSuper(assessShowObject)" ng-class="assessShowObject.IsOpen == true ? 'active' : 'default'">
+                    <div ng-class="assessShowObject.AuthAccess == true ? 'my-check' : 'my-uncheck'" ng-click="assessSuperAuth($event,assessShowObject)"></div>
+                    {{assessShowObject.Name}}
+                </div>
+            </div>
+            <div class="right">
+                <div class="assess-right-subwrap" ng-repeat="assessShowObject in assessShowObjectList" ng-class="assessShowObject.IsOpen == true ? 'show' : 'hidden'">
+                    <div class="assess-item-right" ng-repeat="assessShowObjectSub in assessShowObject.children">
+                        <div class="assess-item-header" ng-click="showSubContent(assessShowObjectSub)">
+                            <div class="my-p">{{assessShowObjectSub.Name}}</div>
+                            <div class="my-arrow-down">
+                                <div class="ion-ionic ion-ios-arrow-down"></div>
+                            </div>
+                            <div ng-class="assessShowObjectSub.AuthAccess == true ? 'my-check' : 'my-uncheck'" ng-click="rightAssessSuperAuth($event,assessShowObjectSub,assessShowObject)"></div>
+                        </div>
+                        <div class="sub-content" ng-if="assessShowObjectSub.IsOpen">
+                            <div class="assess-item sub-assess-item-right" ng-repeat="assessOperate in assessShowObjectSub.children" ng-click="chooseOperate(assessOperate, assessShowObjectSub,assessShowObject)">
+                                <div  ng-class="assessOperate.AuthAccess == true ? 'my-check' : 'my-uncheck'"></div>
+                                <div class="my-p">{{assessOperate.Name}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

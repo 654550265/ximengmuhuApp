@@ -1,0 +1,18 @@
+<ion-view view-title="我的消息" class="page_message">
+    <ion-nav-buttons side="right">
+        <a class="button button-icon icon icon-contacts" href="#/tab/message/contacts"></a>
+    </ion-nav-buttons>
+    <ion-content class="has-header message" overflow-scroll="true">
+        <div class="list message_list">
+            <a class="item" ng-repeat="item in messages" ng-if="item.show === true" ng-click="gotoList({{item.IsType}})">
+                <img class="iconimg" ng-src="img/{{item.icon}}">
+                {{item.name}}
+                <span ng-if="item.num > 0">
+                    <span class="badge badge-assertive" ng-if="item.num > 0 && item.num < 99">{{item.num}}</span>
+                    <span class="badge badge-assertive" ng-if="item.num >= 99 ">99+</span>
+                    <span class="time">{{item.time}}</span>
+                </span>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

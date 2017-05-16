@@ -1,0 +1,24 @@
+<ion-modal-view class="positions"> <!-- class="positions"-->
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="exitPersonList()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">{{positionList[currentPositionIndex].pname}}</div>
+    </ion-header-bar>
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="item in workersList" class="item-remove-animate" ng-click="showWorkerInfo($index)">
+                <div class="show-farm-name">
+                    <div>{{item.pmyname}}</div>
+                </div>
+                <div class="right-ions"><i class="ion ion-ios-arrow-right"></i></div>
+                <ion-option-button class="button-assertive"
+                                   ng-click="deleteWorker(item,$index)">
+                    删除
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-modal-view>

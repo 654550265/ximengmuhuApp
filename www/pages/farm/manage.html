@@ -1,0 +1,233 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hideManage()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">管理界面</div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list forms">
+            <div class="button-bar">
+                <a class="button" ng-click="showMangeAsDay()"  ng-class="showA == true ? 'btActive' : ''"><span>按天</span></a>
+                <a class="button" ng-click="showMangeAsMonth()"  ng-class="showB == true ? 'btActive' : ''"><span>按月</span></a>
+                <a class="button" ng-click="showMangeAsYear()"  ng-class="showC == true ? 'btActive' : ''"><span>按年</span></a>
+            </div>
+            <div ng-if="showA">
+                <div class="showTime" ng-click="chooseAsDay()">
+                    <span>当前日期：</span>
+                    <div class="showDay">{{manage.ShowDate}}</div>
+                    <img src="img/date-picker.png"/>
+                </div>
+                <div class="chart">
+                    <div class="leftBt" ng-click="prevDay()">
+                        <i class="ion ion-chevron-left"></i>
+                    </div>
+                    <div class="canvas-style" on-swipe-right="prevDay()" on-swipe-left="nextDay()">
+                        <canvas id="bar" class="chart chart-bar"
+                                chart-data="data" chart-labels="labels" chart-series="series">
+                        </canvas>
+                    </div>
+                    <div class="rightBt"  ng-click="nextDay()"><i class="ion ion-chevron-right"></i></div>
+                </div>
+                <div class="show-total">
+                    <div>支出：<span>{{expenditureTotal}}</span>元</div>
+                    <div>收入：<span>{{data[5]}}</span>元</div>
+                </div>
+                <div class="item item-divider"><span>明细</span></div>
+                <div class="row my-choose">
+                    <div class="col chooseBts" ng-class="chooseAsType2[0] == true ? 'active':''" ng-click="showWhatContent2(0)">
+                        <span>{{asWhichContent}}</span>
+                        <i class="ion ion-android-arrow-dropup" ng-if="!chooseAsType2[0]"></i><i class="ion ion-android-arrow-dropdown" ng-if="chooseAsType2[0]"></i>
+                    </div>
+                    <div class="col chooseBts" ng-class="chooseAsType2[1] == true ? 'active':''" ng-click="showWhatContent2(1)">
+                        <span>{{asTimeType}}</span>
+                        <i class="ion ion-android-arrow-dropup" ng-if="!chooseAsType2[1]"></i><i class="ion ion-android-arrow-dropdown" ng-if="chooseAsType2[1]"></i>
+                    </div>
+                    <div class="col chooseBts" ng-class="chooseAsType2[2] == true ? 'active':''" ng-click="showWhatContent2(2)">
+                        <span>{{asMoneyType}}</span>
+                        <i class="ion ion-android-arrow-dropup" ng-if="!chooseAsType2[2]"></i><i class="ion ion-android-arrow-dropdown" ng-if="chooseAsType2[2]"></i>
+                    </div>
+                    <div class="btsGroup2" ng-show="chooseAsType2[0]">
+                        <div class="myCol" ng-class="chooseContent[0] == true ? 'active':''" ng-click="whichContent(0)">全部</div>
+                        <div class="myCol" ng-class="chooseContent[1] == true ? 'active':''" ng-click="whichContent(1)">采购饲料</div>
+                        <div class="myCol" ng-class="chooseContent[2] == true ? 'active':''" ng-click="whichContent(2)">采购药品</div>
+                        <div class="myCol" ng-class="chooseContent[3] == true ? 'active':''" ng-click="whichContent(3)">采购牲畜</div>
+                        <div class="myCol" ng-class="chooseContent[4] == true ? 'active':''" ng-click="whichContent(4)">采购物资</div>
+                        <div class="myCol" ng-class="chooseContent[5] == true ? 'active':''" ng-click="whichContent(5)">人工</div>
+                        <div class="myCol" ng-class="chooseContent[6] == true ? 'active':''" ng-click="whichContent(6)">销售</div>
+                    </div>
+                    <div class="btsGroup2" ng-show="chooseAsType2[1]">
+                        <div class="myCol"  ng-class="chooseTime[0] == true ? 'active':''" ng-click="timeType(0)">由近到远</div>
+                        <div class="myCol"  ng-class="chooseTime[1] == true ? 'active':''" ng-click="timeType(1)">由远到近</div>
+                    </div>
+                    <div class="btsGroup2" ng-show="chooseAsType2[2]">
+                        <div class="myCol"  ng-class="chooseMoney[0] == true ? 'active':''" ng-click="moneyType(0)">由小到大</div>
+                        <div class="myCol"  ng-class="chooseMoney[1] == true ? 'active':''" ng-click="moneyType(1)">由大到小</div>
+                    </div>
+                </div>
+                <div class="my-item" ng-repeat="item in manageList" on-hold="showConfirm2(item, $index)" >
+                    <div class="pic" ng-show="item.expendtype == 1"><img ng-src="{{picArray[item.intype-1]}}"/></div>
+                    <div class="pic" ng-hide="item.expendtype == 1"><img ng-src="img/market.png"/></div>
+                    <div ng-show="item.expendtype == 1" class="show-classify">
+                        <div>{{labels[item.intype - 1]}}</div>
+                        <span>{{item.newdate}}&nbsp;&nbsp;{{weekdays[item.weekend]}}</span>
+                    </div>
+                    <div ng-hide="item.expendtype == 1" class="show-classify">
+                        <div>销售</div>
+                        <span>{{item.newdate}}&nbsp;&nbsp;{{weekdays[item.weekend]}}</span>
+                    </div>
+                    <div ng-show="item.expendtype == 1" class="show-money">支出:{{item.pmoney}}(元)</div>
+                    <div ng-hide="item.expendtype == 1" class="show-money">收入:{{item.pmoney}}(元)</div>
+                   <!-- <div class="right-ions"><i class="ion ion-ios-arrow-right"></i></div>-->
+                </div>
+            </div>
+            <div ng-if="showB">
+                <div class="showTime" ng-click="chooseAsMouth()">
+                    <span>当前日期：</span>
+                    <div class="showMouth">{{manage.ShowDate}}</div>
+                    <img src="img/date-picker.png"/>
+                </div>
+                <div class="chart">
+                    <div class="leftBt" ng-click="prevMouth()">
+                        <i class="ion ion-chevron-left"></i>
+                    </div>
+                    <div class="canvas-style" on-swipe-right="prevMouth()" on-swipe-left="nextMouth()">
+                        <canvas id="bar" class="chart chart-bar"
+                                chart-data="data" chart-labels="labels" chart-series="series">
+                        </canvas>
+                    </div>
+                    <div class="rightBt"  ng-click="nextMouth()"><i class="ion ion-chevron-right"></i></div>
+                </div>
+                <div class="show-total">
+                    <div>支出：<span>{{expenditureTotal}}</span>元</div>
+                    <div>收入：<span>{{data[5]}}</span>元</div>
+                </div>
+                <div class="item item-divider"><span>明细</span></div>
+                <div class="row my-choose">
+                    <div class="col chooseBts" ng-class="chooseAsType2[0] == true ? 'active':''" ng-click="showWhatContent2(0)">
+                        <span>{{asWhichContent}}</span>
+                        <i class="ion ion-android-arrow-dropup" ng-if="!chooseAsType2[0]"></i><i class="ion ion-android-arrow-dropdown" ng-if="chooseAsType2[0]"></i>
+                    </div>
+                    <div class="col chooseBts" ng-class="chooseAsType2[1] == true ? 'active':''" ng-click="showWhatContent2(1)">
+                        <span>{{asTimeType}}</span>
+                        <i class="ion ion-android-arrow-dropup" ng-if="!chooseAsType2[1]"></i><i class="ion ion-android-arrow-dropdown" ng-if="chooseAsType2[1]"></i>
+                    </div>
+                    <div class="col chooseBts" ng-class="chooseAsType2[2] == true ? 'active':''" ng-click="showWhatContent2(2)">
+                        <span>{{asMoneyType}}</span>
+                        <i class="ion ion-android-arrow-dropup" ng-if="!chooseAsType2[2]"></i><i class="ion ion-android-arrow-dropdown" ng-if="chooseAsType2[2]"></i>
+                    </div>
+                    <div class="btsGroup2" ng-show="chooseAsType2[0]">
+                        <div class="myCol" ng-class="chooseContent[0] == true ? 'active':''" ng-click="whichContent(0)">全部</div>
+                        <div class="myCol" ng-class="chooseContent[1] == true ? 'active':''" ng-click="whichContent(1)">采购饲料</div>
+                        <div class="myCol" ng-class="chooseContent[2] == true ? 'active':''" ng-click="whichContent(2)">采购药品</div>
+                        <div class="myCol" ng-class="chooseContent[3] == true ? 'active':''" ng-click="whichContent(3)">采购牲畜</div>
+                        <div class="myCol" ng-class="chooseContent[4] == true ? 'active':''" ng-click="whichContent(4)">采购物资</div>
+                        <div class="myCol" ng-class="chooseContent[5] == true ? 'active':''" ng-click="whichContent(5)">人工</div>
+                        <div class="myCol" ng-class="chooseContent[6] == true ? 'active':''" ng-click="whichContent(6)">销售</div>
+                    </div>
+                    <div class="btsGroup2" ng-show="chooseAsType2[1]">
+                        <div class="myCol"  ng-class="chooseTime[0] == true ? 'active':''" ng-click="timeType(0)">由进到远</div>
+                        <div class="myCol"  ng-class="chooseTime[1] == true ? 'active':''" ng-click="timeType(1)">由远到近</div>
+                    </div>
+                    <div class="btsGroup2" ng-show="chooseAsType2[2]">
+                        <div class="myCol"  ng-class="chooseMoney[0] == true ? 'active':''" ng-click="moneyType(0)">由小到大</div>
+                        <div class="myCol"  ng-class="chooseMoney[1] == true ? 'active':''" ng-click="moneyType(1)">由大到小</div>
+                    </div>
+                </div>
+                <div class="my-item" ng-repeat="item in manageList" on-hold="showConfirm2(item, $index)" on-tap="ldj2(item)">
+                    <div class="pic" ng-show="item.expendtype == 1"><img ng-src="{{picArray[item.intype - 1]}}"/></div>
+                    <div class="pic" ng-hide="item.expendtype == 1"><img ng-src="img/market.png"/></div>
+                    <div ng-show="item.expendtype == 1" class="show-classify">
+                        <div>{{labels[item.intype - 1]}}</div>
+                        <span>{{item.newdate}}&nbsp;&nbsp;{{weekdays[item.weekend]}}</span>
+                    </div>
+                    <div ng-hide="item.expendtype == 1" class="show-classify">
+                        <div>销售</div>
+                        <span>{{item.newdate}}&nbsp;&nbsp;{{weekdays[item.weekend]}}</span>
+                    </div>
+                    <div ng-show="item.expendtype == 1" class="show-money">支出:{{item.pmoney}}(元)</div>
+                    <div ng-hide="item.expendtype == 1" class="show-money">收入:{{item.pmoney}}(元)</div>
+                <!--    <div class="right-ions"><i class="ion ion-ios-arrow-right"></i></div>-->
+                </div>
+            </div>
+            <div ng-if="showC">
+                <div class="showTime" ng-click="chooseAsYear()">
+                    <span>当前日期：</span>
+                    <div class="showYear">{{manage.ShowDate}}</div>
+                    <img src="img/date-picker.png"/>
+                </div>
+                <div class="chart">
+                    <div class="leftBt" ng-click="prevYear()">
+                        <i class="ion ion-chevron-left"></i>
+                    </div>
+                    <div class="canvas-style" on-swipe-right="prevYear()" on-swipe-left="nextYear()">
+                        <canvas id="bar" class="chart chart-bar"
+                                chart-data="data" chart-labels="labels" chart-series="series">
+                        </canvas>
+                    </div>
+                    <div class="rightBt"  ng-click="nextYear()"><i class="ion ion-chevron-right"></i></div>
+                </div>
+                <div class="show-total">
+                    <div>支出：<span>{{expenditureTotal}}</span>元</div>
+                    <div>收入：<span>{{data[5]}}</span>元</div>
+                </div>
+                <div class="item item-divider"><span>明细</span></div>
+                <div class="row my-choose">
+                    <div class="col chooseBts" ng-class="chooseAsType2[0] == true ? 'active':''" ng-click="showWhatContent2(0)">
+                        <span>{{asWhichContent}}</span>
+                        <i class="ion ion-android-arrow-dropup" ng-if="!chooseAsType2[0]"></i><i class="ion ion-android-arrow-dropdown" ng-if="chooseAsType2[0]"></i>
+                    </div>
+                    <div class="col chooseBts" ng-class="chooseAsType2[1] == true ? 'active':''" ng-click="showWhatContent2(1)">
+                        <span>{{asTimeType}}</span>
+                        <i class="ion ion-android-arrow-dropup" ng-if="!chooseAsType2[1]"></i><i class="ion ion-android-arrow-dropdown" ng-if="chooseAsType2[1]"></i>
+                    </div>
+                    <div class="col chooseBts" ng-class="chooseAsType2[2] == true ? 'active':''" ng-click="showWhatContent2(2)">
+                        <span>{{asMoneyType}}</span>
+                        <i class="ion ion-android-arrow-dropup" ng-if="!chooseAsType2[2]"></i><i class="ion ion-android-arrow-dropdown" ng-if="chooseAsType2[2]"></i>
+                    </div>
+                    <div class="btsGroup2" ng-show="chooseAsType2[0]">
+                        <div class="myCol" ng-class="chooseContent[0] == true ? 'active':''" ng-click="whichContent(0)">全部</div>
+                        <div class="myCol" ng-class="chooseContent[1] == true ? 'active':''" ng-click="whichContent(1)">采购饲料</div>
+                        <div class="myCol" ng-class="chooseContent[2] == true ? 'active':''" ng-click="whichContent(2)">采购药品</div>
+                        <div class="myCol" ng-class="chooseContent[3] == true ? 'active':''" ng-click="whichContent(3)">采购牲畜</div>
+                        <div class="myCol" ng-class="chooseContent[4] == true ? 'active':''" ng-click="whichContent(4)">采购物资</div>
+                        <div class="myCol" ng-class="chooseContent[5] == true ? 'active':''" ng-click="whichContent(5)">人工</div>
+                        <div class="myCol" ng-class="chooseContent[6] == true ? 'active':''" ng-click="whichContent(6)">销售</div>
+                    </div>
+                    <div class="btsGroup2" ng-show="chooseAsType2[1]">
+                        <div class="myCol"  ng-class="chooseTime[0] == true ? 'active':''" ng-click="timeType(0)">由进到远</div>
+                        <div class="myCol"  ng-class="chooseTime[1] == true ? 'active':''" ng-click="timeType(1)">由远到近</div>
+                    </div>
+                    <div class="btsGroup2" ng-show="chooseAsType2[2]">
+                        <div class="myCol"  ng-class="chooseMoney[0] == true ? 'active':''" ng-click="moneyType(0)">由小到大</div>
+                        <div class="myCol"  ng-class="chooseMoney[1] == true ? 'active':''" ng-click="moneyType(1)">由大到小</div>
+                    </div>
+                </div>
+                <div class="my-item" ng-repeat="item in manageList" on-hold="showConfirm2(item, $index)" >
+                    <div class="pic" ng-show="item.expendtype == 1"><img ng-src="{{picArray[item.intype - 1]}}"/></div>
+                    <div class="pic" ng-hide="item.expendtype == 1"><img ng-src="img/market.png"/></div>
+                    <div ng-show="item.expendtype == 1" class="show-classify">
+                        <div>{{labels[item.intype - 1]}}</div>
+                        <span>{{item.newdate}}&nbsp;&nbsp;{{weekdays[item.weekend]}}</span>
+                    </div>
+                    <div ng-hide="item.expendtype == 1" class="show-classify">
+                        <div>销售</div>
+                        <span>{{item.newdate}}&nbsp;&nbsp;{{weekdays[item.weekend]}}</span>
+                    </div>
+                    <div ng-show="item.expendtype == 1" class="show-money">支出:{{item.pmoney}}(元)</div>
+                    <div ng-hide="item.expendtype == 1" class="show-money">收入:{{item.pmoney}}(元)</div>
+                 <!--   <div class="right-ions"><i class="ion ion-ios-arrow-right"></i></div>-->
+                </div>
+            </div>
+
+        </div>
+        <ion-infinite-scroll
+                icon="ion-loading-c"
+                ng-if="manageCanPullDown"
+                on-infinite="loadMore()"
+                distance="10%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-modal-view>

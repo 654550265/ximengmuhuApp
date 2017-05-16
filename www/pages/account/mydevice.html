@@ -1,0 +1,22 @@
+<ion-view view-title="我的设备">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="addDevice()">
+            添加
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list ng-if="mydevices.length > 0">
+            <ion-item ng-repeat="item in mydevices">
+                设备名：{{item.name}}
+                <ion-option-button class="button-assertive" ng-click="deleteDevice($index)">
+                    解除绑定
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+        <div class="list" ng-if="mydevices.length === 0">
+            <div class="item text-center">
+                暂无设备
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

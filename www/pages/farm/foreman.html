@@ -1,0 +1,47 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="showForemanModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">责任人</div>
+        <!-- <div class="buttons" ng-if="editZrr">
+            <button class="button button-clear" ng-click="wantEditZrr()">
+                修改
+            </button>
+        </div>
+        <div class="buttons" ng-if="!editZrr">
+            <button class="button button-clear" ng-click="wantEditZrr()">
+                完成
+            </button>
+        </div> -->
+    </ion-header-bar>
+    <ion-content>
+        <div class="list forms">
+            <div class="item item-avatar item-icon-right" ng-repeat="item in nPlains">
+                <img src="img/lanwei-logo.png" />
+                <h2>{{item.PlainName}}</h2>
+                <p>养殖员：<span ng-if="item.YzyPerson != null">{{item.YzyPerson}}</span><span ng-if="item.YzyPerson == null">无</span></p>
+                <p>防疫员：<span ng-if="item.YzyPerson != null">{{item.FyyPerson}}</span><span ng-if="item.YzyPerson == null">无</span></p>
+                <i class="icon ion-compose" ng-click="editZrrFunc(item)"></i>
+            </div>
+            <!-- <div class="my-item6" ng-repeat="item in nPlains">
+                <div class="left">
+                    <img src="img/cyue.png" />
+                </div>
+                <div class="middle">
+                    <p>{{item.PlainName}}</p>
+                    <span>养殖员：{{item.YzyPerson}}&emsp;{{item.YzyPersonTel}}</span>
+                    <span>防疫员：{{item.YzyPerson}}&emsp;{{item.YzyPersonTel}}</span>
+                </div>
+                <a class="right" ng-if="editZrr && item.YzyPersonTel != null" href="tel:{{item.YzyPersonTel}}">
+                    <img src="img/tel.png" />
+                </a>
+                <div class="right" ng-if="!editZrr" ng-click="editZrrFunc(item)">
+                    <img src="img/editzrr.png" />
+                </div>
+            </div> -->
+        </div>
+    </ion-content>
+</ion-modal-view>

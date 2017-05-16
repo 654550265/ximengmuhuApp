@@ -1,0 +1,38 @@
+<ion-modal-view class="positions">
+	<ion-header-bar class="bar-balanced">
+		<div class="buttons">
+			<button class="button button-clear" ng-click="setPositonsModal.remove()">
+				<i class="icon ion-ios-arrow-back"></i>
+			</button>
+		</div>
+		<div class="title">多角色管理</div>
+		<div class="buttons">
+			<button class="button button-clear" ng-click="">
+				保存
+			</button>
+		</div>
+	</ion-header-bar>
+	<ion-content>
+		<div class="list my-team">
+			<div class="infoList" ng-repeat="items in infoList">
+				<div class="item item-icon-left">
+					<div ng-click="showList(items)">
+						<img class="iconimg" src="img/farm-img.png">
+						<p>{{items.CommName}}</p>
+						<div class="my-check">
+							<div class="ion ion-chevron-right" ng-if="!items.Isopen"></div>
+							<div class="ion ion-chevron-down" ng-if="items.Isopen"></div>
+						</div>
+					</div>
+				</div>
+				<div ng-if="items.Isopen && items.Employes.length > 0" class="employees">
+					<a ng-repeat="item in items.Employes" class="sub-my-time" href="tel:{{item.Name}}">
+						<img class="iconimg2" src="img/user.png">
+						<p class="p6">{{item.MyName}}</p>
+						<span>{{item.Name}}</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-modal-view>

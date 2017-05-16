@@ -1,0 +1,19 @@
+<ion-modal-view class="farmDetail">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <a class="button button-clear" ng-click="exitGetOdds()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </a>
+        </div>
+        <div class="title">单号发送</div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <div class="odd-item" ng-repeat="item in oddNumsInfo">
+                <div class="odd-num">单号:{{item.OrderNum}} </div>
+                <div class="time">时间:{{item.CreateTime}}&emsp;&emsp;&emsp;&emsp;段号数量:{{item.Count}}个</div>
+                <div class="dh">号段:{{item.StartNum}}-{{item.EndNum}}</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

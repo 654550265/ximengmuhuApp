@@ -1,0 +1,57 @@
+<ion-view view-title="消息列表">
+    <ion-content class="msglist" ng-class="listType == 6 && ishow ? 'has-footer' : ''">
+        <div ng-repeat="item in msglist" ng-if="listType == 6">
+            <div class="text-center"><span class="PushTime">{{item.PushTime | date: 'MM-dd HH:mm'}}</span></div>
+            <div class="list card">
+                <div class="item">
+                    <h2>{{item.PushTitle}}</h2>
+                </div>
+                <div class="item item-body">
+                    <p class="PushContent" ng-bind-html="item.PushContent"></p>
+                </div>
+                <div class="item" ng-if="item.PushType === 2 && item.IsFlag === 0 && item.PushContent.indexOf('邀请') > -1">
+                    <div class="button-bar">
+                        <a class="button button-small button-assertive" ng-click="msgDoInviter(-1, item.NewID)">拒绝</a>
+                        <a class="button button-small button-balanced" ng-click="msgDoInviter(1, item.NewID)">加入</a>
+                    </div>
+                </div>
+                <div class="item" ng-if="item.PushType === 2 && item.IsFlag === 0 && item.PushContent.indexOf('申请') > -1">
+                    <div class="button-bar">
+                        <a class="button button-small button-assertive" ng-click="msgDoJoinFarm(-1, item.NewID)">拒绝</a>
+                        <a class="button button-small button-balanced" ng-click="chooseRole(1, item.NewID)">同意</a>
+                    </div>
+                </div>
+                <div class="item" ng-if="item.PushType === 2 && item.IsFlag === -1">
+                    已拒绝
+                </div>
+                <div class="item" ng-if="item.PushType === 2 && item.IsFlag === 1">
+                    已同意
+                </div>
+                <div class="item" ng-if="item.PushType != 2">
+                    <a ng-click="msgview(listType, item.Id)" class="subdued">查看详情</a>
+                    <span class="item-note calm" ng-if="item.PushType != 2 && item.PushRead === 0">未读</span>
+                    <span class="item-note balanced" ng-if="item.PushType != 2 && item.PushRead === 1">已读</span>
+                </div>
+            </div>
+        </div>
+        <div ng-repeat="item in msglist" ng-if="listType != 6">
+            <div class="text-center"><span class="PushTime">{{item.PushTime | date: 'MM-dd HH:mm'}}</span></div>
+            <div class="list card">
+                <div class="item">
+                    <h2>{{item.PushTitle}}</h2>
+                </div>
+                <div class="item item-body">
+                    <p class="PushContent" ng-bind-html="item.PushContent"></p>
+                </div>
+                <div class="item" ng-click="msgview(listType, item.Id)">
+                    <a class="subdued">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer hide-on-keyboard-open" ng-if="listType === 6 && ishow">
+        <div class="button-bar">
+            <a class="button button-positive" href="#/tab/message/make-msg">发布</a>
+        </div>
+    </div>
+</ion-view>

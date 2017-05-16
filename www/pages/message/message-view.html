@@ -1,0 +1,9 @@
+<ion-view view-title="消息详情">
+    <ion-content>
+        <h4 class="text-center">{{message.PushTitle}}</h4>
+        <p class="text-center">
+            {{message.PushTime | date: 'MM-dd HH:mm'}}
+        </p>
+        <p class="padding" data-ng-bind-html="trustAsHtml(message.PushContent)"></p>
+    </ion-content>
+</ion-view>

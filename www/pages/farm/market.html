@@ -1,0 +1,160 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hideMarket()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">销售记账</div>
+  </ion-header-bar>
+    <ion-content class="has-footer">
+        <div class="button-bar">
+            <a class="button" ng-click="showAModul()"  ng-class="showA == true ? 'btActive' : ''"><span>整出方式</span></a>
+            <a class="button" ng-click="showBModul()"  ng-class="showB == true ? 'btActive' : ''"><span>按批次</span></a>
+            <a class="button" ng-click="showCModul()"  ng-class="showC == true ? 'btActive' : ''"><span>按耳号</span></a>
+        </div>
+        <div class="list forms">
+            <div ng-if="showA">
+                <div class="item table-top">
+                    <div>
+                        单号：{{market.PensSpaceId}}
+                    </div>
+                    <div>
+                        <div>
+                            操作人：{{uerName}}
+                        </div>
+                        <div class="date" ng-click="getDate('market')">
+                            日期：{{market.NowDate}}
+                        </div>
+                    </div>
+                </div>
+                <div class="item item-divider"><span>销售单位</span></div>
+                <div class="item item-input item-select">
+                    <div class="input-label">
+                        <span class="star-space">销售类型：</span>
+                    </div>
+                    <select ng-model="market.InType">
+                        <option value="淘汰销售">淘汰销售</option>
+                        <option value="肥猪销售">肥猪销售</option>
+                        <option value="种猪销售">种猪销售</option>
+                        <option value="仔猪销售">仔猪销售</option>
+                        <option value="残次销售">残次销售</option>
+                    </select>
+                </div>
+     <!--           <div class="item item-input item-select">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">栋舍：</span>
+                    </div>
+                    <select>
+                        <option>栋舍01</option>
+                        <option>栋舍02</option>
+                        <option>栋舍03</option>
+                    </select>
+                </div>-->
+                <label class="item item-input item-select">
+                    <i class="front-input">*</i>
+                    <div class="input-label">
+                        <span class="star-space">栋舍：</span>
+                    </div>
+                   <!-- <input type="text" placeholder="请填写" ng-model="market.Homes">-->
+                    <select ng-model="market.Homes" ng-options="showPlain.PID as showPlain.PlainName group by showPlain.CommName for showPlain in showPlainList" ng-change="choosePlainFun(showPlain)"></select>
+                </label>
+                <div class="item">
+                    <span class="star-space">批次号：</span>
+                    <span class="item-note">
+                        {{market.PCnumber}}
+                    </span>
+                </div>
+                <div class="item">
+                    <span class="star-space">当前存栏数目：</span>
+                    <span class="item-note">
+                        {{cls.plannum}}
+                    </span>
+                </div>
+                <div class="item item-divider"><span>销售数量</span></div>
+                <div class="item item-input item-select">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">销售方式：</span>
+                    </div>
+                    <select ng-model="market.Salemode" ng-change="addChooseType(market.Salemode)">
+                        <option value="1">按头数</option>
+                        <option value="2">按重量</option>
+                    </select>
+                </div>
+                <label class="item item-input" ng-show="market.Salemode == '1'">
+                    <i class="front-input">*</i>
+                    <div class="input-label">
+                        <span class="star-space">总头数：</span>
+                    </div>
+                    <input type="text" placeholder="请填写" ng-model="market.Amount" ng-keyup="showIncome()">
+                </label>
+                <label class="item item-input" ng-show="market.Salemode == '2'">
+                    <i class="front-input">*</i>
+                    <div class="input-label">
+                        <span class="star-space">总重量：</span>
+                    </div>
+                    <input type="text" placeholder="请填写" ng-model="market.Weiight" ng-keyup="showIncome()">
+                </label>
+                <label class="item item-input">
+                    <i class="front-input">*</i>
+                    <div class="input-label">
+                        <span class="star-space">单价(元)：</span>
+                    </div>
+                    <input type="text" placeholder="请填写" ng-model="market.Price" ng-keyup="showIncome()">
+                </label>
+                <label class="item item-input">
+                    <div class="input-label">
+                        <span class="star-space">收款(元)：</span>
+                    </div>
+                    <input type="text" placeholder="请填写" ng-model="market.Income">     <!-- ng-value="market.Price * market.Amount"-->
+                </label>
+               <!-- <label class="item item-input">
+                    <div class="mantissa">
+                        <div><span>尾数处理：</span></div>
+                        <div><div></div>四舍五入</div>
+                        <div><div class="checked"></div>除去小数</div>
+                        <div>
+                            <label class="toggle toggle-balanced">
+                                <input type="checkbox">
+                                 <div class="track">
+                                     <div class="handle"></div>
+                                 </div>
+                             </label>
+                        </div>
+                    </div>
+                </label>-->
+              <!--  <label class="item item-input">
+                    <div class="input-label">
+                        <span class="star-space">实收款(元)：</span>
+                    </div>
+                    <input type="text" placeholder="请填写">
+                </label>-->
+                <div class="item item-divider"><span>备注</span></div>
+                <label class="item item-input">
+                    <textarea placeholder="填写备注" ng-model="market.Remark"></textarea>
+                </label>
+               <!-- <label class="item item-input">
+                    <div class="input-label">
+                        <span class="star-space">照片：</span>
+                    </div>
+                    <input type="text" placeholder="添加照片">
+                </label>-->
+            </div>
+            <div ng-if="showB">
+                暂无
+            </div>
+            <div ng-if="showC">
+                暂无
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button button-balanced" ng-click="hideMarket()">返回</a>
+            <a class="button button-balanced" ng-click="saveMarket(0)">保存并添加</a>
+            <a class="button button-balanced" ng-click="saveMarket(1)">保存并退出</a>
+        </div>
+    </div>
+</ion-modal-view>

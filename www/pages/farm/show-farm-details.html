@@ -1,0 +1,56 @@
+<ion-modal-view class="farmDetail">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <a class="button button-clear" ng-click="removeDetail()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </a>
+        </div>
+        <div class="title">农事记录管理</div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="row my-row my-choose">
+            <div class="col chooseBts" ng-class="chooseAsType[0] == true ? 'active':''" ng-click="showWhatContent(0)">
+                <span>{{showWhatContentList[CheckFarmSendInfo.intype]}}</span><i class="ion ion-android-arrow-dropup" ng-if="!chooseAsType[0]"></i><i class="ion ion-android-arrow-dropdown" ng-if="chooseAsType[0]"></i>
+            </div>
+            <div class="col chooseBts" ng-class="chooseAsType[1] == true ? 'active':''" ng-click="showWhatContent(1)">
+                <span>{{showTimeTypeList[CheckFarmSendInfo.timeasc]}}</span><i class="ion ion-android-arrow-dropup" ng-if="!chooseAsType[1]"></i><i class="ion ion-android-arrow-dropdown" ng-if="chooseAsType[1]"></i>
+            </div>
+            <div class="btsGroup" ng-show="chooseAsType[0]">
+                <div class="myCol" ng-class="chooseContentF[0] == true ? 'active':''" ng-click="whichFarmContent(0)">全部</div>
+                <div class="myCol" ng-class="chooseContentF[1] == true ? 'active':''" ng-click="whichFarmContent(1)" ng-if="ckWY">喂养记录</div>
+                <div class="myCol" ng-class="chooseContentF[2] == true ? 'active':''" ng-click="whichFarmContent(2)" ng-if="ckMY">免疫记录</div>
+                <div class="myCol" ng-class="chooseContentF[3] == true ? 'active':''" ng-click="whichFarmContent(3)" ng-if="ckZLiao">治疗记录</div>
+                <div class="myCol" ng-class="chooseContentF[4] == true ? 'active':''" ng-click="whichFarmContent(4)" ng-if="ckSW">死亡记录</div>
+                <div class="myCol" ng-class="chooseContentF[5] == true ? 'active':''" ng-click="whichFarmContent(5)" ng-if="ckTT">淘汰记录</div>
+                <div class="myCol" ng-class="chooseContentF[6] == true ? 'active':''" ng-click="whichFarmContent(6)">入栏记录</div>
+                <div class="myCol" ng-class="chooseContentF[7] == true ? 'active':''" ng-click="whichFarmContent(7)">转栏记录</div>
+            </div>
+            <div class="btsGroup" ng-show="chooseAsType[1]">
+                <div class="myCol"  ng-class="chooseTimeF[0] == true ? 'active':''" ng-click="timeTypeF(0)">由近到远</div>
+                <div class="myCol"  ng-class="chooseTimeF[1] == true ? 'active':''" ng-click="timeTypeF(1)">由远到近</div>
+            </div>
+        </div>
+        <div ng-repeat="item in FarmDetailsList">
+            <div class="list my-list"  ng-click="showFarmDetailInner(item)">
+                <div class="item my-item3">
+                    <div class="delete-farm" ng-click="showConfirm1(item,$event,$index)"><i class="icon ion-trash-a "></i></div>
+                    <div class="up-half">
+                        <p>农事项目：<span>{{farmShowArray[item.IsType-1]}}</span></p>
+                        <p><span class="worker">位&emsp;&emsp;置</span>：<span>{{ item.PenName + "-" + item.PlainName}}</span></p>
+                        <p><span class="worker">操&nbsp;&nbsp;作&nbsp;&nbsp;人</span>：<span>{{item.Name}}</span></p>
+                    </div>
+                    <div class="down-half">
+                        <div>单号：{{item.OrrID}}</div>
+                        <div>{{item.SysDateTime}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ion-infinite-scroll
+                icon="ion-loading-c"
+                ng-if="farmDetailCanPullDown"
+                on-infinite="loadMore2()"
+                distance="10%">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,53 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="setWorkerInfoModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">设置员工的信息</div>
+    </ion-header-bar>
+    <ion-content>
+        <form novalidate>
+            <div class="list shouldRight">
+                <label class="item">
+                    <span>真实姓名：</span>
+                     <span class="item-note">
+                           {{thisWorker.MyName}}
+                    </span>
+                </label>
+                <label class="item">
+                    <span>
+                        性别：
+                    </span>
+                     <span class="item-note">
+                       {{thisWorker.Sex}}
+                </span>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        职位：
+                    </div>
+                    <select ng-model="thisWorker.BDepartmentId" ng-change="choosePosition(thisWorker)">
+                        <option ng-repeat="item in positionList" value="{{item.pID}}">{{item.pname}}</option>
+                    </select>
+                </label>
+                <label class="item">
+                    <span>手机：</span>
+                    <span class="item-note">
+                           {{thisWorker.PhoneNumber}}
+                    </span>
+                </label>
+                <label class="item">
+                    <span>邮箱地址：</span>
+                     <span class="item-note">
+                             {{thisWorker.EmailAddress}}
+                    </span>
+                </label>
+                <div class="padding">
+                    <button class="button button-block button-balanced" ng-click="saveWorkerInfo()">保存</button>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

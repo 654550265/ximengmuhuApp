@@ -1,0 +1,213 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hideEntry()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">入栏记录</div>
+    </ion-header-bar>
+    <ion-content class="has-footer">
+        <div ng-if="isFarmer">
+            <div class="button-bar">
+                <a class="button" ng-click="showBModulEnter()" ng-class="showBEnter == true ? 'btActive' : ''"><span>按耳号操作</span></a>
+            </div>
+            <div class="list forms">
+                <div ng-if="showBEnter">
+                    <div class="item table-top">
+                        <div>
+                            单号：{{entry.JHNO}}
+                        </div>
+                        <div>
+                            <div>
+                                操作人：{{uerName}}
+                            </div>
+                            <div class="date" ng-click="getDate('entry')">
+                                日期：{{entry.date}}<img src="img/date-picker.png" class="time-picker" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i>*</i><span class="star-space">入栏对象：</span>
+                        <span class="item-note" ng-hide="lanwei">
+                        {{activeName}} <!--{{entry.PlainName}}-->
+                    </span>
+                        <span class="item-note" ng-show="lanwei">
+                        {{entry.PlainName}} <!--{{entry.PlainName}}-->
+                    </span>
+                    </div>
+                    <label class="item item-input item-select" ng-if="currentPen.PType === 0">
+                        <i></i>
+                        <div class="input-label">
+                            <span class="star-space"> 养殖类型：</span>
+                        </div>
+                        <select ng-model="entry.IsType">
+                            <option value="1">羊</option>
+                            <option value="2">猪</option>
+                            <option value="3">牛</option>
+                        </select>
+                    </label>
+                    <div class="item" ng-if="currentPen.PType > 0">
+                        <i>*</i><span class="star-space">养殖类型：</span>
+                        <span class="item-note" ng-show="lanwei">
+                        {{PTypeText}}
+                    </span>
+                    </div>
+                    <div class="list">
+                        <div class="item item-divider">
+                            扫描的耳号为:
+                        </div>
+                        <a class="item" ng-repeat="item in PNOs track by $index">
+                            {{item}}
+                        </a>
+                    </div>
+
+                </div>
+                <div class="list">
+                    <div>
+                        <div class="item item-icon-right">
+                            照片
+                            <i class="icon ion-ios-camera" ng-click="takePhoto()"></i>
+                        </div>
+                        <div class="item item-body" ng-show="myImage">
+                            <img id="myImage" class="full-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="!isFarmer">
+            <div class="button-bar">
+                <a class="button" ng-click="showAModulEnter()" ng-class="showAEnter == true ? 'btActive' : ''"><span>按批次操作</span></a>
+                <a class="button" ng-click="showBModulEnter()" ng-class="showBEnter == true ? 'btActive' : ''"><span>按耳号操作</span></a>
+            </div>
+            <div class="list forms">
+                <div ng-if="showAEnter">
+                    <div class="item table-top">
+                        <div>
+                            单号：{{entry.JHNO}}
+                        </div>
+                        <div>
+                            <div>
+                                操作人：{{uerName}}
+                            </div>
+                            <div class="date" ng-click="getDate('entry')">
+                                日期：{{entry.date}}<img src="img/date-picker.png" class="time-picker" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i>*</i><span class="star-space">入栏对象：</span>
+                        <span class="item-note" ng-hide="lanwei">
+                        {{activeName}} <!--{{entry.PlainName}}-->
+                        </span>
+                            <span class="item-note" ng-show="lanwei">
+                            {{entry.PlainName}} <!--{{entry.PlainName}}-->
+                        </span>
+                    </div>
+
+                    <label class="item item-input item-select" ng-if="currentPen.PType === 0">
+                        <i></i>
+                        <div class="input-label">
+                            <span class="star-space"> 养殖类型：</span>
+                        </div>
+                        <select ng-model="entry.IsType">
+                            <option value="1">羊</option>
+                            <option value="2">猪</option>
+                            <option value="3">牛</option>
+                        </select>
+                    </label>
+                    <div class="item" ng-if="currentPen.PType > 0">
+                        <i>*</i><span class="star-space">养殖类型：</span>
+                        <span class="item-note" ng-show="lanwei">
+                        {{PTypeText}}
+                    </span>
+                    </div>
+                    <div class="list">
+                        <div class="item item-divider">
+                            扫描的耳号为:
+                        </div>
+                        <a class="item" ng-repeat="item in PNOs track by $index">
+                            {{item}}
+                        </a>
+                    </div>
+                </div>
+                <div ng-if="showBEnter">
+                    <div class="item table-top">
+                        <div>
+                            单号：{{entry.JHNO}}
+                        </div>
+                        <div>
+                            <div>
+                                操作人：{{uerName}}
+                            </div>
+                            <div class="date" ng-click="getDate('entry')">
+                                日期：{{entry.date}}<img src="img/date-picker.png" class="time-picker" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <i>*</i><span class="star-space">入栏对象：</span>
+                        <span class="item-note" ng-hide="lanwei">
+                        {{activeName}} <!--{{entry.PlainName}}-->
+                    </span>
+                        <span class="item-note" ng-show="lanwei">
+                        {{entry.PlainName}} <!--{{entry.PlainName}}-->
+                    </span>
+                    </div>
+                    <label class="item item-input item-select" ng-if="currentPen.PType === 0">
+                        <i></i>
+                        <div class="input-label">
+                            <span class="star-space">对应牧户：</span>
+                        </div>
+                        <select ng-model="ldj.chooseFarmer" ng-options="farmer.MyName for farmer in farmsLists" ng-change="chooseF()"></select>
+                    </label>
+                    <label class="item item-input item-select" ng-if="currentPen.PType === 0">
+                        <i></i>
+                        <div class="input-label">
+                            <span class="star-space"> 养殖类型：</span>
+                        </div>
+                        <select ng-model="entry.IsType">
+                            <option value="1">羊</option>
+                            <option value="2">猪</option>
+                            <option value="3">牛</option>
+                        </select>
+                    </label>
+                    <div class="item" ng-if="currentPen.PType > 0">
+                        <i>*</i><span class="star-space">养殖类型：</span>
+                        <span class="item-note" ng-show="lanwei">
+                        {{PTypeText}}
+                    </span>
+                    </div>
+                    <div class="list">
+                        <div class="item item-divider">
+                            扫描的耳号为:
+                        </div>
+                        <a class="item" ng-repeat="item in PNOs track by $index">
+                            {{item}}
+                        </a>
+                    </div>
+
+                </div>
+                <div class="list">
+                    <div>
+                        <div class="item item-icon-right">
+                            照片
+                            <i class="icon ion-ios-camera" ng-click="takePhoto()"></i>
+                        </div>
+                        <div class="item item-body" ng-show="myImage">
+                            <img id="myImage" class="full-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button button-balanced" ng-click="hideEntry()">取消</a>
+            <a class="button button-balanced" ng-click="saveEntry(1)">保存并添加</a>
+            <a class="button button-balanced" ng-click="saveEntry(2)">保存并退出</a>
+        </div>
+    </div>
+</ion-modal-view>

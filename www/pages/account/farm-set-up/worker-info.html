@@ -1,0 +1,71 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <a class="button button-clear" ng-click="exitWorkerInfo()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </a>
+        </div>
+        <div class="title">{{wokerInofromation.myname}}的名片</div>
+        <div class="buttons" ng-if="showSetBut">
+            <a class="button button-clear" ng-click="showSetWorkerInfo()">
+                设置
+            </a>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <div class="item">
+                <span>头像：</span>
+                <img class="mypic" ng-src="{{wokerInofromation.avatar}}">
+            </div>
+            <div class="item">
+                <span>用户名：</span>
+                <span class="item-note">
+                       {{wokerInofromation.name}}
+                </span>
+            </div>
+            <div class="item">
+                <span>姓名：</span>
+                <span class="item-note">
+                       {{wokerInofromation.myname}}
+                </span>
+            </div>
+            <div class="item">
+                <span>职位：</span>
+                <span class="item-note">
+                       {{wokerInofromation.pBDepartment}}
+                </span>
+            </div>
+            <div class="item">
+                <span>性别：</span>
+            <span class="item-note">
+                   {{wokerInofromation.sex}}
+            </span>
+            </div>
+            <div class="item">
+                <span>手机号码：</span>
+                <span class="item-note">
+                       {{wokerInofromation.phoneNumber}}
+                </span>
+            </div>
+                <!-- <div class="item">
+                    <span>邮箱：</span>
+                    <span class="item-note">
+                             {{wokerInofromation.email}}
+                    </span>
+                </div> -->
+                <!--<div class="item">
+                    <span>地区：</span>
+                <span class="item-note">
+                         {{wokerInofromation.email}}
+                </span>
+            </div>
+            <!--<div class="item">
+                <span>地区：</span>
+            <span class="item-note">
+                   {{wokerInofromation.location}}
+            </span>
+            </div>-->
+        </div>
+    </ion-content>
+</ion-modal-view>

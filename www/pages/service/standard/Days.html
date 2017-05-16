@@ -1,0 +1,25 @@
+<ion-modal-view class="farmadd">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="DaysModal.hide()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">选择天数</div>
+        <div class="buttons">
+            <button class="button button-clear my-btn-font" ng-click="saveDays()">
+                保存
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-footer">
+        <div class="row" ng-repeat="item in workDays">
+            <div class="col" ng-repeat="subitem in item">
+                <div ng-if="subitem.value != null" class="day" ng-class="subitem.ischecked ? 'balanced' : ''" ng-click="subitem.ischecked = !subitem.ischecked">{{subitem.value}}</div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer selectall">
+        <ion-checkbox ng-model="selectall.checked" ng-click="chooseall()">全选</ion-checkbox>
+    </div>
+</ion-modal-view>

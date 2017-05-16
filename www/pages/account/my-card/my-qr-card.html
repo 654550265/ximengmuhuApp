@@ -1,0 +1,22 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="myQRCodeModal.hide()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">我的二维码</div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list card mycard">
+            <div class="item item-avatar">
+                <img src="img/user.png">
+                <h2>{{showMyInformation.myname}}</h2>
+                <p>{{user.Name}}</p>
+            </div>
+            <div class="item item-image">
+                <img ng-src="{{mycard}}">
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

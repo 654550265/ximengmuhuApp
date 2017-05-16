@@ -1,0 +1,77 @@
+<ion-modal-view class="farm-feed">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hidefeildChange()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">转栏</div>
+    </ion-header-bar>
+    <ion-content class="has-footer">
+        <div class="button-bar">
+            <a class="button" ng-click="showAModul()" ng-class="showA == true ? 'btActive' : ''"><span>按栋舍操作</span></a>
+            <a class="button" ng-click="showBModul()" ng-class="showB == true ? 'btActive' : ''"><span>按耳号操作</span></a>
+        </div>
+        <div class="list forms">
+            <div class="item item-divider"><span>转栏对象</span></div>
+            <div class="item">
+                栏位
+                <span class="item-note">
+                    {{feildChange.PlainName}}
+                </span>
+            </div>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    目标栋舍
+                </div>
+                <select ng-model="feildChange.ZRPenID" ng-change="getNPlains()">
+                    <option ng-repeat="item in currenrPens2" ng-value="item.PID">{{item.PlainName}}</option>
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    目标栏位
+                </div>
+                <select ng-model="feildChange.ZRPlainID">
+                    <option ng-repeat="item in NPlains" ng-value="item.PID">{{item.PlainName}}</option>
+                </select>
+            </label>
+            <div ng-if="showA">
+                <label class="item item-input">
+                    <span class="input-label">转栏数量</span>
+                    <input type="text" placeholder="转栏数量" ng-model="feildChange.PCNum">
+                </label>
+            </div>
+            <div ng-if="showB">
+                <label class="item my-click-item" ng-click="showChooseEarNu(2)">
+                    请点击选择耳标号
+                </label>
+                <ion-list>
+                    <ion-item class="item-divider">
+                        耳标号：
+                    </ion-item>
+                    <ion-item ng-repeat="item in showEarNos">
+                        {{item}}
+                    </ion-item>
+                </ion-list>
+            </div>
+            <div class="zw"></div>
+            <div class="item item-divider"><span>拍照</span></div>
+            <div>
+                <div class="item item-icon-right">
+                    照片
+                    <i class="icon ion-ios-camera" ng-click="takePhoto()"></i>
+                </div>
+                <div class="item item-body" ng-show="myImage">
+                    <img id="myImage" class="full-image" />
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button button-balanced" ng-click="hidefeildChange()">返回</a>
+            <a class="button button-balanced" ng-click="savefeildChange()">保存</a>
+        </div>
+    </div>
+</ion-modal-view>

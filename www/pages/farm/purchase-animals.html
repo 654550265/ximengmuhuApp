@@ -1,0 +1,317 @@
+<!--
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hidePurAniamls()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">采购牲畜</div>
+    </ion-header-bar>
+    <ion-content class="has-footer">
+        <div class="list forms">
+            <div class="item table-top">
+                <div>
+                    单号：20161012
+                </div>
+                <div>
+                    批次号：20161012
+                </div>
+                <div>
+                    <div>
+                        操作人：{{uerName}}
+                    </div>
+                    <div class="date" ng-click="getDate('entry')">
+                        日期：{{}}
+                    </div>
+                </div>
+            </div>
+            <div class="item item-divider"><span>牲畜信息</span></div>
+            <div class="item">
+                <span class="star-space">个体编号：</span>
+                <span class="item-note">
+                </span>
+            </div>
+            <div class="item item-input item-select">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">供应商：</span>
+                </div>
+                <select>
+                    <option selected="">内蒙古种牛基地</option>
+                    <option>日大千斤牲畜有限公司</option>
+                    <option>夜大八百牲畜有限公司</option>
+                    <option>添加其他公司，且保存</option>
+                </select>
+            </div>
+            <div class="item item-input item-select">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">采购类型：</span>
+                </div>
+                <select>
+                    <option selected="">奶牛</option>
+                    <option>肉牛</option>
+                    <option>公猪</option>
+                    <option>母猪</option>
+                    <option>仔猪</option>
+                    <option>奶羊</option>
+                    <option>肉羊</option>
+                    <option>小鸡</option>
+                </select>
+            </div>
+            <div class="item item-divider"><span>采购数量</span></div>
+            <div class="item item-input item-select">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">计算方式：</span>
+                </div>
+                <select>
+                    <option selected="">按头数</option>
+                    <option>按重量（公斤）</option>
+                </select>
+            </div>
+            <div class="item item-input item-select">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">头数：</span>
+                </div>
+                <select>
+                    <option selected="">1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>
+            </div>
+            <label class="item item-input">
+                <i class="front-input">*</i>
+                <div class="input-label">
+                    <span class="star-space">重量：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="puchase.date">
+            </label>
+            <label class="item item-input">
+                <i class="front-input">*</i>
+                <div class="input-label">
+                    <span class="star-space">单价(元)：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="puchase.num">
+             </label>
+            <label class="item item-input">
+                <i class="front-input">*</i>
+                <div class="input-label">
+                    <span class="star-space">总金额(元)：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="puchase.num">
+            </label>
+            <div class="item item-divider"><span>备注</span></div>
+            <label class="item item-input">
+                <div class="input-label">
+                    <span class="star-space">备注：</span>
+                </div>
+                <input type="text" placeholder="填写备注" ng-model="puchase.pic">
+            </label>
+            <label class="item item-input">
+                <div class="input-label">
+                    <span class="star-space">照片：</span>
+                </div>
+                <input type="text" placeholder="添加照片" ng-model="puchase.pic">
+            </label>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button button-balanced" ng-click="hidePurAniamls()">取消</a>
+            <a class="button button-balanced" ng-click="saveEntry()">保存并添加</a>
+            <a class="button button-balanced" ng-click="saveEntry()">保存并退出</a>
+        </div>
+    </div>
+</ion-modal-view>
+-->
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hidePurAniamls()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">采购牲畜</div>
+    </ion-header-bar>
+    <ion-content class="has-footer">
+        <div class="list forms">
+            <div class="item table-top">
+                <div>
+                    单号：{{purchase.PensSpaceId}}
+                </div>
+                <div>
+                    <div>
+                        操作人：{{uerName}}
+                    </div>
+                    <div class="date" ng-click="getDate('purchase')">
+                        日期：{{purchase.NowDate}}
+                    </div>
+                </div>
+            </div>
+            <div class="item item-divider"><span>牲畜信息</span></div>
+            <div class="item">
+                <span class="star-space">物资编号：</span>
+                <span class="item-note">
+                        {{purchase.MaterialID}}
+                </span>
+            </div>
+            <div class="item item-input addList">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">供应商：</span>
+                </div>
+                <input type="text" placeholder="点击右下角添加或在此输入" ng-model="purchase.payfile2">
+                <div class="rightBottomWarp" ng-click="showSuppliersList()">
+                    <div class="rightBottom"></div>
+                </div>
+            </div>
+            <label class="item item-input">
+                <i class="front-input">*</i>
+                <div class="input-label">
+                    <span class="star-space">牲畜名称：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.Payname">
+            </label>
+            <!-- <div class="item item-input item-select">
+                 <i>*</i>
+                 <div class="input-label">
+                     <span class="star-space">供应商：</span>
+                 </div>
+                 <select>
+                     <option selected="">供应商1</option>
+                     <option>供应商2</option>
+                     <option>供应商3</option>
+                 </select>
+             </div>-->
+            <!--<div class="item item-input item-select">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">入库仓库：</span>
+                </div>
+                <select>
+                    <option selected="">物资仓(前期默认只有一个选择)</option>
+                </select>
+            </div>-->
+            <!--  <div class="item item-input item-select">
+                  <i>*</i>
+                  <div class="input-label">
+                      <span class="star-space">牲畜名称：</span>
+                  </div>
+                  <select>
+                      <option selected="">猪牲畜01</option>
+                      <option>猪牲畜02</option>
+                      <option>猪牲畜03</option>
+                  </select>
+              </div>-->
+            <!--            <div class="item item-input item-select">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">生产企业：</span>
+                </div>
+                <select>
+                    <option selected="">猪牲畜01</option>
+                    <option>猪牲畜02</option>
+                    <option>猪牲畜03</option>
+                </select>
+            </div>
+            <div class="item item-input item-select">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">生产许可证/批准文号：</span>
+                </div>
+                <select>
+                    <option selected="">猪牲畜01</option>
+                    <option>猪牲畜02</option>
+                    <option>猪牲畜03</option>
+                </select>
+            </div>
+             <label class="item item-input">
+                 <i class="front-input">*</i>
+                 <div class="input-label">
+                     <span class="star-space">生产日期：</span>
+                 </div>
+                <input type="text" placeholder="请填写">
+            </label>
+            <label class="item item-input">
+                <div class="input-label">
+                    <span class="star-space">有效期：</span>
+                </div>
+                <input type="text" placeholder="请填写">
+            </label>
+            <label class="item item-input">
+                <div class="input-label">
+                    <span class="star-space">包装规格：</span>
+                </div>
+                <input type="text" placeholder="请填写">
+            </label>-->
+            <div class="item item-divider"><span>采购数量</span></div>
+            <label class="item item-input">
+                <i class="front-input">*</i>
+                <div class="input-label">
+                    <span class="star-space">数量：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.PurchaseNmuber" ng-change="showPay()">
+            </label>
+            <div class="item item-input addList">
+                <i>*</i>
+                <div class="input-label">
+                    <span class="star-space">单位：</span>
+                </div>
+                <input type="text" placeholder="点击添加单位" ng-model="purchase.Unit">
+                <div id="chooseUnit" class="rightBottomWarp" ng-click="showUnitList()">
+                </div>
+            </div>
+            <label class="item item-input">
+                <i class="front-input">*</i>
+                <div class="input-label">
+                    <span class="star-space">单价(元)：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.Price" ng-change="showPay()">
+            </label>
+            <!--        <label class="item item-input">
+                        <div class="input-label">
+                            <span class="star-space">总金额(元)：</span>
+                        </div>
+                        <input type="text" placeholder="请填写">
+                    </label>-->
+            <label class="item item-input">
+                <div class="input-label">
+                    <span class="star-space">总金额(元)：</span>
+                </div>
+                <input type="text" placeholder="请填写" ng-model="purchase.Pay">
+            </label>
+            <div class="item item-divider"><span>备注</span></div>
+            <label class="item item-input">
+                <textarea placeholder="填写备注" ng-model="purchase.Remark"></textarea>
+            </label>
+            <!--<label class="item item-input">
+                <div class="input-label">
+                    <span class="star-space">照片：</span>
+                </div>
+                <input type="text" placeholder="添加照片">
+            </label>-->
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button button-balanced" ng-click="hidePurAniamls()">取消</a>
+            <a class="button button-balanced" ng-click="saveDayAccout(0)">保存并添加</a>
+            <a class="button button-balanced" ng-click="saveDayAccout(1)">保存并退出</a>
+        </div>
+    </div>
+</ion-modal-view>
+
+
+

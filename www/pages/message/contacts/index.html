@@ -1,0 +1,62 @@
+<ion-view view-title="联系人">
+    <ion-nav-buttons side="right">
+        <a class="button button-clear" ng-click="showact()">
+            <i class="icon ion-ios-plus-outline"></i>
+        </a>
+    </ion-nav-buttons>
+    <ion-content overflow-scroll="true">
+        <div class="item item-divider">
+            <span>我的团队</span>
+        </div>
+        <div class="list my-team" ng-if="infoList.length > 0">
+            <div class="infoList" ng-repeat="items in infoList">
+                <div class="item item-icon-left">
+                    <div ng-click="showList(items)">
+                        <img class="iconimg" src="img/farm-img.png">
+                        <p>{{items.CommName}}</p>
+                        <div class="my-check">
+                            <div class="ion ion-chevron-right" ng-if="!items.Isopen"></div>
+                            <div class="ion ion-chevron-down" ng-if="items.Isopen"></div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-if="items.Isopen && items.Employes.length > 0" class="employees">
+                    <a ng-repeat="item in items.Employes" class="sub-my-time" href="tel:{{item.Name}}">
+                        <img class="iconimg2" src="img/user.png">
+                        <p class="p6">{{item.MyName}}</p>
+                        <span>{{item.Name}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="list" ng-if="infoList.length === 0">
+            <div class="item text-center">暂无</div>
+        </div>
+
+        <div class="list teamMembers">
+            <a class="item item-icon-left" ng-repeat="item in teamMembers" href="tel:{{item.Name}}">
+                <img class="iconimg" src="img/user.png"> {{item.MyName}}
+                <p>{{item.Name}}</p>
+            </a>
+        </div>
+    </ion-content>
+    <div ng-if="isShow">
+        <ul class="actlist">
+            <li>
+                <a href="#/tab/message/contacts/invite">
+                    <img src="img/icon_invite.png" alt=""> 邀请加入农场
+                </a>
+            </li>
+            <li>
+                <a href="#/tab/message/contacts/team">
+                    <img src="img/icon_team.png" alt="">我要加入农场</a>
+            </li>
+            <li>
+                <a href="#/tab/message/contacts/mycard">
+                    <img src="img/icon_mycard.png" alt="">我的名片</a>
+            </li>
+            <span class="arrow"></span>
+        </ul>
+        <div class="modal-backdrop-bg backdrop-bg" ng-click="hidebackdrop()"></div>
+    </div>
+</ion-view>

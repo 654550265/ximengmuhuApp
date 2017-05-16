@@ -1,0 +1,47 @@
+<ion-view view-title="任务管理">
+    <ion-nav-buttons side="right">
+        <a class="button button-clear" href="#/tab/service/task/add">
+            添加
+        </a>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader">
+        <div class="button-bar">
+            <a ng-repeat="tab in tabs" class="button" ng-class="tab.active ? 'button-balanced' : 'button-stable'" ng-click="change(tab, $index)">{{tab.name}}</a>
+        </div>
+    </div>
+    <ion-content class="has-subheader">
+        <ion-list class="todo-list">
+            <ion-item class="ionitem" ng-repeat="item in tasks" ng-if="item.IsType === 1">
+                <a class="item todo-item" ng-href="#/tab/service/task/{{item.Id}}:{{item.IsType}}:{{user.Id}}">
+                    <span ng-show="item.IsRead == 0" class="unread"></span> {{item.OrderName}}
+                    <span class="date"><span ng-if="item.YzName != null">责任人：{{item.YzName}}</span> {{item.CreateTime}}</span>
+                    <span class="status nostart" ng-show="item.IsFlag == 0">待执行</span>
+                    <span class="status working" ng-show="item.IsFlag == 1 && item.IsEnd != 1">待评价</span>
+                    <span class="status done" ng-show="item.IsEnd == 1">已完成</span>
+                </a>
+            </ion-item>
+            <ion-item class=" mytask todo-item" ng-repeat="item in tasks" ng-if="item.IsType === 2" ng-href="#/tab/service/mytask/{{item.Id}}:{{item.IsType}}:{{user.Id}}">
+                <!-- <a class="item todo-item"> -->
+                    <span ng-show="item.IsRead == 0" class="unread"></span> {{item.OrderName}}
+                    <span class="date"><span ng-if="item.YzName != null">责任人：{{item.YzName}}</span> {{item.CreateTime}}</span>
+                    <span class="status nostart" ng-show="item.IsFlag == 0">待执行</span>
+                    <span class="status working" ng-show="item.IsFlag == 1 && item.IsEnd != 1">待评价</span>
+                    <span class="status done" ng-show="item.IsEnd == 1">已完成</span>
+                <!-- </a> -->
+                <ion-option-button class="button-assertive" ng-click="delete(item.Id, $index)">删除</ion-option-button>
+            </ion-item>
+            <ion-item class="ionitem" ng-repeat="item in tasks" ng-if="item.IsType === 3">
+                <a class="item todo-item" ng-href="#/tab/service/review/{{item.Id}}:{{item.IsType}}:{{user.Id}}">
+                    <span ng-show="item.IsRead == 0" class="unread"></span> {{item.OrderName}}
+                    <span class="date"><span ng-if="item.YzName != null">责任人：{{item.YzName}}</span> {{item.CreateTime}}</span>
+                    <span class="status nostart" ng-show="item.IsFlag == 0">待执行</span>
+                    <span class="status working" ng-show="item.IsFlag == 1 && item.IsEnd != 1">待评价</span>
+                    <span class="status done" ng-show="item.IsEnd == 1">已完成</span>
+                </a>
+            </ion-item>
+            <div class="item text-center" ng-if="tasks.length === 0">暂无</div>
+        </ion-list>
+        <ion-infinite-scroll ng-if="CanBeLoaded" icon="ion-loading-c" on-infinite="GetMyOrderAll()">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

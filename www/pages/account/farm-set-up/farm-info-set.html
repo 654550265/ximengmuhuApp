@@ -1,0 +1,38 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="farmInfoSetupModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">设置农场信息</div>
+    </ion-header-bar>
+    <ion-content>
+        <form novalidate ng-submit="SavePerson()">
+            <div class="list shouldRight">
+                <label class="item item-input">
+                    <span class="input-label">农场名称</span>
+                    <input type="text" name="MyName" ng-model="currentFarm.CommName">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">农场电话</span>
+                    <input type="text" name="MobilePhoneNumber" ng-model="currentFarm.CommTel">
+                </label>
+                <a class="item item-icon-right" ng-click="addmudi()">
+                    所在城市
+                    <span class="item-note">
+                    {{mudi.provinceName}}{{mudi.cityName}}
+                     </span>
+                    <i class="icon ion-ios-arrow-forward"></i>
+                </a>
+                <label class="item item-input">
+                    <span class="input-label"><i class="balanced">*</i>详细地址</span>
+                    <input type="text" ng-model="currentFarm.CommAddress" placeholder="请输入详细地址">
+                </label>
+                <div class="padding">
+                    <button class="button button-block button-balanced" ng-click="saveFarmInfo()">保存</button>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <title>真源智慧农场</title>
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/ldj.app.css" rel="stylesheet">
+    <script type="text/javascript" src="lib/ionic/js/ionic.bundle.js"></script>
+    <script type="text/javascript" src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="https://dn-bughd-web.qbox.me/bughd.min.js" crossOrigin="anonymous"></script>
+    <script type="text/javascript">
+    (function(win) {
+        var doc = win.document;
+        var docEl = doc.documentElement;
+        var tid;
+
+        function refreshRem() {
+            var width = docEl.getBoundingClientRect().width;
+            if (width > 540) { // 最大宽度
+                width = 540;
+            }
+            var rem = width / 10; // 将屏幕宽度分成10份， 1份为1rem
+            docEl.style.fontSize = rem + 'px';
+        }
+
+        win.addEventListener('resize', function() {
+            clearTimeout(tid);
+            tid = setTimeout(refreshRem, 300);
+        }, false);
+        win.addEventListener('pageshow', function(e) {
+            if (e.persisted) {
+                clearTimeout(tid);
+                tid = setTimeout(refreshRem, 300);
+            }
+        }, false);
+
+        refreshRem();
+
+    })(window);
+    window.bughd = window.bughd || function(){};
+    bughd("create",{key:"ea9d2b16511252e930512a5c59ebea8a"});
+    </script>
+    <!-- <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp&key=KM2BZ-O4YC5-ZOJIA-QUKH7-ZX547-VZF3Y"></script> -->
+    <script type="text/javascript" src="js/map.qq.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/router.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
+    <script type="text/javascript" src="js/utils.js"></script>
+    <script type="text/javascript" src="js/Chart.bundle.js"></script>
+    <script type="text/javascript" src="js/angular-chart.js"></script>
+    <script type="text/javascript" src="pages/login/controllers.js"></script>
+    <script type="text/javascript" src="pages/message/controllers.js"></script>
+    <script type="text/javascript" src="pages/message/contacts/controllers.js"></script>
+    <script type="text/javascript" src="pages/farm/controllers.js"></script>
+    <script type="text/javascript" src="pages/service/controllers.js"></script>
+    <script type="text/javascript" src="pages/service/standard/controllers.js"></script>
+    <script type="text/javascript" src="pages/service/task/controllers.js"></script>
+    <script type="text/javascript" src="pages/service/video/controllers.js"></script>
+    <script type="text/javascript" src="pages/account/controllers.js"></script>
+    <script type="text/javascript" src="pages/account/my-card/controllers.js"></script>
+    <script type="text/javascript" src="pages/account/farm-set-up/controllers.js"></script>
+    <script type="text/javascript" src="pages/account/general-settings/controllers.js"></script>
+    <script type="text/javascript" src="pages/account/feedback/controllers.js"></script>
+    <script type="text/javascript" src="lib/ng-rap/dist/ng-rap.min.js"></script>
+</head>
+<body ng-app="app" ng-controller="CommonCtrl">
+    <ion-nav-bar class="bar-balanced">
+        <ion-nav-back-button class="button-icon icon">
+            <i class="icon ion-ios-arrow-back"></i>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+</body>
+</html>

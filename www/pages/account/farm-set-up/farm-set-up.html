@@ -1,0 +1,58 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <a class="button button-clear" ng-click="backToAccount()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </a>
+        </div>
+        <div class="title">农场设置</div>
+       <!-- <div class="buttons">
+            <a class="button button-clear" ng-click="setMyCardModal.show()">
+                设置
+            </a>
+        </div>-->
+    </ion-header-bar>
+    <ion-content>
+        <div class="button-bar">
+            <a class="button" ng-click="showAModul()" ng-class="showA == true ? 'btActive' : ''"><span>我的农场</span></a>
+            <a class="button" ng-click="showBModul()" ng-class="showB == true ? 'btActive' : ''"><span>我加入的农场</span></a>
+        </div>
+        <div class="list forms">
+            <div ng-if="showA">
+                <ion-list>
+                    <ion-item ng-repeat="item in myFarms" ng-click="showFarmDetailLists($index)" id="farm-item"> <!-- class="item-remove-animate" -->
+                        <div></div>
+                        <div class="show-farm-name">
+                            <div>{{item.CommName}}</div>
+                            <span>{{item.pennum}}个栋舍&nbsp;&nbsp;{{item.plainnum}}个栏位</span>
+                        </div>
+                        <div class="right-ions"><i class="ion ion-ios-arrow-right"></i></div>
+                    <!--    <ion-option-button class="button-assertive"
+                                           ng-click="edit(item)">
+                            删除
+                        </ion-option-button>-->
+                    </ion-item>
+                    <div class="item text-center" ng-if="myFarms.length === 0">暂无</div>
+                </ion-list>
+            </div>
+            <div ng-if="showB">
+                <ion-list>
+                    <ion-item ng-repeat="item in othersFarms" class="item-remove-animate" ng-click="showFarmDetailLists($index)" id="farm-item">
+                        <div></div>
+                        <div class="show-farm-name">
+                            <div>{{item.CommName}}</div>
+                            <span>{{item.pennum}}个栋舍&nbsp;&nbsp;{{item.plainnum}}个栏位</span>
+                        </div>
+                        <div class="right-ions"><i class="ion ion-ios-arrow-right"></i></div>
+                        <ion-option-button class="button-assertive"
+                                           ng-click="deleteOtherFarm(item,$index)">
+                            删除
+                        </ion-option-button>
+                    </ion-item>
+                    <div class="item text-center" ng-if="othersFarms.length === 0">暂无</div>
+                </ion-list>
+
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

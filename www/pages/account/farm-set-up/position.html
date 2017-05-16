@@ -1,0 +1,31 @@
+<ion-modal-view class="positions">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="positionsModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title" ng-if="!showAsAccess">农场人员</div>
+        <div class="title" ng-if="showAsAccess">职位列表</div>
+        <div class="buttons"  ng-if="false">          <!--暂时不做-->
+            <button class="button button-clear" ng-click="showSetPositions()">
+                职位
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list" ng-if="!showAsAccess">
+            <a class="item" ng-repeat="item in positionList" ng-click="showPerson($index)" ng-if="item.pCount > 0">
+                {{item.pname}}
+                <div class="my-badge">{{item.pCount}}</div>
+                <div class="right-ions"><i class="ion ion-ios-arrow-right"></i></div>
+            </a>
+        </div>
+        <div class="list" ng-if="showAsAccess">
+            <a class="item" ng-repeat="item in positionList" ng-click="showAssessSet(item)" ng-if="item.pCount > 0">
+                {{item.pname}}
+                <div class="right-ions"><i class="ion ion-ios-arrow-right"></i></div>
+            </a>
+        </div>
+    </ion-content>
+</ion-modal-view>

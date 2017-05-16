@@ -1,0 +1,26 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="farmDetailListsModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">{{currentFarms[nowIndex].CommName}}</div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <div class="item" ng-click="showCorporationInfo(currentFarms[nowIndex])"  ng-if="showSetBut">
+                主体信息
+            </div>
+            <div class="item" ng-click="shoFarmModal(currentFarms[nowIndex])">
+                农场信息
+            </div>
+            <div class="item" ng-click="showPositionsModal(currentFarms[nowIndex],0)">
+                农场人员
+            </div>
+            <div class="item" ng-click="showPositionsModal(currentFarms[nowIndex],1)" ng-if="showSetBut">
+                权限设置
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

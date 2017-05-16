@@ -1,0 +1,162 @@
+<ion-modal-view class="PNOdetail">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hideSearchDetailsModal()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">个体管理</div>
+        <div class="buttons" ng-if="!editOn && animalInformation.PFlag === 1">
+            <button class="button button-clear" ng-click="editSearchDetail()">
+                编辑
+            </button>
+        </div>
+        <div class="buttons" ng-if="editOn">
+            <button class="button button-clear" ng-click="update()">
+                保存
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list forms">
+            <div class="top-pic">
+                <div class="bgshadow"></div>
+                <div class="front">
+                    <div ng-if="animalInformation.PType === 1">
+                        <img class="auto" src="img/sheep.png">
+                    </div>
+                    <div ng-if="animalInformation.PType === 2">
+                        <img class="auto" src="img/pig.png">
+                    </div>
+                    <div ng-if="animalInformation.PType === 3">
+                        <img class="auto" src="img/bull.png">
+                    </div>
+                    <span>{{animalInformation.PContent}}</span>
+                    <span class="bh">电子耳号：{{animalInformation.PNO}}</span>
+                    <div>
+                        <div class="left">日龄：<span>{{animalInformation.PAge}}</span>天</div>
+                        <div class="right">生长状态：{{animalInformation.PStatus}}</div>
+                    </div>
+                </div>
+            </div>
+            <button class="button button-block" ng-click="showSingleFarmInfo()">
+                点击查看农事详情
+            </button>
+            <div class="item item-divider"><span>基本信息</span></div>
+            <div ng-if="!editOn">
+                <div class="item">
+                    性&emsp;&emsp;别：<span class="right">{{animalInformation.PSex}} </span>
+                </div>
+                <div class="item">
+                    品&ensp;种&ensp;名：<span class="right">{{animalInformation.PPZ}} </span>
+                </div>
+                <div class="item">
+                    个体编号：<span class="right">{{animalInformation.PUID}}</span>
+                </div>
+                <div class="item">
+                    父&ensp;耳&ensp;号：<span class="right">{{animalInformation.PFather}}</span>
+                </div>
+                <div class="item">
+                    母&ensp;耳&ensp;号：<span class="right">{{animalInformation.PMohter}}</span>
+                </div>
+                <div class="item">
+                    出生日期：<span ng-if="animalInformation.PBirth" class="right">{{animalInformation.PBirth | date: 'yyyy-MM-dd'}}</span>
+                </div>
+                <!-- <div class="item">
+                    出场日期：<span class="right">{{animalInformation.PProDate}}</span>
+                </div> -->
+                <div class="item">
+                    来&emsp;&emsp;源：<span class="right"> {{animalInformation.PContent}}</span>
+                </div>
+                <!-- <div class="item">
+                    供&ensp;应&ensp;商：<span class="right">{{animalInformation.PSupplier}}</span>
+                </div> -->
+            </div>
+            <div ng-if="editOn">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        性别
+                    </div>
+                    <select ng-model="animalInformation.PSex">
+                        <option value="公">公</option>
+                        <option value="母">母</option>
+                    </select>
+                </label>
+                <div class="item item-input addList">
+                    <span class="input-label">品&ensp;种&ensp;名：</span>
+                    <input type="text" ng-model="animalInformation.PPZ" placeholder="请填写">
+                    <div class="rightBottomWarp" ng-click="getPPZ()">
+                        <div class="rightBottom"></div>
+                    </div>
+                </div>
+                <div class="item item-input addList">
+                    <span class="input-label">个体编号：</span>
+                    <input type="text" ng-model="animalInformation.PUID" placeholder="请填写">
+                </div>
+                <div class="item item-input addList">
+                    <span class="input-label">父&ensp;耳&ensp;号：</span>
+                    <input type="text" ng-model="animalInformation.PFather" placeholder="请填写">
+                    <div class="rightBottomWarp" ng-click="getPFather()">
+                        <div class="rightBottom"></div>
+                    </div>
+                </div>
+                <div class="item item-input addList">
+                    <span class="input-label">母&ensp;耳&ensp;号：</span>
+                    <input type="text" ng-model="animalInformation.PMohter" placeholder="请填写">
+                    <div class="rightBottomWarp" ng-click="getPMohter()">
+                        <div class="rightBottom"></div>
+                    </div>
+                </div>
+                <div class="item addList" ng-click="getDate('PBirth')">
+                    出生日期：
+                    <span ng-if="animalInformation.PBirth" class="item-note">{{animalInformation.PBirth}}</span>
+                </div>
+                <!-- <div class="item addList" ng-click="getDate('PProDate')">
+                    出场日期：
+                    <span class="item-note">{{animalInformation.PProDate}}</span>
+                </div> -->
+                <div class="item item-input addList">
+                    <span class="input-label">来&emsp;&emsp;源：</span>
+                    <input type="text" ng-model="animalInformation.PContent" placeholder="请填写">
+                </div>
+                <!-- <div class="item item-input addList">
+                    <span class="input-label">供&ensp;应&ensp;商：</span>
+                    <input type="text" ng-model="animalInformation.PSupplier" placeholder="请填写">
+                </div> -->
+            </div>
+            <div class="item">
+                所在栏位：<span class="right">{{animalInformation.PPen}}&ensp;—&ensp;{{animalInformation.PPlain}}</span>
+            </div>
+            <!-- <div class="item item-divider"><span>生产周期</span></div>
+            <div class="progress-bar">
+                <progress ng-value="'animalInformation.PProCycle'"></progress>
+                <div>
+                    <div></div>
+                </div>
+            </div> -->
+            <div class="item item-divider"><span>农事快捷键</span></div>
+            <div class="row detailsBts">
+                <div class="col" ng-click="showFeedAsPNO(animalInformation)"><img src="img/farm-feed.png" /><span>喂养</span></div>
+                <div class="col" ng-click="showVaccinationAsPNO(animalInformation)"><img src="img/farm-vaccination.png" /><span>免疫</span></div>
+                <div class="col" ng-click="showCureAsPNO(animalInformation)"><img src="img/farm-cure.png" /><span>治疗</span></div>
+                <div class="col" ng-click="showfeildChange()"><img src="img/farm-out.png" /><span>转栏</span></div>
+                <div class="col" ng-click="showDeathAsPNO(animalInformation)"><img src="img/death.png" /><span>死亡</span></div>
+            </div>
+            <div class="item item-divider"><span>监测</span></div>
+            <div class="row detailsBts">
+                <div class="col" ng-click="notwork()"><img src="img/farm-feed.png" /><span>环境实况</span></div>
+                <div class="col" ng-click="notwork()"><img src="img/Video-surveillance.png" /><span>视频监控</span></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+            </div>
+            <!--   <div class="item item-divider"><span>个体档案</span></div>
+            <div class="animal-record">
+                <div class="button-wrap">
+                    <div class="active">生成记录</div>
+                    <div class="">体征记录</div>
+                </div>
+            </div>-->
+        </div>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,26 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="unitsListModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">选择单位</div>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="chooseUnit()">
+                保存
+            </button>
+        </div>
+    </ion-header-bar>
+
+    <ion-content>
+        <div class="item item-divider">
+            您选的单位: {{selectData.clientSide}}
+        </div>
+        <ion-radio ng-repeat="item in unitsList"
+                   ng-value="item.Value"
+                   ng-model="selectData.clientSide">    <!-- ng-value="item.value"-->
+            {{item.Value}}
+        </ion-radio>
+    </ion-content>
+</ion-modal-view>

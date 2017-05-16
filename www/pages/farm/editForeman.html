@@ -1,0 +1,35 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="editZrrModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">{{nPlain.PlainName}}</div>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="saveForeman()">
+                保存
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    养殖员
+                </div>
+                <select ng-model="foreman.yzId" ng-change="chooseYz()">
+                    <option ng-repeat="item in yzPersons" value="{{item.UserId}}">{{item.UserName}}</option>
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    防疫员
+                </div>
+                <select ng-model="foreman.fyId" ng-change="chooseFy()">
+                    <option ng-repeat="item in fyPersons" value="{{item.UserId}}">{{item.UserName}}</option>
+                </select>
+            </label>
+        </div>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,41 @@
+<ion-modal-view id="sm-set">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-icon icon ion-ios-arrow-back light" ng-click="hideTaskSetting()"></button>
+        </div>
+        <div class="title">设置周期</div>
+        <div class="buttons" ng-if="!settingdata.showDelete">
+            <button class="button button-clear my-btn-font" ng-click="edit()">
+                编辑
+            </button>
+        </div>
+        <div class="buttons" ng-if="settingdata.showDelete">
+            <button class="button button-clear my-btn-font" ng-click="edit()">
+                完成
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-footer">
+        <ion-list show-delete="settingdata.showDelete" show-reorder="settingdata.showReorder">
+            <ion-item ng-repeat="item in tasks" class="item-remove-animate set-date">
+                <span>阶段名:</span>
+                <input class="text-center" type="text" ng-model="item.TaskZName" placeholder="请输入阶段名" />
+                <span>天数:</span>
+                <input class="text-center" type="number" ng-model="item.TaskDay" placeholder="天数">
+                <ion-delete-button class="ion-minus-circled" ng-click="onTaskDelete(item)">
+                </ion-delete-button>
+                <ion-reorder-button class="ion-navicon" on-reorder="moveTask(item, $fromIndex, $toIndex)"></ion-reorder-button>
+            </ion-item>
+        </ion-list>
+        <div class="padding">
+            <button class="button button-balanced button-block" ng-click="addTask()">
+                <i class="button-icon icon ion-plus-round"></i>
+            </button>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button button-balanced" ng-click="saveTask()">保存</a>
+        </div>
+    </div>
+</ion-modal-view>

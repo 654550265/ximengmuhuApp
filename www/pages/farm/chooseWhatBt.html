@@ -1,0 +1,109 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hideWhatBt()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">农事应用</div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list morebuttons">
+            <div class="item item-divider"><span>常用应用</span></div>
+            <div class="row">
+                <div class="col" ng-click="showFeed()" ng-if="!chooseItem || chooseItem.plannum > 0">
+                    <img src="img/farm-feed.png">
+                    <div class="aname">喂养</div>
+                </div>
+                <div class="col" ng-if="chooseItem && chooseItem.plannum === 0">
+                    <img src="img/farm-feed-disabled.png" >
+                    <div class="aname">喂养</div>
+                </div>
+                <div class="col" ng-click="showout()" ng-if="!chooseItem || chooseItem.plannum > 0">
+                    <img src="img/out.png">
+                    <div class="aname">淘汰</div>
+                </div>
+                <div class="col" ng-if="chooseItem && chooseItem.plannum === 0">
+                    <img src="img/out-disabled.png">
+                    <div class="aname">淘汰</div>
+                </div>
+                <div class="col" ng-click="showVaccination()" ng-if="!chooseItem || chooseItem.plannum > 0">
+                    <img src="img/farm-vaccination.png">
+                    <div class="aname">免疫</div>
+                </div>
+                <div class="col" ng-if="chooseItem && chooseItem.plannum === 0">
+                    <img src="img/farm-vaccination-disabled.png">
+                    <div class="aname">免疫</div>
+                </div>
+                <div class="col" ng-click="showfeildChange()" ng-if="!chooseItem || chooseItem.plannum > 0">
+                    <img src="img/farm-out.png">
+                    <div class="aname">转栏</div>
+                </div>
+                <div class="col" ng-if="chooseItem && chooseItem.plannum === 0">
+                    <img src="img/farm-out-disabled.png">
+                    <div class="aname">转栏</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" ng-click="showEntry()">
+                    <img src="img/entry.png">
+                    <div class="aname">入栏</div>
+                </div>
+                <div class="col" ng-click="showCure()" ng-if="!chooseItem || chooseItem.plannum > 0">
+                    <img src="img/farm-cure.png">
+                    <div class="aname">治疗</div>
+                </div>
+                <div class="col" ng-if="chooseItem && chooseItem.plannum === 0">
+                    <img src="img/farm-cure-disabled.png">
+                    <div class="aname">治疗</div>
+                </div>
+                <div class="col" ng-click="showDeath()" ng-if="!chooseItem || chooseItem.plannum > 0">
+                    <img src="img/death.png">
+                    <div class="aname">死亡</div>
+                </div>
+                <div class="col" ng-if="chooseItem && chooseItem.plannum === 0">
+                    <img src="img/death-disabled.png">
+                    <div class="aname">死亡</div>
+                </div>
+                <div class="col" ng-click="showDetails(0)" ng-if="!chooseItem || chooseItem.plannum > 0">
+                    <img src="img/nongshiguanli.png">
+                    <div class="aname">管理</div>
+                </div>
+                <div class="col" ng-if="chooseItem && chooseItem.plannum === 0">
+                    <img src="img/nongshiguanli.png">
+                    <div class="aname">管理</div>
+                </div>
+            </div>
+            <div class="item item-divider"><span>其他应用</span></div>
+            <div class="row morebuttons">
+                <div class="row">
+                    <div class="col" ng-click="notwork()" ng-if="!chooseItem || chooseItem.plannum > 0">
+                        <img src="img/farm-diagnose.png" />
+                        <span>疾病诊断</span>
+                    </div>
+                    <div class="col" ng-if="chooseItem && chooseItem.plannum === 0">
+                        <img src="img/farm-diagnose-disabled.png" />
+                        <span>疾病诊断</span>
+                    </div>
+                    <div class="col" ng-click="notwork()" ng-if="!chooseItem || chooseItem.plannum > 0">
+                        <img src="img/hybridization.png" />
+                        <span>配种</span>
+                    </div>
+                    <div class="col" ng-if="chooseItem && chooseItem.plannum === 0">
+                        <img src="img/hybridization-disabled.png" />
+                        <span>配种</span>
+                    </div>
+                    <div class="col" ng-click="notwork()" ng-if="!chooseItem || chooseItem.plannum > 0">
+                        <img src="img/renjian.png" />
+                        <span>妊检</span>
+                    </div>
+                    <div class="col" ng-if="chooseItem && chooseItem.plannum === 0">
+                        <img src="img/renjian-disabled.png" />
+                        <span>妊检</span>
+                    </div>
+                    <div class="col"></div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

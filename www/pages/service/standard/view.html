@@ -1,0 +1,47 @@
+<ion-view view-title="创建标准">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear my-btn-font" ng-click="save()">
+            保存
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list forms">
+            <div class="item item-divider"><span>标准介绍</span></div>
+            <div class="item item-input item-select">
+                <div class="input-label">
+                    <span>标准类型：</span>
+                </div>
+                <select ng-model="standard.TaskType">
+                    <option value="1">养殖标准</option>
+                    <option value="2">饲喂标准</option>
+                    <option value="3">日常标准</option>
+                </select>
+            </div>
+            <label class="item item-input">
+                <span class="input-label">标准名称：</span>
+                <input type="text" placeholder="标准名称" ng-model="standard.TaskAllName">
+            </label>
+            <div class="item item-divider feed-standard-create">
+                <span>养殖周期：{{days}}天</span>
+                <div class="leftbt" ng-click="showTaskSetting()">设置</div>
+            </div>
+            <div ng-repeat="item in tasks" >
+                <div class="item item-icon-right">
+                    {{item.TaskZName}}：{{item.TaskDay}}天
+                    <i ng-if="!item.isopen" class="icon ion-ios-arrow-right" ng-click="item.isopen = !item.isopen"></i>
+                    <i ng-if="item.isopen" class="icon ion-ios-arrow-down" ng-click="item.isopen = !item.isopen"></i>
+                </div>
+                <div ng-if="item.isopen">
+                    <div ng-if="item.isopen" class="text-center addwork positive" ng-click="addWork()">+添加新农事</div>
+                    <div class="item" ng-repeat="work in item.works">
+                        {{work}}
+                    </div>
+                </div>
+            </div>
+            <div class="item item-divider"><span>备注</span></div>
+            <label class="item item-input">
+                <textarea class="TaskContent" placeholder="请输入备注" ng-model="standard.TaskContent"></textarea>
+            </label>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,29 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <a class="button button-clear" ng-click="backToAccount()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </a>
+        </div>
+        <div class="title">选择网络类型(暂)</div>
+       <!-- <div class="buttons">
+            <a class="button button-clear" ng-click="setMyCardModal.show()">
+                设置
+            </a>
+        </div>-->
+    </ion-header-bar>
+    <ion-content>
+        <div class="item item-divider">
+           当前的网络类型: {{checkNetwork.name}}
+        </div>
+        <ul class="list">
+            <ion-radio ng-repeat="item in networks"
+                       ng-value="item.name"
+                       ng-model="checkNetwork.name"
+                       ng-change="checkNetworkChange(item)"
+                       name="server-side">
+                {{item.name}}
+            </ion-radio>
+        </ul>
+    </ion-content>
+</ion-modal-view>

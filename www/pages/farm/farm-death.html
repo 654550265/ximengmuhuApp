@@ -1,0 +1,208 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="exitFarmDeath()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">死亡记录</div>
+        <div class="buttons" ng-click="showDetails(4)" ng-if="ck">
+            <button class="button button-clear my-btn-font">
+                查看
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-footer">
+        <div class="button-bar">
+            <a class="button" ng-click="showAModul()" ng-class="showA == true ? 'btActive' : ''"><span>按栋舍操作</span></a>
+            <a class="button" ng-click="showBModul()" ng-class="showB == true ? 'btActive' : ''"><span>按耳号操作</span></a>
+        </div>
+        <div class="header">
+            <div class="item table-top">
+                <div>
+                    单号：{{farmDeath.OrrID}}
+                </div>
+                <div>
+                    <div>
+                        操作人：{{uerName}}
+                    </div>
+                    <div class="date" ng-click="getDate('death')">
+                        日期：{{farmDeath.SysDate}}<img src="img/date-picker.png" class="time-picker" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list forms">
+            <div ng-if="showA">
+                <div class="item item-divider"><span>死亡记录</span></div>
+                <div class="item item-input item-select" ng-show="switchHeaderNavBar">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">死亡地点：</span>
+                    </div>
+                    <select ng-model="farmDeath.PenName" ng-change="choosePen(5)">
+                        <option ng-repeat="item in CurrentPensList">{{item.PlainName}}</option>
+                    </select>
+                </div>
+                <div class="item" ng-hide="switchHeaderNavBar">
+                    <span class="star-space">对象栏位：</span>
+                    <span class="item-note">
+                       {{farmDeath.PenName}}
+                    </span>
+                </div>
+                <div class="item item-input item-select" ng-show="switchHeaderNavBar">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">目标栏位：</span>
+                    </div>
+                    <select ng-model="farmDeath.PlainName" ng-change="choosePlain(5)">
+                        <option ng-repeat="item in usefulPlains">{{item.PlainName}}</option>
+                    </select>
+                </div>
+                <div class="item item-input item-select">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">死亡原因：</span>
+                    </div>
+                    <select ng-model="farmDeath.CauseDeath">
+                        <option ng-repeat="item in CauseDeathList">{{item}}</option>
+                    </select>
+                </div>
+                <div class="item item-input item-select">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">处理方式：</span>
+                    </div>
+                    <select ng-model="farmDeath.TreatmenThod">
+                        <option ng-repeat="item in TreatmenThodList">{{item}}</option>
+                    </select>
+                </div>
+                <div class="item item-input">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">处理单位：</span>
+                    </div>
+                    <input type="text" ng-model="farmDeath.ProcessingUnit" placeholder="请输入" />
+                </div>
+                <div class="item item-input">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">死亡数量：</span>
+                    </div>
+                    <input type="text" ng-model="farmDeath.PCNum" placeholder="请输入" />
+                </div>
+                <div class="item item-divider"><span>备注</span></div>
+                <label class="item item-input">
+                    <textarea placeholder="填写备注" ng-model="farmDeath.Remark"></textarea>
+                </label>
+            </div>
+            <div ng-if="showB">
+                <div class="item item-divider"><span>死亡记录</span></div>
+                <div class="item item-input" ng-show="switchHeaderNavBar">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">死亡对象：</span>
+                    </div>
+                    <input class="sweep-input" type="text" placeholder="请使用蓝牙或输入耳标号" ng-model="farmDeath.DeathObject" />
+                    <!--  <div class="right-sweep" ng-click="serchBlu(5)">
+                      <img src="img/sweep.png"/>
+                  </div>-->
+                </div>
+                <div class="item" ng-hide="switchHeaderNavBar">
+                    <span class="star-space">对象耳号：</span>
+                    <span class="item-note">
+                       {{farmDeath.DeathObject}}
+                    </span>
+                </div>
+                <!--<div class="item">
+                  <span class="star-space">日龄：</span>
+                  <span class="item-note">
+                      x天
+                  </span>
+              </div>-->
+                <div class="item item-input item-select" ng-show="switchHeaderNavBar">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">死亡地点：</span>
+                    </div>
+                    <select ng-model="farmDeath.PenName" ng-change="choosePen()">
+                        <option ng-repeat="item in CurrentPensList">{{item.PlainName}}</option>
+                    </select>
+                </div>
+                <div class="item" ng-hide="switchHeaderNavBar">
+                    <span class="star-space">对象栏位：</span>
+                    <span class="item-note">
+                       {{farmDeath.PenName}}
+                    </span>
+                </div>
+                <div class="item item-input item-select">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">死亡原因：</span>
+                    </div>
+                    <select ng-model="farmDeath.CauseDeath">
+                        <option ng-repeat="item in CauseDeathList">{{item}}</option>
+                    </select>
+                </div>
+                <div class="item item-input item-select">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">处理方式：</span>
+                    </div>
+                    <select ng-model="farmDeath.TreatmenThod">
+                        <option ng-repeat="item in TreatmenThodList">{{item}}</option>
+                    </select>
+                </div>
+                <div class="item item-input">
+                    <i>*</i>
+                    <div class="input-label">
+                        <span class="star-space">处理单位：</span>
+                    </div>
+                    <input type="text" ng-model="farmDeath.ProcessingUnit" placeholder="请输入" />
+                </div>
+                <!-- <div class="item item-divider"><span>监管方</span></div>
+              <li class="item item-toggle">
+                  <span class="star-space">监管方兽医：</span>
+                  <label class="toggle toggle-clam">
+                      <input type="checkbox">
+                      <div class="track">
+                          <div class="handle"></div>
+                      </div>
+                  </label>
+              </li>
+              <div class="item">
+                  <span class="star-space">监管方兽医：</span>
+                  <span class="item-note">
+
+                  </span>
+              </div>
+              <div class="item">
+                  <span class="star-space">验收时间：</span>
+                  <span class="item-note">
+
+                  </span>
+              </div> -->
+                <div class="item item-divider"><span>备注</span></div>
+                <label class="item item-input">
+                    <textarea placeholder="填写备注" ng-model="farmDeath.Remark"></textarea>
+                </label>
+                <div>
+                    <div class="item item-icon-right">
+                        照片
+                        <i class="icon ion-ios-camera" ng-click="takePhoto()"></i>
+                    </div>
+                    <div class="item item-body" ng-show="myImage">
+                        <img id="myImage" class="full-image" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button button-balanced" ng-click="exitFarmDeath()">返回</a>
+            <a class="button button-balanced" ng-click="saveFarmDeath(1)">保存并添加</a>
+            <a class="button button-balanced" ng-click="saveFarmDeath(2)">保存并退出</a>
+        </div>
+    </div>
+</ion-modal-view>

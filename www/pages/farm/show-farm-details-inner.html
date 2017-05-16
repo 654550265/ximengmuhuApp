@@ -1,0 +1,313 @@
+<ion-modal-view class="farmDetailInner">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <a class="button button-clear" ng-click="farmWorkeDetailModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </a>
+        </div>
+        <div class="title">农事记录管理</div>
+    </ion-header-bar>
+    <ion-content>
+        <div ng-show="infoItemInfo.Type == 1">
+            <div class="list">
+                <div class="list-title">喂养记录</div>
+                <div class="my-item4">
+                    <p>
+                        <span>单&emsp;&emsp;号</span>：
+                        <span>{{farmWorkDetail.OrrID}}</span>
+                    </p>
+                    <p ng-show="farmWorkDetail.BathID != null">
+                        <span>批&ensp;次&ensp;号</span>：
+                        <span>{{farmWorkDetail.BathID}}</span>
+                    </p>
+                    <p>
+                        <span>操&ensp;作&ensp;人</span>：
+                        <span>{{farmWorkDetail.Name}}</span>
+                    </p>
+                    <p>
+                        <span>日&emsp;&emsp;期</span>：
+                        <span>{{farmWorkShowDate}}</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="list">
+                <div class="list-title">喂养对象</div>
+                <div class="my-item4">
+                    <p ng-show="farmWorkDetail.PNO != null">
+                        <span>耳&ensp;标&ensp;号</span>：
+                        <span>{{farmWorkDetail.PNO}}</span>
+                    </p>
+                    <p>
+                        <span>所处位置</span>：
+                        <span>{{farmWorkDetail.PenName}}&ensp;—&ensp;{{farmWorkDetail.PlainName}}</span>
+                    </p>
+                  <!--  <p>
+                        <span>当前状态</span>：
+                        <span>{{farmWorkDetail}}</span>
+                    </p>-->
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-title">饲&emsp;&emsp;料</div>
+                <div ng-repeat="item in materialDtailList">
+                    <div class="my-item4">
+                        <p>
+                            <span>饲&emsp;&emsp;料</span>：
+                            <span>{{item.PFName}}</span>
+                        </p>
+                        <p>
+                            <span>用&emsp;&emsp;量</span>：
+                            <span>{{item.PFNum}}</span>
+                        </p>
+                        <!--<p>
+                            <span>投喂方式</span>：
+                            <span>123123123</span>
+                        </p>-->
+                    </div>
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-title">备&emsp;&emsp;注</div>
+                <div class="my-item4">
+                    <p>
+                        &emsp;&emsp;{{farmWorkDetail.Remark}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div ng-show="infoItemInfo.Type == 2">
+            <div class="list">
+                <div class="list-title">免疫记录</div>
+                <div class="my-item4">
+                    <p>
+                        <span>单&emsp;&emsp;号</span>：
+                        <span>{{farmWorkDetail.OrrID}}</span>
+                    </p>
+                    <p ng-show="farmWorkDetail.BathID != null">
+                        <span ng-show="farmWorkDetail.BathID != ''">批&ensp;次&ensp;号</span>：
+                        <span>{{farmWorkDetail.BathID}}</span>
+                    </p>
+                    <p>
+                        <span>操&ensp;作&ensp;人</span>：
+                        <span>{{farmWorkDetail.Name}}</span>
+                    </p>
+                    <p>
+                        <span>日&emsp;&emsp;期</span>：
+                        <span>{{farmWorkShowDate}}</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="list">
+                <div class="list-title">免疫对象</div>
+                <div class="my-item4">
+                    <p ng-show="farmWorkDetail.PNO != null">
+                        <span>耳&ensp;标&ensp;号</span>：
+                        <span>{{farmWorkDetail.PNO}}</span>
+                    </p>
+                    <p>
+                        <span>所处位置</span>：
+                        <span>{{farmWorkDetail.PenName}}&ensp;—&ensp;{{farmWorkDetail.PlainName}}</span>
+                    </p>
+                    <p>
+                        <span>免疫项目</span>：
+                        <span>{{farmWorkDetail.Immunion}}</span>
+                    </p>
+                    <!--  <p>
+                          <span>当前状态</span>：
+                          <span>{{farmWorkDetail}}</span>
+                      </p>-->
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-title">疫&emsp;&emsp;苗</div>
+                <div ng-repeat="item in materialDtailList">
+                    <div class="my-item4">
+                        <p>
+                            <span>疫&emsp;&emsp;苗</span>：
+                            <span>{{item.PFName}}</span>
+                        </p>
+                        <p>
+                            <span>用&emsp;&emsp;量</span>：
+                            <span>{{item.PFNum}}</span>
+                        </p>
+                        <!--<p>
+                            <span>投喂方式</span>：
+                            <span>123123123</span>
+                        </p>-->
+                    </div>
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-title">备&emsp;&emsp;注</div>
+                <div class="my-item4">
+                    <p>
+                        &emsp;&emsp;{{farmWorkDetail.Remark}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div ng-show="infoItemInfo.Type == 3">
+            <div class="list">
+                <div class="list-title">治疗记录</div>
+                <div class="my-item4">
+                    <p>
+                        <span>单&emsp;&emsp;号</span>：
+                        <span>{{farmWorkDetail.OrrID}}</span>
+                    </p>
+                    <p ng-show="farmWorkDetail.BathID != ''">
+                        <span>批&ensp;次&ensp;号</span>：
+                        <span>{{farmWorkDetail.BathID}}</span>
+                    </p>
+                    <p>
+                        <span>操&ensp;作&ensp;人</span>：
+                        <span>{{farmWorkDetail.Name}}</span>
+                    </p>
+                    <p>
+                        <span>日&emsp;&emsp;期</span>：
+                        <span>{{farmWorkShowDate}}</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="list">
+                <div class="list-title">治疗对象</div>
+                <div class="my-item4">
+                    <p>
+                        <span>耳&ensp;标&ensp;号</span>：
+                        <span>{{farmWorkDetail.PNO}}</span>
+                    </p>
+                    <p>
+                        <span>所处位置</span>：
+                        <span>{{farmWorkDetail.PenName}}&ensp;—&ensp;{{farmWorkDetail.PlainName}}</span>
+                    </p>
+                    <p>
+                        <span>检查结果</span>：
+                        <span>{{farmWorkDetail.InspectResult}}</span>
+                    </p>
+                    <p>
+                        <span>治疗措施</span>：
+                        <span>{{farmWorkDetail.Treatment}}</span>
+                    </p>
+                    <!--  <p>
+                          <span>当前状态</span>：
+                          <span>{{farmWorkDetail}}</span>
+                      </p>-->
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-title">药&emsp;&emsp;品</div>
+                <div ng-repeat="item in materialDtailList">
+                    <div class="my-item4">
+                        <p>
+                            <span>药&emsp;&emsp;品</span>：
+                            <span>{{item.PFName}}</span>
+                        </p>
+                        <p>
+                            <span>用&emsp;&emsp;量</span>：
+                            <span>{{item.PFNum}}</span>
+                        </p>
+                        <!--<p>
+                            <span>投喂方式</span>：
+                            <span>123123123</span>
+                        </p>-->
+                    </div>
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-title">备&emsp;&emsp;注</div>
+                <div class="my-item4">
+                    <p>
+                        &emsp;&emsp;{{farmWorkDetail.Remark}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div ng-show="infoItemInfo.Type == 4">
+            <div class="list">
+                <div class="list-title">死亡记录</div>
+                <div class="my-item4">
+                    <p>
+                        <span>单&emsp;&emsp;号</span>：
+                        <span>{{farmWorkDetail.OrrID}}</span>
+                    </p>
+                    <p ng-show="farmWorkDetail.BathID != null">
+                        <span>批&ensp;次&ensp;号</span>：
+                        <span>{{farmWorkDetail.BathID}}</span>
+                    </p>
+                    <p>
+                        <span>操&ensp;作&ensp;人</span>：
+                        <span>{{farmWorkDetail.Name}}</span>
+                    </p>
+                    <p>
+                        <span>日&emsp;&emsp;期</span>：
+                        <span>{{farmWorkShowDate}}</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="list">
+                <div class="list-title">死亡对象</div>
+                <div class="my-item4">
+                    <p>
+                        <span>所处位置</span>：
+                        <span>{{farmWorkDetail.PenName}}</span>
+                    </p>
+                    <p>
+                        <span>耳&ensp;标&ensp;号</span>：
+                        <span>{{farmWorkDetail.DeathObject}}</span>
+                    </p>
+                    <!--  <p>
+                          <span>当前状态</span>：
+                          <span>{{farmWorkDetail}}</span>
+                      </p>-->
+
+                    <p>
+                        <span>死亡原因</span>：
+                        <span>{{farmWorkDetail.CauseDeath}}</span>
+                    </p>
+                    <p>
+                        <span>处理方式</span>：
+                        <span>{{farmWorkDetail.TreatmenThod}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="list">
+                <div class="list-title">备&emsp;&emsp;注</div>
+                <div class="my-item4">
+                    <p>
+                        {{farmWorkDetail.Remark}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div ng-show="infoItemInfo.Type == 5">
+            <div class="list">
+                <div class="list-title">淘汰记录</div>
+                <div class="my-item4">
+                    <p>
+                        <span>耳&emsp;&emsp;号</span>：
+                        <span>{{farmWorkDetail.EarNo}}</span>
+                    </p>
+                    <p>
+                        <span>单&ensp;据&ensp;号</span>：
+                        <span>{{farmWorkDetail.TTNo}}</span>
+                    </p>
+                    <p>
+                        <span>操&ensp;作&ensp;人</span>：
+                        <span>{{farmWorkDetail.CreatePerson}}</span>
+                    </p>
+                    <p>
+                        <span>日&emsp;&emsp;期</span>：
+                        <span>{{farmWorkShowDate}}</span>
+                    </p>
+                    <p>
+                        <span>淘汰原因</span>：
+                        <span>{{farmWorkDetail.TTMore}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

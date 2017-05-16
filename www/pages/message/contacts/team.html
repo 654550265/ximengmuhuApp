@@ -1,0 +1,29 @@
+<ion-view view-title="申请加入农场">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="scan()">扫一扫</button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="item-input-inset">
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input type="search" placeholder="搜索农场名称" ng-model="search.data">
+            </label>
+            <button class="button button-icon icon ion-ios-search-strong" ng-click="search()"></button>
+        </div>
+        <div class="list" ng-if="teams.length > 0">
+            <a class="item item-button-right" ng-repeat="item in teams">
+                <span>{{item.CommName}}</span>
+                <p>创建人：{{item.CreatePerson}}</p>
+                <p>手机号：{{item.CommTel}}</p>
+                <div class="right-button">
+                    <button ng-if="!item.didJoin" class="button button-positive" ng-click="JoinFarm(item)">
+                        申请加入
+                    </button>
+                    <button ng-if="item.didJoin" class="button button-dark">
+                        已申请
+                    </button>
+                </div>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

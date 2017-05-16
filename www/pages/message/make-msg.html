@@ -1,0 +1,37 @@
+<ion-view view-title="发布">
+    <ion-nav-buttons side="right">
+        <a class="button button-clear" ng-click="save()">发布</a>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">标题</span>
+                <input type="text" placeholder="请输入标题" ng-model="message.title_name">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    类型
+                </div>
+                <select ng-model="message.title_type">
+                    <option value="新闻">新闻</option>
+                    <option value="公告">公告</option>
+                    <option value="通知">通知</option>
+                </select>
+            </label>
+            <label class="item item-input placecontent">
+                <textarea ng-model="message.theContent" placeholder="内容"></textarea>
+            </label>
+            <div class="item item-divider">
+                接收人
+            </div>
+            <ion-list>
+                <ion-item ng-repeat="item in choosePersons">
+                    {{item.MyName}} {{item.Name}}
+                </ion-item>
+            </ion-list>
+            <div class="padding">
+                <a class="button button-block button-small button-positive" ng-click="addPersons()">选择</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

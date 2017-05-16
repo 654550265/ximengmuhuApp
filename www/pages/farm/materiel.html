@@ -1,0 +1,33 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="MaterielModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">请选择</div>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="chooseFeeds()">
+                保存
+            </button>
+        </div>
+    </ion-header-bar>
+    <div class="bar bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <input type="text" placeholder="请输入物料名称" ng-model="search.Data" ng-keyup="searchFeed()">
+        </label>
+        <button class="button button-small button-assertive" ng-click="clearSearch()">
+            清空
+        </button>
+    </div>
+    <ion-content class="has-subheader">
+        <ion-list>
+            <ion-item ng-if="FeedsShow.length <= 0">
+                请在流水账功能添加相应物资。
+            </ion-item>
+        </ion-list>
+        <ion-checkbox ng-repeat="item in FeedsShow" ng-model="item.checked">
+            {{item.FeedName}}（{{item.FeedUnits}}）
+        </ion-checkbox>
+    </ion-content>
+</ion-modal-view>

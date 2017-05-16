@@ -1,0 +1,17 @@
+<ion-view view-title="欢迎" hide-nav-bar="true">
+    <ion-content>
+        <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide class="slider-slide1">
+            </ion-slide>
+            <ion-slide class="slider-slide2">
+            </ion-slide>
+            <ion-slide class="slider-slide3" ng-click="gotoLogin()">
+                <div class="logo-text padding">
+                    <a class="button button-small button-outline button-balanced started" ng-click="gotoLogin()">
+                        立即体验
+                    </a>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+</ion-view>

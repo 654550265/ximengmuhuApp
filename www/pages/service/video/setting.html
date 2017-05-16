@@ -1,0 +1,40 @@
+<ion-modal-view class="farmadd">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hideSetting()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">监控设置</div>
+        <div class="buttons">
+            <button class="button button-clear my-btn-font" ng-click="saveSetting()">
+                保存
+            </button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label">名称</span>
+                <input type="text" ng-model="setting.Alias">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    摄像头类型
+                </div>
+                <select ng-model="setting.CameraType" convert-to-number>
+                    <option value="0">球机</option>
+                    <option value="1">枪机</option>
+                </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    所属栋舍
+                </div>
+                <select ng-model="setting.PenId">
+                    <option ng-repeat="item in farm.Pens" value="{{item.PenId}}">{{item.PenName}}</option>
+                </select>
+            </label>
+        </div>
+    </ion-content>
+</ion-modal-view>

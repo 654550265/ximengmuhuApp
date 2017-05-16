@@ -1,0 +1,105 @@
+<ion-view class="farmadd" view-title="创建任务">
+    <ion-nav-buttons side="right">
+        <a class="button button-clear" ng-click="save()">
+            保存
+        </a>
+    </ion-nav-buttons>
+    <ion-content class="workadd">
+        <div class="item item-divider"><span>操作内容</span></div>
+        <div class="item item-input item-select">
+            <i>*</i>
+            <div class="input-label">
+                <span class="star-space">农场</span>
+            </div>
+            <select ng-model="work.ComID" ng-options="value.CommID as value.CommName for (key, value) in farms" ng-change="getHouse()"></select>
+        </div>
+        <div class="item item-input item-select">
+            <i>*</i>
+            <div class="input-label">
+                <span class="star-space">栋舍</span>
+            </div>
+            <select ng-model="work.PenID" ng-options="value.PID as value.PlainName for (key, value) in houses" ng-change="getColumn()"></select>
+        </div>
+        <div class="item item-input item-select">
+            <i>*</i>
+            <div class="input-label">
+                <span class="star-space">栏位</span>
+            </div>
+            <select ng-model="work.PlainID" ng-options="value.PID as value.PlainName for (key, value) in columns"></select>
+        </div>
+        <div class="item item-input item-select">
+            <i>*</i>
+            <div class="input-label">
+                <span class="star-space">操作内容：</span>
+            </div>
+            <select ng-model="work.TaskName">
+                <option value="饲喂">饲喂</option>
+                <option value="免疫">免疫</option>
+                <option value="检查">检查</option>
+                <option value="维修">维修</option>
+                <option value="消毒">消毒</option>
+                <option value="治疗">治疗</option>
+                <option value="挤奶">挤奶</option>
+                <option value="采精登记">采精登记</option>
+                <option value="精液检测">精液检测</option>
+                <option value="查情">查情</option>
+                <option value="配种">配种</option>
+                <option value="妊娠检查">妊娠检查</option>
+                <option value="分娩">分娩</option>
+                <option value="寄养">寄养</option>
+                <option value="断奶">断奶</option>
+                <option value="种猪转舍">种猪转舍</option>
+                <option value="打标">打标</option>
+                <option value="断尾">断尾</option>
+                <option value="注射">注射</option>
+                <option value="灭鼠">灭鼠</option>
+                <option value="灭蚊">灭蚊</option>
+                <option value="灭蝇">灭蝇</option>
+                <option value="清洗">清洗</option>
+                <option value="驱虫">驱虫</option>
+            </select>
+        </div>
+        <div class="item item-input item-select">
+            <i>*</i>
+            <div class="input-label">
+                <span class="star-space">执行角色：</span>
+            </div>
+            <select ng-model="work.TaskBID" ng-change="getTaskB()">
+                <option ng-repeat="item in Departments" value="{{item.ID}}">{{item.Name}}</option>
+            </select>
+        </div>
+        <div class="item item-input item-select">
+            <div class="input-label">
+                <span class="star-space">评价角色：</span>
+            </div>
+            <select ng-model="work.TaskCID" ng-change="getTaskC()">
+                <option ng-repeat="item in Departments" value="{{item.ID}}">{{item.Name}}</option>
+            </select>
+        </div>
+        <a class="item item-icon-right" ng-click="getDate()">
+            <span class="star-space">执行日期</span>
+            <span class="item-note">{{work.TaskDate}}</span>
+            <i class="icon ion-ios-arrow-right"></i>
+        </a>
+        <a class="item item-icon-right" ng-click="getTime()">
+            <span class="star-space">提醒时间</span>
+            <span class="item-note">{{work.TaskTime}}</span>
+            <i class="icon ion-ios-arrow-right"></i>
+        </a>
+        <div class="item item-divider">
+            <span>农事详情</span>
+            <i class="icon ion-plus-circled addFood" ng-click="addFeed()"></i>
+        </div>
+        <ion-list class="addhouse">
+            <ion-item class="plannum-item" ng-repeat="item in DFeeds">
+                {{item.PFName}}（{{item.FeedUnits}}）
+                <div class="plannum-input">
+                    <i class="icon button-icon ion-ios-minus-outline minus positive" ng-click="minus(item, $index)"></i>
+                    <input type="number" class="plannum" ng-model="item.PFNum">
+                    <i class="icon button-icon ion-ios-plus plus positive" ng-click="plus(item)"></i>
+                </div>
+                <ion-option-button class="button-assertive" ng-click="deleteFeed($index)">删除</ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,43 @@
+<ion-modal-view class="farmadd">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="backToFarm()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">{{farms[currentFarmIndex].CommName}}添加栋舍</div>
+    </ion-header-bar>
+    <ion-content class="has-footer" delegate-handle="mainScroll">
+        <div class="list" ng-show="noticePenAdd">
+           <div class="item">请点击下方添加按钮进行栋舍添加</div>
+        </div>
+        <div class="list addhouse" ng-repeat="dongshe in dongshes">
+            <div class="item item-divider">
+                栋舍{{$index+1}}
+                <i class="icon ion-trash-a  deletehouse" ng-click="deleteDongshe($index)"></i>
+            </div>
+            <label class="item item-input">
+                <span class="input-label">栋舍编号</span>
+                <input type="text" readonly ng-model="dongshe.PlainNO">
+            </label>
+            <label class="item item-input">
+                <span class="input-label"><i class="balanced">*</i>栋舍名称</span>
+                <input type="text" ng-model="dongshe.PlainName" placeholder="请输入栋舍名称">
+            </label>
+            <div class="item plannum-item">
+                栏位数量
+                <div class="plannum-input">
+                    <i class="icon button-icon ion-ios-minus-outline minus" ng-class="dongshe.plannum > 1 ? 'positive' : 'dark'"  ng-click="minus(dongshe)"></i>
+                    <input type="number" class="plannum" ng-model="dongshe.plannum">
+                    <i class="icon button-icon ion-ios-plus plus positive" ng-click="plus(dongshe)"></i>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button button-positive" ng-click="addHouse()" ng-disabled="canClick">添加栋舍</a>
+            <a class="button button-balanced" ng-click="addNewFarm()">完成</a>
+        </div>
+    </div>
+</ion-modal-view>

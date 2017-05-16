@@ -1,0 +1,66 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="setMyCardModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">设置我的信息</div>
+    </ion-header-bar>
+    <ion-content>
+        <form novalidate ng-submit="SavePerson()">
+            <div class="list shouldRight setcard">
+                <a class="item item-avatar item-input" ng-click="takePhoto()">
+                    <img id="myImage" ng-src="{{member.avatar}}">
+                    <div class="input-label">
+                        头像
+                    </div>
+                </a>
+                <label class="item item-input">
+                    <span class="input-label">真实姓名</span>
+                    <input type="text" name="MyName" ng-model="member.MyName">
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        性别
+                    </div>
+                    <select ng-model="member.Sex">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select>
+                </label>
+            </div>
+            <div class="list shouldRight">
+                <label class="item item-input">
+                    <span class="input-label">手机</span>
+                    <input type="text" name="MobilePhoneNumber" ng-model="member.MobilePhoneNumber">
+                </label>
+                <!--     <label class="item item-input" ng-click="addmudi()">
+                    <span class="input-label">所在省</span>
+                    <input type="text" name="Address" ng-model="member.Province">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">所在市</span>
+                    <input type="text" name="Address" ng-model="member.City">
+                </label>
+                <label class="item item-input"  ng-click="addmudi()">
+                    <span class="input-label">所在城市</span>
+
+                </label>-->
+                <div class="item" ng-click="addmudi()">
+                    <span>所在城市</span>
+                    <span class="item-note">
+                        {{member.Province}}{{member.City}}
+                    </span>
+                </div>
+                <label class="item item-input">
+                    <span class="input-label">邮箱地址</span>
+                    <input type="text" name="EmailAddress" ng-model="member.EmailAddress">
+                </label>
+                <div class="padding">
+                    <button class="button button-block button-balanced" ng-click="saveMyInfo()">保存</button>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

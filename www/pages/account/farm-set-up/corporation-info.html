@@ -1,0 +1,55 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <a class="button button-clear" ng-click="corporationInfoModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </a>
+        </div>
+        <div class="title">主体信息</div>
+        <div class="buttons" ng-if="showSetBut">
+            <a class="button button-clear" ng-click="showSetCoInfo()">
+               修改
+            </a>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <div class="item">
+                <span>企业名称：</span>
+            <span class="item-note">
+                   {{showCorporation.name}}
+            </span>
+            </div>
+            <div class="item">
+                <span>公司注册号：</span>
+            <span class="item-note">
+                   {{showCorporation.registration}}
+            </span>
+            </div>
+            <div class="item">
+                <span>法人代表：</span>
+            <span class="item-note">
+                   {{showCorporation.represent}}
+            </span>
+            </div>
+            <div class="item">
+                <span>联系电话：</span>
+            <span class="item-note">
+                   {{showCorporation.phoneNum}}
+            </span>
+            </div>
+            <div class="item">
+                <span>身份证号码：</span>
+            <span class="item-note">
+                     {{showCorporation.cardId}}
+            </span>
+            </div>
+            <div class="item">
+                <span>公司地址：</span>
+                <span class="item-note">
+                     {{showCorporation.address}}
+                </span>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,36 @@
+<ion-view view-title="邀请加入农场" class="invite">
+    <div class="bar bar-subheader">
+        <div class="item-input-inset">
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input type="text" placeholder="请输入手机号/联系人" ng-model="searchData">
+            </label>
+            <!-- <button class="button button-icon icon ion-qr-scanner" ng-click="scan()"></button> -->
+        </div>
+    </div>
+    <ion-content class="has-subheader">
+        <div class="list">
+            <div class="item item-divider">
+                <span>手机联系人</span>
+            </div>
+            <ion-list class="contacts">
+                <ion-item class="item-icon-left item-button-right" collection-repeat="item in contacts | filter: searchData">
+                    <img class="iconimg" src="img/user.png">
+                    <span ng-if="item.displayName != null && !isIOS">{{item.displayName}}</span>
+                    <span ng-if="item.name.formatted != null && isIOS">{{item.name.formatted}}</span>
+                    <p ng-if="item.phoneNumbers.length > 0">{{item.phoneNumbers[0].value}}</p>
+                    <button class="button button-positive invite-btn" ng-click="chooseFarm(item.phoneNumbers[0].value)">
+                        邀请
+                    </button>
+                </ion-item>
+                <ion-item class="item-icon-left item-button-right" ng-if="searchData.length === 11">
+                    <i class="icon ion-android-person balanced"></i> 未知
+                    <p>{{searchData}}</p>
+                    <button class="button button-positive invite-btn" ng-click="chooseFarm(searchData)">
+                        邀请
+                    </button>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-view>

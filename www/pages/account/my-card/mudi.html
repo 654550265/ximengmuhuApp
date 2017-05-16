@@ -1,0 +1,31 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="mudiModal.hide()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">选择城市</div>
+    </ion-header-bar>
+    <ion-content class="has-footer">
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    省份
+                </div>
+                <select ng-model="mudi.province" ng-options="value.id as value.fullname for (key, value) in provinces" ng-change="getCity()"></select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    城市
+                </div>
+                <select ng-model="mudi.city" ng-options="value.id as value.fullname for (key, value) in cities" ng-change="getCityName()"></select>
+            </label>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer text-center">
+        <div class="button-bar">
+            <a class="button button-balanced" ng-click="doneMudi()">确认</a>
+        </div>
+    </div>
+</ion-modal-view>

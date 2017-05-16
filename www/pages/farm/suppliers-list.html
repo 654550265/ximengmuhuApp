@@ -1,0 +1,38 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="suppliersListModal.remove()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">选择供应商</div>
+        <div class="buttons" ng-show="showSuppliersListContent">
+            <button class="button button-clear" ng-click="chooseSupplier()">
+                保存
+            </button>
+        </div>
+    </ion-header-bar>
+    <!--<div class="bar bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <input type="text" placeholder="请输入供应商名称" ng-model="search.Data" ng-keyup="searchFeed()">
+        </label>
+        <button class="button button-small button-assertive" ng-click="clearSearch()">
+            清空
+        </button>
+    </div>-->
+    <ion-content ng-show="showSuppliersListContent">
+        <div class="item item-divider">
+            您选的供应商: {{selectData.clientSide}}
+        </div>
+        <ion-radio ng-repeat="item in suppliersList"
+                   ng-value="item.Name"
+                   ng-model="selectData.clientSide">    <!-- ng-value="item.value"-->
+             {{item.Name}}
+        </ion-radio>
+    </ion-content>
+    <ion-content ng-hide="showSuppliersListContent">
+        <div class="item item-divider">
+            后台没有数据！请退回手动输入。
+        </div>
+    </ion-content>
+</ion-modal-view>

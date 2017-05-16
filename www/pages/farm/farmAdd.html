@@ -1,0 +1,65 @@
+<ion-modal-view class="farmadd">
+    <ion-header-bar class="bar-balanced">
+        <div class="buttons">
+            <button class="button button-clear" ng-click="hidefarmAdd()">
+                <i class="icon ion-ios-arrow-back"></i>
+            </button>
+        </div>
+        <div class="title">添加新农场</div>
+    </ion-header-bar>
+    <ion-content class="has-footer" delegate-handle="mainScroll">
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label"><i class="balanced">*</i>农场名称</span>
+                <input type="text" ng-model="farm.CommName" placeholder="请输入农场名称">
+            </label>
+            <a class="item item-icon-right" ng-click="addmudi()">
+                <i class="balanced">*</i>&ensp;所在城市
+                <span class="item-note">
+                    {{mudi.provinceName}}{{mudi.cityName}}
+                </span>
+                <i class="icon ion-ios-arrow-forward"></i>
+            </a>
+            <label class="item item-input">
+                <span class="input-label"><i class="balanced">*</i>详细地址</span>
+                <input type="text" ng-model="farm.CommAddress" placeholder="请输入详细地址">
+            </label>
+            <label class="item item-input">
+                <span class="input-label"><i class="balanced">*</i>联系人</span>
+                <input type="text" ng-model="farm.CreatePerson" placeholder="请输入联系人">
+            </label>
+            <label class="item item-input">
+                <span class="input-label"><i class="balanced">*</i>联系电话</span>
+                <input type="text" ng-model="farm.CommTel" placeholder="请输入联系电话">
+            </label>
+        </div>
+        <div class="list addhouse" ng-repeat="dongshe in dongshes">
+            <div class="item item-divider">
+                栋舍{{$index+1}}
+                <i class="icon ion-trash-a  deletehouse" ng-click="deleteDongshe($index)"></i>
+            </div>
+            <label class="item item-input">
+                <span class="input-label">栋舍编号</span>
+                <input type="text" readonly ng-model="dongshe.PlainNO">
+            </label>
+            <label class="item item-input">
+                <span class="input-label"><i class="balanced">*</i>栋舍名称</span>
+                <input type="text" ng-model="dongshe.PlainName" placeholder="请输入栋舍名称">
+            </label>
+            <div class="item plannum-item">
+                栏位数量
+                <div class="plannum-input">
+                    <i class="icon button-icon ion-ios-minus-outline minus" ng-class="dongshe.plannum > 1 ? 'positive' : 'dark'"  ng-click="minus(dongshe)"></i>
+                    <input type="number" class="plannum" ng-model="dongshe.plannum">
+                    <i class="icon button-icon ion-ios-plus plus positive" ng-click="plus(dongshe)"></i>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button button-positive" ng-click="addHouse()" ng-disabled="canClick">添加栋舍</a>
+            <a class="button button-balanced" ng-click="addFarm()">完成</a>
+        </div>
+    </div>
+</ion-modal-view>
