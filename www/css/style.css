@@ -10,6 +10,41 @@
     width: 1.06667rem;
     height: 1.06667rem; }
 
+.wrap-parts {
+  padding: 0.42667rem 0.26667rem; }
+  .wrap-parts .part-item {
+    background-color: white;
+    border-radius: 0.26667rem;
+    box-shadow: 0.08rem 0.16rem 0.06667rem #e1e1e1;
+    margin-bottom: 0.32rem; }
+    .wrap-parts .part-item header {
+      padding: 0.41333rem 0.26667rem;
+      font-size: 0.50667rem;
+      color: #51a6ff;
+      border-bottom: 2px solid #f3f3f3; }
+    .wrap-parts .part-item .content .row {
+      height: 2.73333rem; }
+      .wrap-parts .part-item .content .row .col-4 {
+        position: relative;
+        width: 33%;
+        float: left;
+        text-align: center; }
+        .wrap-parts .part-item .content .row .col-4 img {
+          margin: 0.4rem auto; }
+        .wrap-parts .part-item .content .row .col-4 .p {
+          font-size: 0.61333rem;
+          width: 100%; }
+        .wrap-parts .part-item .content .row .col-4 .not-p {
+          color: #cccccc; }
+
+.enter-img {
+  width: 0.8rem;
+  height: 0.8rem; }
+
+.insure-img {
+  width: 0.68rem;
+  height: 0.76rem; }
+
 .bar-message {
   background: url(../img/message.png) no-repeat center;
   background-size: 28px 28px; }
@@ -42,3 +77,4 @@
   background: url(../img/account-active.png) no-repeat center;
   background-size: 28px 28px; }
 
+/*# sourceMappingURL=style.css.map */
