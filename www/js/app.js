@@ -11,13 +11,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             }
         });
     })
-
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('tab', {
                 url: '/tab',
                 abstract: true,
                 templateUrl: 'pages/tabs.html'
+            })
+            .state('login', {
+              url: "/login",
+              templateUrl: 'templates/login/login.html',
+              controller: 'loginCtrl'
             })
             .state('tab.message', {
                 url: '/message',
