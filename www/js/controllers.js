@@ -1,42 +1,10 @@
 angular.module('starter.controllers', [])
-    .controller('MessageCtrl', function ($scope, $ionicLoading, $ionicPopup, $cordovaToast) {
-        $scope.showAlert = function (msg) {
-            var alertPopup = $ionicPopup.alert({
-                title: '消息',
-                template: msg,
-                okText: '确定'
-            });
-        };
-        $scope.showToast = function (msg) {
-            if (window.cordova) {
-                $cordovaToast.showShortCenter(msg).then(function (success) {
+    .controller('CommonCtrl', function ($scope) {
 
-                }, function (error) {
+    })
+    .controller('MessageCtrl', function ($scope) {
 
-                });
-            } else {
-                $scope.showAlert(msg);
-            }
-        };
-        $scope.showLoad = function () {
-            $ionicLoading.show({
-                template: "<ion-spinner icon='ios'></ion-spinner>"
-            });
-            $timeout(function () {
-                $ionicLoading.hide();
-            }, 10000);
-        };
-        $scope.hideLoad = function () {
-            $ionicLoading.hide();
-        };
     })
-    //牧户控制器
-    .controller('FarmCtrl', function ($scope, $state) {
-        if (window.localStorage.firstrun === "false") {
-            $state.go("login");
-        }
-    })
-    //登录控制器
     .controller('loginCtrl', function ($scope, LoginService, $timeout, $state) {
         $scope.buttonBar = [{
             name: "手机号注册",
@@ -103,7 +71,16 @@ angular.module('starter.controllers', [])
         };
     })
     .controller('ServiceCtrl', function ($scope) {
+
     })
     .controller('AccountCtrl', function ($scope) {
 
+    })
+    .controller('FarmCtrl', function ($scope, $state) {
+       /* if (window.localStorage.firstrun === "false") {
+            $state.go("login");
+        }*/
     });
+
+
+
