@@ -1,0 +1,22 @@
+<ion-view view-title="注册">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear icon" style="color:#fff;">取消</button>
+  </ion-nav-buttons>
+  <div class="bar bar-subheader" style="background-image:none;padding:0;">
+    <div class="button-bar regsiters-list">
+      <div class="">
+        <a style="color:#000;" ng-repeat="item in buttonBar" ng-class="item.active === 1 ? 'active' : ''" class="registers-list" ng-click="slideHasChanged($index)">{{item.name}}</a>
+      </div>
+    </div>
+  </div>
+  <ion-content class="has-subheader herdsmanadd">
+    <ion-slide-box on-slide-changed="slideHasChanged(index)" show-pager="false">
+      <ion-slide>
+
+      </ion-slide>
+      <ion-slide>
+
+      </ion-slide>
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

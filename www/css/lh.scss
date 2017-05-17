@@ -1,16 +1,84 @@
 @charset "UTF-8";
-
-.scroll{
-  width:80%;
-  margin:0 auto;
+$designWidth: 750px;
+@function toRem($px){
+  @return $px / ($designWidth/10) * 1rem;
 }
 #logo{
-  padding-top:pxTorem(100px);
-  margin-bottom:pxTorem(100px);
+  padding-top:toRem(120px);
+  margin-bottom:toRem(120px);
+  img{
+    display:block;
+    width:toRem(155px);
+    margin:0 auto;
+  }
+
 }
-#logo img{
-  display:block;
-  width:pxTorem(155px);
+.login-list {
+  padding: 0 toRem(50px);
+}
+.login-list .item.username{
+  margin-bottom: 1px;
+  border-bottom: 1px solid #ccc;
+  background-color:transparent;
+}
+.page_login .login-list .username-icon {
+  background: url(../img/username_icon.png) no-repeat;
+  width: toRem(38px);
+  height: toRem(42px);
+  background-size: toRem(38px) toRem(42px);
+}
+.page_login .login-list .password-icon {
+  background: url(../img/password_icon.png) no-repeat;
+  width: toRem(38px);
+  height: toRem(43px);
+  background-size:toRem(38px) toRem(43px);
+}
+.user-name::-webkit-input-placeholder,.user-pwd::-webkit-input-placeholder{
+  color:#fff;
+}
+.register-box{
+  position:fixed;
+  bottom:0;
+  left:0;
+  background-color:#fff;
+  width:100%;
+  opacity: 0.7;
+  height:1rem;
+}
+.register-text{
+  margin:0;
+  position:absolute;
+  bottom:0;left:0;
+  line-height:1rem;
+  width:100%;
+  text-align:center;
+  font-size:0.5rem;
+}
+.bg-niu{
+  width:100%;
+  height:100%;
+  background:url("../img/page_login.png") no-repeat;
+  background-size:cover;
+}
+.no-have-text{
+  color:#fff;
+}
+.register{
+  color:#54A6FC;
+}
+.register-text span{
+  display:inline-block;
+}
+.link_forget a {
+  color: #6699ff;
+  font-size:0.5rem;
+}
+.regsiters-list{
+  width:90%;
   margin:0 auto;
 }
-
+.registers-list{
+  color:#000;
+  width:50%;
+  text-align: center;
+}
