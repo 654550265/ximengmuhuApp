@@ -23,6 +23,51 @@ $designWidth: 750px;
 	}
 }
 
+.wrap-parts {
+	padding: toRem(32px) toRem(20px);
+	.part-item{
+		background-color: white;
+		border-radius:  toRem(20px);
+		box-shadow: toRem(6px) toRem(12px) toRem(5px) #e1e1e1;
+		margin-bottom: toRem(24px);
+		header {
+			padding: toRem(31px) toRem(20px);
+			font-size: toRem(38px);
+			color: #51a6ff;
+			border-bottom: 2px solid #f3f3f3;
+		}
+		.content {
+			.row {
+				height: toRem(205px);
+				.col-4 {
+					position: relative;
+					width: 33%;
+					float: left;
+					text-align: center;
+					img {
+						margin: toRem(30px) auto;
+					}
+					.p {
+						font-size: toRem(46px);
+						width: 100%;
+					}
+					.not-p {
+						color: #cccccc;
+					}
+				}
+			}
+		}
+	}
+}
+.enter-img {
+	width: toRem(60px);
+	height:toRem(60px);
+}
+.insure-img {
+	width: toRem(51px);
+	height:toRem(57px);
+}
+
 //nav-buttons
 .bar-message {
 	background: url(../img/message.png) no-repeat center;
