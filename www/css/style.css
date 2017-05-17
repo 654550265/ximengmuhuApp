@@ -77,4 +77,66 @@
   background: url(../img/account-active.png) no-repeat center;
   background-size: 28px 28px; }
 
+.tabs-account .header {
+  height: 3.73333rem;
+  margin-bottom: 0.26667rem;
+  padding-top: 1.06667rem;
+  background-color: #51a6ff;
+  position: relative; }
+  .tabs-account .header img {
+    width: 1.6rem;
+    height: 1.6rem;
+    margin: 0 0.4rem; }
+  .tabs-account .header span:nth-child(2) {
+    position: relative;
+    top: -0.90667rem;
+    color: white;
+    font-size: 0.45333rem; }
+  .tabs-account .header span:nth-child(3) {
+    position: relative;
+    left: -1.02667rem;
+    top: -0.24rem;
+    color: white;
+    font-size: 0.4rem; }
+  .tabs-account .header .edit {
+    width: 3.06667rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    border-radius: 0.4rem 0 0 0.4rem;
+    background-color: #33c1ff;
+    color: white;
+    font-size: 0.48rem;
+    position: absolute;
+    right: 0;
+    bottom: 1.44rem; }
+    .tabs-account .header .edit img {
+      width: 0.42667rem;
+      height: 0.42667rem;
+      margin: 0 0.05333rem 0 0.33333rem;
+      position: relative;
+      top: 0.05333rem; }
+
+.tabs-account .left {
+  width: 0.64rem;
+  height: 0.64rem;
+  position: absolute;
+  top: 26%;
+  left: 4%; }
+
+.tabs-account .farm-set {
+  background: transparent url(../img/farm-set.png) 0 0 no-repeat;
+  background-size: 0.64rem; }
+
+.tabs-account .feed-back {
+  background: transparent url(../img/feed-back.png) 0 0 no-repeat;
+  background-size: 0.64rem; }
+
+.tabs-account .notice-help {
+  background: transparent url(../img/notice-help.png) 0 0 no-repeat;
+  background-size: 0.64rem; }
+
+.tabs-account .about-us {
+  background: transparent url(../img/about-us.png) 0 0 no-repeat;
+  background-size: 0.64rem; }
+
 /*# sourceMappingURL=style.css.map */
