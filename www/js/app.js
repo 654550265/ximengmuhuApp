@@ -20,7 +20,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
             })
             .state('login', {
               url: "/login",
-              templateUrl: 'templates/login/login.html',
+              templateUrl: 'pages/login/login.html',
+              controller: 'loginCtrl'
+            })
+            .state('register', {
+              url: "/register",
+              templateUrl: 'pages/login/register.html',
               controller: 'loginCtrl'
             })
             .state('tab.message', {
