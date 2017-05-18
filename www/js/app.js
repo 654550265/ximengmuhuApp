@@ -51,6 +51,43 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
                     }
                 }
             })
+            .state('tab.enter', {
+                url: '/farm/enter',
+                views: {
+                    'tab-farm': {
+                        templateUrl:  'pages/farm/enter.html',
+                        controller:'FarmEnterCtrl',
+                    }
+                }
+            })
+            .state('tab.out', {
+                url: '/farm/out',
+                views: {
+                    'tab-farm': {
+                        templateUrl:  'pages/farm/out.html',
+                        controller:'FarmEnterCtrl',
+                    }
+                }
+            })
+            .state('tab.feed', {
+                url: '/farm/feed',
+                views: {
+                    'tab-farm': {
+                        templateUrl:  'pages/farm/feed.html',
+                        controller:'FarmEnterCtrl',
+                    }
+                }
+            })
+            .state('tab.wipe-out', {
+                url: '/farm/wipe-out',
+                views: {
+                    'tab-farm': {
+                        templateUrl:  'pages/farm/wipe-out.html',
+                        controller:'FarmEnterCtrl',
+                    }
+                }
+            })
+
             .state('tab.service', {
                 url: '/service',
                 views: {

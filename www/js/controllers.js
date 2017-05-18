@@ -38,11 +38,6 @@ angular.module('app.controllers', [])
     })
     .controller('AccountCtrl', function ($scope) {
 
-    })
-    .controller('FarmCtrl', function ($scope, $state) {
-//        if (window.localStorage.firstrun === "false" ||window.localStorage.firstrun===undefined) {
-//            $state.go("login");
-//        }
     });
 
 

@@ -1,3 +1,12 @@
+a {
+  text-decoration: none;
+  color: #000; }
+
+.fix:after {
+  display: block;
+  content: "";
+  clear: both; }
+
 .message-list {
   padding: 0.33333rem 0.26667rem 0.33333rem 0.26667rem;
   font-size: 18px;
@@ -9,6 +18,9 @@
   .message-list img {
     width: 1.06667rem;
     height: 1.06667rem; }
+
+.fontColor {
+  color: #51a6ff !important; }
 
 .wrap-parts {
   padding: 0.42667rem 0.26667rem; }
@@ -29,6 +41,8 @@
         width: 33%;
         float: left;
         text-align: center; }
+        .wrap-parts .part-item .content .row .col-4 a {
+          display: block; }
         .wrap-parts .part-item .content .row .col-4 img {
           margin: 0.4rem auto; }
         .wrap-parts .part-item .content .row .col-4 .p {
@@ -138,5 +152,39 @@
 .tabs-account .about-us {
   background: transparent url(../img/about-us.png) 0 0 no-repeat;
   background-size: 0.64rem; }
+
+.floor {
+  margin-top: 0.4rem;
+  background-color: #fff; }
+  .floor li {
+    height: 1.12rem;
+    line-height: 1.12rem;
+    padding: 0 24px 0 12px; }
+    .floor li p {
+      font-size: 0.53333rem;
+      color: #666666;
+      float: left;
+      margin: 0; }
+      .floor li p > i {
+        color: #ff7f66; }
+    .floor li span {
+      font-size: 0.53333rem;
+      color: #333;
+      float: right; }
+
+.button-bar > .button a.btn-save, .button-bar > .button a.btn-continue {
+  width: 80%; }
+
+.btn-save {
+  color: #fff;
+  background-color: #51a6ff;
+  width: 60% !important;
+  border-radius: 16px !important; }
+
+.btn-continue {
+  color: #fff;
+  background-color: #49e6bc;
+  width: 60% !important;
+  border-radius: 16px !important; }
 
 /*# sourceMappingURL=style.css.map */

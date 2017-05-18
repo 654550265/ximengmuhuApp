@@ -1,7 +1,19 @@
 @charset "UTF-8";
 $designWidth: 750px;
+$fontColor: #51a6ff;
 @function toRem($px){
 	@return $px / ($designWidth/10) * 1rem;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+.fix:after {
+	display:block;
+	content:"";
+	clear:both;
 }
 
 //tab-message
@@ -22,7 +34,9 @@ $designWidth: 750px;
 		
 	}
 }
-
+.fontColor {
+	color: $fontColor !important;
+}
 .wrap-parts {
 	padding: toRem(32px) toRem(20px);
 	.part-item{
@@ -44,6 +58,9 @@ $designWidth: 750px;
 					width: 33%;
 					float: left;
 					text-align: center;
+					a {
+						display: block;
+					}
 					img {
 						margin: toRem(30px) auto;
 					}
@@ -167,3 +184,87 @@ $designWidth: 750px;
 .tabs-account .about-us {
 	background: transparent url(../img/about-us.png) 0 0 no-repeat;
 	background-size: toRem(48px); }
+
+
+.floor {
+	margin-top: toRem(30px);
+	background-color: #fff;
+	li {
+		height: toRem(84px);
+		line-height: toRem(84px);
+		padding: 0 24px 0 12px;
+		p {
+			>i {
+				color: #ff7f66;
+			}
+			font-size: toRem(40px);
+			color: #666666;
+			float: left;
+			margin: 0;
+		}
+		span{
+			font-size: toRem(40px);
+			color: #333;
+			float: right;
+		}
+	}
+}
+
+.button-bar > .button a.btn-save ,.button-bar > .button a.btn-continue {
+	width:80%;
+}
+
+.btn-save {
+	color: #fff;
+	background-color: $fontColor;
+	width: 60% !important;
+	border-radius: 16px !important;
+}
+
+
+.btn-continue {
+	color: #fff;
+	background-color: #49e6bc;
+	width: 60% !important;
+	border-radius: 16px !important;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
