@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('app.services', [])
   .factory('LoginService', function($http, $q) {
 
     return {

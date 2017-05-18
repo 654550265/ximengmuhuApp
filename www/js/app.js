@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('app', ['ionic', 'app.controllers','app.services'])
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -22,6 +22,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
               url: "/login",
               templateUrl: 'pages/login/login.html',
               controller: 'loginCtrl'
+            })
+            .state('mess', {
+              url: "/mess",
+              templateUrl: 'pages/mess/mess.html',
+              controller: 'messCtrl'
             })
             .state('register', {
               url: "/register",
@@ -67,3 +72,4 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         $urlRouterProvider.otherwise('/tab/farm');
 
     });
+angular.module('app.controllers', []);

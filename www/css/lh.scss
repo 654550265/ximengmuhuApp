@@ -76,9 +76,95 @@ $designWidth: 750px;
 .regsiters-list{
   width:90%;
   margin:0 auto;
+  .active{
+    border-bottom:2px solid #53A6FC;
+  }
 }
 .registers-list{
+  display:inline-block;
+  line-height:44px;
   color:#000;
   width:50%;
   text-align: center;
+  border-bottom:1px solid #dddddd;
+  font-size:toRem(40px);
+}
+.tel-box{
+  width:94%;
+  margin:toRem(50px) auto 0 auto ;
+}
+.pic-userName{
+  display:inline-block;
+  width:toRem(30px);
+  height:toRem(41px);
+}
+.register-tel-icon{
+  background:url("../img/tel_03.png") no-repeat;
+  width:toRem(30px);
+  height:toRem(41px);
+  background-size:toRem(30px) toRem(41px);
+}
+.register-code-icon{
+  display:inline-block;
+  float:left;
+  margin-left:14px;
+  margin-top:toRem(30px);
+  background:url("../img/tel_06.png") no-repeat;
+  width:toRem(38px);
+  height:toRem(41px);
+  background-size:toRem(38px) toRem(41px);
+}
+.register-password-icon{
+  background:url("../img/tel_10.png") no-repeat;
+  width:toRem(36px);
+  height:toRem(42px);
+  background-size:toRem(36px) toRem(42px);
+}
+.getCode{
+  position:absolute;
+  right:toRem(5px);top:toRem(25px);
+  font-size:toRem(30px);
+}
+.tijiao{
+  background-color:#53A6FC;
+  color:#fff;
+}
+.userName-tel-icon{
+  background:url("../img/user_03.png") no-repeat;
+  width:toRem(36px);
+  height:toRem(35px);
+  background-size:toRem(36px) toRem(35px);
+}
+.mess-list{
+  width:90%;
+  margin:toRem(80px) auto 0 auto;
+  border:0;
+}
+.input-label{
+  font-size:toRem(40px);
+}
+.item-stacked-label .mess-put{
+  font-size:toRem(35px);
+}
+.blue-mess-put::-webkit-input-placeholder{
+  color:#53A6FC;
+}
+.mess-city-box{
+  padding:6px 0 5px 16px;
+}
+.mess-city{
+  width:50%;
+  margin-top:10px;
+}
+#prvince,#city,#qu{
+  width:32%;
+  padding:5px 5px 5px 0;
+  border:1px solid #ddd;
+  border-radius:5px;
+  margin-top:5px;
+}
+.nav-bar-block>.bar-header{
+  background-image:none;
+}
+.message-list .red-text-message{
 }
