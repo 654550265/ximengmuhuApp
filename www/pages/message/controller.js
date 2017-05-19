@@ -52,6 +52,6 @@ angular.module("app.controllers")
         }
         //预约通知的详情页面
         $scope.gotoMessOrder=function(){
-             
+
         }
     });

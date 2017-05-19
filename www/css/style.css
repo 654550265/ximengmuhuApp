@@ -10,6 +10,7 @@ a {
 .message-list {
   padding: 0.33333rem 0.26667rem 0.33333rem 0.26667rem;
   font-size: 18px;
+  position: relative;
   line-height: 1; }
   .message-list span {
     position: relative;

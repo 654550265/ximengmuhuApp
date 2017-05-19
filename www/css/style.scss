@@ -20,18 +20,18 @@ a {
 .message-list {
 	padding: toRem(25px) toRem(20px) toRem(25px) toRem(20px);
 	font-size: 18px;
-	
+	position:relative;
 	line-height: 1;
 	span {
 		position: relative;
 		top: toRem(-25px);
 		left: 7px;
-		
+
 	}
 	img {
 		width: toRem(80px);
 		height: toRem(80px);
-		
+
 	}
 }
 .fontColor {
@@ -227,7 +227,7 @@ a {
 	background-color: #49e6bc;
 	width: 60% !important;
 	border-radius: 16px !important;
-	
+
 }
 
 

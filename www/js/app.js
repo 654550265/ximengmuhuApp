@@ -167,6 +167,15 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
                     }
                 }
             })
+            .state('tab.giveUsMess', {
+                url: '/account/giveUsMess',
+                views: {
+                    'tab-account': {
+                        templateUrl: 'pages/account/giveUsMess.html',
+                        controller: 'AccountSubCtrl'
+                    }
+                }
+            })
             .state('tab.feedback', {
                 url: '/account/feedback',
                 views: {
