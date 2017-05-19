@@ -81,7 +81,11 @@ angular.module("app.controllers")
     pwd: ''
   };
   $scope.doLogin = function () {
-    firstrun = false;
+      var firstrun = true;
+      localStorage.setItem('firstrun', firstrun);
+      $state.go("tab.farm");
+    /*firstrun = false;
+
     localStorage.setItem('firstrun', firstrun);
     if ($scope.loginData.username == undefined) {
       $scope.showToast('请输入用户名');
@@ -124,7 +128,7 @@ angular.module("app.controllers")
     }).error(function (data) {
       // $scope.hideLoad();
       // $scope.showToast(data.Message);
-    });
+    });*/
   };
   $scope.goto = function (type) {
     $state.go(type);

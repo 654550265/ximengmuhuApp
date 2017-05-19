@@ -1,0 +1,84 @@
+<ion-view view-title="发布的消息">
+    <div class="bar bar-subheader" style="background-image:none;padding:0;">
+        <div class="button-bar">
+            <div class="regsiters-list">
+                <a style="color:#000;" ng-repeat="item in buttonBar" ng-class="item.active === 1 ? 'active' : ''" class="registers-list" ng-click="slideHasChanged($index)">{{item.name}}</a>
+            </div>
+        </div>
+    </div>
+    <ion-content class="has-subheader herdsmanadd has-footer" style="background-color:#f3f3f3;">
+        <ion-slide-box on-slide-changed="slideHasChanged(index)" show-pager="false">
+            <ion-slide>
+                <ul class="floor">
+                    <li class="fix">
+                        <p><i>&ensp;</i>单号</p>
+                        <span><i>&ensp;</i>12313123412341234124</span>
+                    </li>
+                    <li class="fix">
+                        <p><i>&ensp;</i>日期</p>
+                        <span>2017-05-10</span>
+                    </li>
+                </ul>
+                <ul class="floor">
+                    <li class="fix">
+                        <p><i>*</i>单号</p>
+                        <span>12313123412341234124</span>
+                    </li>
+                    <li class="fix">
+                        <p><i>*</i>数量</p>
+                        <span class="fontColor">80</span>
+                    </li>
+                </ul>
+                <ul class="floor">
+                    <li class="fix" >
+                        <p class="fontColor"><i>&ensp;</i>拍照</p>
+                    </li>
+                </ul>
+                <ul class="floor">
+                    <li class="fix" >
+                        <p class="fontColor"><i>&ensp;</i>扫描到的耳号</p>
+                    </li>
+                </ul>
+            </ion-slide>
+            <ion-slide>
+                <ul class="floor">
+                    <li class="fix">
+                        <p><i>&ensp;</i>单号</p>
+                        <span><i>&ensp;</i>12313123412341234124</span>
+                    </li>
+                    <li class="fix">
+                        <p><i>&ensp;</i>日期</p>
+                        <span>2017-05-10</span>
+                    </li>
+                </ul>
+                <ul class="floor">
+                    <li class="fix">
+                        <p><i>*</i>喂养对象</p>
+                        <span>12313123412341234124</span>
+                    </li>
+                    <li class="fix">
+                        <p><i>*</i>饲料</p>
+                        <span class="fontColor">80</span>
+                    </li>
+                </ul>
+                <ul class="floor">
+                    <li class="fix" >
+                        <p class="fontColor"><i>&ensp;</i>拍照</p>
+                    </li>
+                </ul>
+                <ul class="floor">
+                    <li class="fix" >
+                        <p class="fontColor"><i>&ensp;</i>扫描到的耳号</p>
+                    </li>
+                </ul>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content><div class="bar bar-footer">
+    <div class="bar bar-footer">
+        <div class="button-bar">
+            <a class="button btn-save">保存</a>
+            <a class="button btn-continue">保存并继续</a>
+        </div>
+    </div>
+</div>
+</ion-view>

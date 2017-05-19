@@ -11,7 +11,15 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
             }
         });
     })
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider, $compileProvider, $ionicConfigProvider) {
+        $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob|content):|data:image\//);
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|file|geo|mailto|tel|chrome-extension):/);
+        $ionicConfigProvider.backButton.previousTitleText(false).text('');
+        $ionicConfigProvider.tabs.position('bottom');
+        $ionicConfigProvider.views.maxCache(0);
+        $ionicConfigProvider.navBar.alignTitle('center');
+        $ionicConfigProvider.views.swipeBackEnabled(false);
+
         $stateProvider
             .state('tab', {
                 url: '/tab',
@@ -39,6 +47,33 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
                     'tab-message': {
                         templateUrl: 'pages/message/message.html',
                         controller: 'MessageCtrl'
+                    }
+                }
+            })
+            .state('tab.notice1', {
+                url: '/message/notice1',
+                views: {
+                    'tab-message': {
+                        templateUrl: 'pages/message/notice1.html',
+                        controller: 'MessageNoticeCtrl'
+                    }
+                }
+            })
+            .state('tab.notice2', {
+                url: '/message/notice2',
+                views: {
+                    'tab-message': {
+                        templateUrl: 'pages/message/notice2.html',
+                        controller: 'MessageNoticeCtrl'
+                    }
+                }
+            })
+            .state('tab.notice3', {
+                url: '/message/notice3',
+                views: {
+                    'tab-message': {
+                        templateUrl: 'pages/message/notice3.html',
+                        controller: 'MessageNoticeCtrl'
                     }
                 }
             })
@@ -78,6 +113,15 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
                     }
                 }
             })
+            .state('tab.order', {
+                url: '/farm/order',
+                views: {
+                    'tab-farm': {
+                        templateUrl:  'pages/farm/order.html',
+                        controller:'FarmEnterCtrl',
+                    }
+                }
+            })
             .state('tab.wipe-out', {
                 url: '/farm/wipe-out',
                 views: {
@@ -105,7 +149,17 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
                         controller: 'AccountCtrl'
                     }
                 }
+            })
+            .state('tab.feedback', {
+                url: '/account/feedback',
+                views: {
+                    'tab-account': {
+                        templateUrl: 'pages/account/feedback.html',
+                        controller: 'AccountFeedCtrl'
+                    }
+                }
             });
+
         $urlRouterProvider.otherwise('/tab/farm');
 
     });

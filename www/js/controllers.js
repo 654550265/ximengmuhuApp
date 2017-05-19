@@ -29,8 +29,10 @@ angular.module('app.controllers', [])
           $scope.showAlert(msg);
         }
       };
-    })
-    .controller('MessageCtrl', function ($scope) {
+
+
+        var firstrun = false;
+        localStorage.setItem('firstrun', firstrun);
 
     })
     .controller('ServiceCtrl', function ($scope) {

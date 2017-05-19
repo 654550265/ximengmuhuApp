@@ -1,9 +1,8 @@
 angular.module("app.controllers")
-    .controller('FarmCtrl', function ($scope, $ionicTabsDelegate) {
-
-//        if (window.localStorage.firstrun === "false" ||window.localStorage.firstrun===undefined) {
-//            $state.go("login");
-//        }
+    .controller('FarmCtrl', function ($scope, $ionicTabsDelegate,$state) {
+        if (window.localStorage.firstrun === "false" || window.localStorage.firstrun === undefined) {
+            $state.go("login");
+        }
     })
     .controller('FarmEnterCtrl', function ($scope, $ionicSlideBoxDelegate ,$ionicTabsDelegate) {
         $ionicTabsDelegate.showBar(false);
