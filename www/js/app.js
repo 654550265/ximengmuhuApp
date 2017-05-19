@@ -12,8 +12,16 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
         });
 
     })
-    .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
-        $ionicConfigProvider.backButton.previousTitleText(false);
+
+    .config(function ($stateProvider, $urlRouterProvider, $compileProvider, $ionicConfigProvider) {
+        $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob|content):|data:image\//);
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|file|geo|mailto|tel|chrome-extension):/);
+        $ionicConfigProvider.backButton.previousTitleText(false).text('');
+        $ionicConfigProvider.tabs.position('bottom');
+        $ionicConfigProvider.views.maxCache(0);
+        $ionicConfigProvider.navBar.alignTitle('center');
+        $ionicConfigProvider.views.swipeBackEnabled(false);
+
         $stateProvider
             .state('tab', {
                 url: '/tab',
@@ -49,6 +57,33 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
                     }
                 }
             })
+            .state('tab.notice1', {
+                url: '/message/notice1',
+                views: {
+                    'tab-message': {
+                        templateUrl: 'pages/message/notice1.html',
+                        controller: 'MessageNoticeCtrl'
+                    }
+                }
+            })
+            .state('tab.notice2', {
+                url: '/message/notice2',
+                views: {
+                    'tab-message': {
+                        templateUrl: 'pages/message/notice2.html',
+                        controller: 'MessageNoticeCtrl'
+                    }
+                }
+            })
+            .state('tab.notice3', {
+                url: '/message/notice3',
+                views: {
+                    'tab-message': {
+                        templateUrl: 'pages/message/notice3.html',
+                        controller: 'MessageNoticeCtrl'
+                    }
+                }
+            })
             .state('tab.farm', {
                 url: '/farm',
                 views: {
@@ -58,6 +93,52 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
                     }
                 }
             })
+            .state('tab.enter', {
+                url: '/farm/enter',
+                views: {
+                    'tab-farm': {
+                        templateUrl:  'pages/farm/enter.html',
+                        controller:'FarmEnterCtrl',
+                    }
+                }
+            })
+            .state('tab.out', {
+                url: '/farm/out',
+                views: {
+                    'tab-farm': {
+                        templateUrl:  'pages/farm/out.html',
+                        controller:'FarmEnterCtrl',
+                    }
+                }
+            })
+            .state('tab.feed', {
+                url: '/farm/feed',
+                views: {
+                    'tab-farm': {
+                        templateUrl:  'pages/farm/feed.html',
+                        controller:'FarmEnterCtrl',
+                    }
+                }
+            })
+            .state('tab.order', {
+                url: '/farm/order',
+                views: {
+                    'tab-farm': {
+                        templateUrl:  'pages/farm/order.html',
+                        controller:'FarmEnterCtrl',
+                    }
+                }
+            })
+            .state('tab.wipe-out', {
+                url: '/farm/wipe-out',
+                views: {
+                    'tab-farm': {
+                        templateUrl:  'pages/farm/wipe-out.html',
+                        controller:'FarmEnterCtrl',
+                    }
+                }
+            })
+
             .state('tab.service', {
                 url: '/service',
                 views: {
@@ -75,7 +156,17 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
                         controller: 'AccountCtrl'
                     }
                 }
+            })
+            .state('tab.feedback', {
+                url: '/account/feedback',
+                views: {
+                    'tab-account': {
+                        templateUrl: 'pages/account/feedback.html',
+                        controller: 'AccountFeedCtrl'
+                    }
+                }
             });
+
         $urlRouterProvider.otherwise('/tab/farm');
 
     });
