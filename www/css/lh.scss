@@ -1,0 +1,330 @@
+@charset "UTF-8";
+$designWidth : 750px;
+@function toRem($px) {
+    @return $px / ($designWidth/10) * 1rem;
+}
+
+#logo {
+    padding-top   : toRem(120px);
+    margin-bottom : toRem(120px);
+    img {
+        display : block;
+        width   : toRem(155px);
+        margin  : 0 auto;
+    }
+
+}
+
+.login-list {
+    padding : 0 toRem(50px);
+}
+
+.login-list .item.username {
+    margin-bottom    : 1px;
+    border-bottom    : 1px solid #ccc;
+    background-color : transparent;
+}
+
+.page_login .login-list .username-icon {
+    background      : url(../img/username_icon.png) no-repeat;
+    width           : toRem(38px);
+    height          : toRem(42px);
+    background-size : toRem(38px) toRem(42px);
+}
+
+.page_login .login-list .password-icon {
+    background      : url(../img/password_icon.png) no-repeat;
+    width           : toRem(38px);
+    height          : toRem(43px);
+    background-size : toRem(38px) toRem(43px);
+}
+
+.user-name::-webkit-input-placeholder, .user-pwd::-webkit-input-placeholder {
+    color : #fff;
+}
+
+.register-box {
+    position         : fixed;
+    bottom           : 0;
+    left             : 0;
+    background-color : #fff;
+    width            : 100%;
+    opacity          : 0.7;
+    height           : 1rem;
+}
+
+.register-text {
+    margin      : 0;
+    position    : absolute;
+    bottom      : 0;
+    left        : 0;
+    line-height : 1rem;
+    width       : 100%;
+    text-align  : center;
+    font-size   : 0.5rem;
+}
+
+.page_login {
+    background      : url(../img/page_login.png) no-repeat center center fixed;
+    background-size : cover;
+}
+
+.no-have-text {
+    color : #fff;
+}
+
+.register {
+    color : #54A6FC;
+}
+
+.register-text span {
+    display : inline-block;
+}
+
+.link_forget a {
+    color     : #6699ff;
+    font-size : 0.5rem;
+}
+
+.regsiters-list {
+    width  : 90%;
+    margin : 0 auto;
+    .active {
+        border-bottom : 2px solid #53A6FC;
+    }
+}
+
+.registers-list {
+    display       : inline-block;
+    line-height   : 44px;
+    color         : #000;
+    width         : 50%;
+    text-align    : center;
+    border-bottom : 1px solid #dddddd;
+    font-size     : toRem(40px);
+}
+
+.tel-box {
+    width  : 94%;
+    margin : toRem(50px) auto 0 auto;
+}
+
+.pic-userName {
+    display : inline-block;
+    width   : toRem(30px);
+    height  : toRem(41px);
+}
+
+.register-tel-icon {
+    background      : url("../img/tel_03.png") no-repeat;
+    width           : toRem(30px);
+    height          : toRem(41px);
+    background-size : toRem(30px) toRem(41px);
+}
+
+.register-code-icon {
+    display         : inline-block;
+    float           : left;
+    margin-left     : 14px;
+    margin-top      : toRem(30px);
+    background      : url("../img/tel_06.png") no-repeat;
+    width           : toRem(38px);
+    height          : toRem(41px);
+    background-size : toRem(38px) toRem(41px);
+}
+
+.register-password-icon {
+    background      : url("../img/tel_10.png") no-repeat;
+    width           : toRem(36px);
+    height          : toRem(42px);
+    background-size : toRem(36px) toRem(42px);
+}
+
+.getCode {
+    position  : absolute;
+    right     : toRem(5px);
+    top       : toRem(25px);
+    font-size : toRem(30px);
+}
+
+.tijiao {
+    background-color : #53A6FC;
+    color            : #fff;
+}
+
+.userName-tel-icon {
+    background      : url("../img/user_03.png") no-repeat;
+    width           : toRem(36px);
+    height          : toRem(35px);
+    background-size : toRem(36px) toRem(35px);
+}
+
+.mess-list {
+    width  : 90%;
+    margin : toRem(80px) auto 0 auto;
+    border : 0;
+}
+
+.input-label {
+    font-size : toRem(40px);
+}
+
+.item-stacked-label .mess-put {
+    font-size : toRem(35px);
+}
+
+.blue-mess-put::-webkit-input-placeholder {
+    color : #53A6FC;
+}
+
+.mess-city-box {
+    padding : 6px 0 5px 16px;
+}
+
+.mess-city {
+    width      : 50%;
+    margin-top : 10px;
+}
+
+#prvince, #city, #qu {
+    width         : 32%;
+    padding       : 5px 5px 5px 0;
+    border        : 1px solid #ddd;
+    border-radius : 5px;
+    margin-top    : 5px;
+}
+
+.nav-bar-block > .bar-header {
+    background-image : none;
+}
+
+.Announcements-box {
+    width  : 90%;
+    margin : 0 auto;
+}
+
+.Announcements-time {
+    text-align : center;
+    font-size  : toRem(30px);
+    color      : #999;
+    margin-top : toRem(20px);
+}
+
+.Announcements-message-box {
+    background-color : #fff;
+    border-radius    : 5px;
+}
+
+.dingdan-text {
+    display       : block;
+    padding       : toRem(30px) 0 toRem(30px) toRem(20px);
+    font-size     : toRem(35px);
+    border-bottom : 1px solid #f5f5f5;
+}
+
+.Announcements-goto-box {
+    overflow   : hidden;
+    border-top : 1px solid #f5f5f5;
+}
+
+.Announcements-goto-see {
+    float     : left;
+    font-size : toRem(36px);
+    color     : #51a6ff;
+    padding   : toRem(30px) 0 toRem(30px) toRem(20px);
+}
+
+.Announcements-goto-pic {
+    float : right;
+    img {
+        margin : toRem(30px) toRem(20px) 0 0;
+        width  : toRem(25px);
+    }
+}
+
+.Announcements-text-p {
+    width         : 80%;
+    margin        : 0 auto;
+    padding       : toRem(20px) 0;
+    color         : #666;
+    font-size     : toRem(36px);
+    overflow      : hidden;
+    white-space   : nowrap;
+    text-overflow : ellipsis;
+}
+
+.AnnouncementsMore-box {
+    width  : 90%;
+    margin : 0 auto;
+    h2 {
+        margin-top : toRem(20px);
+        color      : #333333;
+        font-size  : toRem(40px);
+    }
+    h4 {
+        color     : #999999;
+        font-size : toRem(30px);
+    }
+    h3 {
+        color     : #666666;
+        font-size : toRem(36px);
+    }
+}
+
+.Announcements-name {
+    padding-left   : toRem(20px);
+    color          : #999;
+    font-size      : toRem(30px);
+    margin         : 0;
+    padding-bottom : toRem(30px);
+    border-bottom  : 1px solid #f5f5f5;
+}
+
+.dingdan-title {
+    border : 0;
+}
+
+.release-box {
+    width  : 94%;
+    margin : 0 auto;
+    .item-input {
+        margin       : 0;
+        padding-left : 0;
+        border-top   : 0;
+        border-left  : 0;
+        border-right : 0;
+        input {
+            padding-right : 0;
+            text-align    : right;
+            font-size     : toRem(35px);
+        }
+        .input-label {
+            color : #666;
+        }
+    }
+    .item-select {
+        margin : 0;
+        border : 0;
+    }
+}
+
+#release-text {
+    resize           : none;
+    background-color : #f5f5f5;
+    width            : 100%;
+    height           : toRem(300px);
+    font-size        : toRem(36px);
+    padding          : toRem(20px) 0;
+}
+
+.release-btn {
+    position:fixed;
+    left:5%;bottom:toRem(30px);
+    width  : 90%;
+    margin : 0 auto;
+    background-color:#53A6FC;
+    text-align: center;
+    color:#fff;
+    font-size:toRem(40px);
+    border-radius:toRem(60px);
+}

@@ -1,0 +1,24 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-stable bar bar-header">
+        <button class="button icon-left ion-chevron-left button-calm" ng-click="hideModal()"></button>
+        <div class="title title-center header-item">发布消息</div>
+    </ion-header-bar>
+    <ion-content style="background-color:#fff;">
+        <div class="release-box">
+            <label class="item item-input">
+                <span class="input-label">标题</span>
+                <input type="text" placeholder="请输入标题">
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">接收人</div>
+                <select>
+                    <option>Blue</option>
+                    <option selected>Green</option>
+                    <option>RedGreen</option>
+                </select>
+            </label>
+            <textarea name="release-text" id="release-text" placeholder="请输入内容"></textarea>
+        </div>
+    </ion-content>
+    <div class="button release-btn button-positive">发布</div>
+</ion-modal-view>

@@ -57,30 +57,40 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
                     }
                 }
             })
-            .state('tab.notice1', {
-                url: '/message/notice1',
+            //通知公告路由
+            .state('tab.Announcements', {
+                url: '/message/Announcements',
                 views: {
                     'tab-message': {
-                        templateUrl: 'pages/message/notice1.html',
-                        controller: 'MessageNoticeCtrl'
+                        templateUrl: 'pages/message/Announcements.html',
+                        controller: 'MessageSubCtrl'
                     }
                 }
             })
-            .state('tab.notice2', {
-                url: '/message/notice2',
+            .state('tab.BookingMessage', {
+                url: '/message/BookingMessage',
                 views: {
                     'tab-message': {
-                        templateUrl: 'pages/message/notice2.html',
-                        controller: 'MessageNoticeCtrl'
+                        templateUrl: 'pages/message/BookingMessage.html',
+                        controller: 'MessageSubCtrl'
                     }
                 }
             })
-            .state('tab.notice3', {
-                url: '/message/notice3',
+            .state('tab.getMessage', {
+                url: '/message/getMessage',
                 views: {
                     'tab-message': {
-                        templateUrl: 'pages/message/notice3.html',
-                        controller: 'MessageNoticeCtrl'
+                        templateUrl: 'pages/message/getMessage.html',
+                        controller: 'MessageSubCtrl'
+                    }
+                }
+            })
+            .state('tab.messageOrder', {
+                url: '/message/messageOrder',
+                views: {
+                    'tab-message': {
+                        templateUrl: 'pages/message/messageOrder.html',
+                        controller: 'MessageSubCtrl'
                     }
                 }
             })
