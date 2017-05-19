@@ -1,34 +1,37 @@
 <ion-view view-title="登陆" class="page_login" hide-nav-bar="true">
-  <ion-content class="bg-niu">
-    <div id="logo">
-      <img src="img/logo.png" alt="真源智慧农场">
-    </div>
-    <form name="myForm" novalidate ng-submit="doLogin()">
-      <div class="list login-list">
-        <label class="item item-input item-icon-left username" style="border:0;">
-          <span class="username-icon"></span>
-          <input type="number" class="user-name" ng-model="loginData.username" required placeholder="请输入用户名/手机号码" style="color:#fff;font-size:0.5rem;border-bottom:1px solid #fff;padding:0.7rem 0;margin-left:0.5rem">
-        </label>
-        <label class="item item-input item-icon-left" style="border:0;background-color:transparent;">
-          <span class="password-icon"></span>
-          <input type="password" class="user-pwd" ng-model="loginData.pwd" required placeholder="请输入密码" style="color:#fff;font-size:0.5rem;border-bottom:1px solid #fff;padding:0.7rem 0;margin-left:0.5rem;">
-        </label>
-        <button class="button button-block button-balanced dologin">
-          登录
-        </button>
-        <div class="login_links row">
-          <div class="col text-right link_forget">
-            <a ng-click="goto('forget')">
-              忘记密码？
-            </a>
-          </div>
+    <ion-content class="bg-niu">
+        <div id="logo">
+            <img src="img/logo.png" alt="真源智慧农场">
         </div>
-      </div>
-    </form>
-    <div class="bg-niu"></div>
-  </ion-content>
-  <div class="register-box"></div>
-  <p class="register-text">
-    <span class="no-have-text">还没有帐号?&nbsp;</span><span class="register" ng-click="goto('register')">去注册</span>
-  </p>
+        <form name="myForm" novalidate ng-submit="doLogin()">
+            <div class="list login-list">
+                <label class="item item-input item-icon-left username" style="border:0;">
+                    <span class="username-icon"></span>
+                    <input type="number" class="user-name" ng-model="loginData.username" required
+                           placeholder="请输入用户名/手机号码"
+                           style="color:#fff;font-size:0.5rem;border-bottom:1px solid #fff;padding:0.7rem 0;margin-left:0.5rem">
+                </label>
+                <label class="item item-input item-icon-left" style="border:0;background-color:transparent;">
+                    <span class="password-icon"></span>
+                    <input type="password" class="user-pwd" ng-model="loginData.pwd" required placeholder="请输入密码"
+                           style="color:#fff;font-size:0.5rem;border-bottom:1px solid #fff;padding:0.7rem 0;margin-left:0.5rem;">
+                </label>
+                <button class="button button-block button-balanced dologin">
+                    登录
+                </button>
+                <div class="login_links row">
+                    <div class="col text-right link_forget">
+                        <a ng-click="goto('forget')">
+                            忘记密码？
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="bg-niu"></div>
+    </ion-content>
+    <div class="register-box"></div>
+    <p class="register-text">
+        <span class="no-have-text">还没有帐号?&nbsp;</span><span class="register" ng-click="goto('register')">去注册</span>
+    </p>
 </ion-view>

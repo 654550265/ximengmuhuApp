@@ -10,8 +10,10 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
                 StatusBar.styleDefault();
             }
         });
+
     })
-    .config(function ($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+        $ionicConfigProvider.backButton.previousTitleText(false);
         $stateProvider
             .state('tab', {
                 url: '/tab',
@@ -32,6 +34,11 @@ angular.module('app', ['ionic', 'app.controllers','app.services'])
               url: "/register",
               templateUrl: 'pages/login/register.html',
               controller: 'loginCtrl'
+            })
+            .state('Announcements', {
+                url: "/message",
+                templateUrl: 'pages/message/Announcements.html',
+                controller: 'MessageCtrl'
             })
             .state('tab.message', {
                 url: '/message',

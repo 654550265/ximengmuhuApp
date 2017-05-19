@@ -160,4 +160,24 @@
 .nav-bar-block > .bar-header {
   background-image: none; }
 
+.Announcements-box {
+  width: 100%; }
+
+.Announcements-time {
+  text-align: center;
+  color: #999;
+  font-size: 0.4rem; }
+
+.Announcements-message-box {
+  width: 90%;
+  margin: 0 auto;
+  background-color: #fff; }
+
+.dingdan-text {
+  display: block;
+  color: #000;
+  padding: 0.26667rem 0 0.26667rem 0.26667rem;
+  font-size: 0.53333rem;
+  border-bottom: 1px solid #F5F5F5; }
+
 /*# sourceMappingURL=lh.css.map */
