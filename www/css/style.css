@@ -2,10 +2,16 @@ a {
   text-decoration: none;
   color: #000; }
 
+.fix {
+  border-bottom: 1px solid #f5f5f5; }
+
 .fix:after {
   display: block;
   content: "";
   clear: both; }
+
+.button-bar .regsiters-list .active {
+  color: #53A6FC !important; }
 
 .message-list {
   padding: 0.33333rem 0.26667rem 0.33333rem 0.26667rem;
@@ -158,8 +164,8 @@ a {
   margin-top: 0.4rem;
   background-color: #fff; }
   .floor li {
-    height: 1.12rem;
-    line-height: 1.12rem;
+    height: 1.33333rem;
+    line-height: 1.33333rem;
     padding: 0 24px 0 12px; }
     .floor li p {
       font-size: 0.53333rem;
@@ -187,5 +193,8 @@ a {
   background-color: #49e6bc;
   width: 60% !important;
   border-radius: 16px !important; }
+
+.tab-item.tab-item-active .tab-title {
+  color: #51a6ff; }
 
 /*# sourceMappingURL=style.css.map */

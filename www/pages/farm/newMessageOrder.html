@@ -1,0 +1,69 @@
+<ion-ion-modal-view>
+    <ion-header-bar class="bar-stable bar bar-header">
+        <button class="button icon-left ion-chevron-left button-calm" ng-click="hideModal()"></button>
+        <div class="title title-center header-item">新预约</div>
+    </ion-header-bar>
+    <ion-content>
+        <ul class="floor">
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>单号</p>
+                <span><i>&ensp;</i>{{dan}}</span>
+            </li>
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>日期</p>
+                <span>{{date}}</span>
+            </li>
+        </ul>
+        <ul class="floor">
+            <!--<li class="fix">-->
+            <!--<p style="color:#444;"><i>&ensp;</i>物质编号</p>-->
+            <!--<span><i>&ensp;</i>XXXXXXXXXXXXXX</span>-->
+            <!--</li>-->
+        </ul>
+        <div class="list" style="margin:0;">
+            <label class="item item-input item-select" style="border-top:0">
+                <div class="input-label"><i class="enter-rad">*</i>销售类型</div>
+                <select ng-model="message.IsType">
+                    <option ng-value="1">羊</option>
+                    <option ng-value="3">牛</option>
+                </select>
+            </label>
+        </div>
+        <div class="list" style="margin:0;">
+            <label class="item item-input item-select" style="border:0;">
+                <p class="enter-type"><i class="enter-rad">*</i>销售品种</p>
+                <select ng-model="message.SpeciesId">
+                    <option ng-repeat="x in enterPing" ng-value="x.Id">{{x.Name}}</option>
+                </select>
+            </label>
+        </div>
+        <label class="item item-input">
+            <span class="input-label"><i class="enter-rad">*</i>销售数量</span>
+            <input type="tel" class="buyfeed-save-put" placeholder="请填写" ng-model="message.OrderNum">
+        </label>
+        <label class="item item-input" ng-click="getDates()">
+            <span class="input-label"><i class="enter-rad">*</i>销售时间</span>
+            <span class="rili">{{message.OrderTime}} <i class="buyfeed-img-box"><img src="img/service_03.png" width="100%"></i></span>
+        </label>
+        <label class="item item-input item-select">
+            <span class="input-label"><i class="enter-rad">*</i>预约加工企业</span>
+            <select ng-model="message.ReceiveId">
+                <option ng-repeat="items in kill" ng-value="items.Id">{{items.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-select">
+            <span class="input-label"><i class="enter-rad">*</i>收购方式</span>
+            <select ng-model="message.SaleType">
+                <option ng-repeat="items in shangmen" ng-value="items.Id">{{items.Name}}</option>
+            </select>
+        </label>
+        <label class="item item-input item-select">
+            <span class="input-label"><i class="enter-rad">*</i>食宿安排</span>
+            <select ng-model="message.BoardType">
+                <option ng-repeat="item in foods" ng-value="item.Id">{{item.Name}}</option>
+            </select>
+        </label>
+        <textarea name="beizhu" id="beizhu" placeholder="请输入需要预约的内容" ng-model="message.OrderContent"></textarea>
+        <button class="button button-full button-positive" ng-click="sure()">确定</button>
+    </ion-content>
+</ion-ion-modal-view>

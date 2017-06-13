@@ -1,0 +1,59 @@
+<ion-ion-modal-view>
+    <ion-header-bar class="bar-stable bar bar-header">
+        <button class="button icon-left ion-chevron-left button-calm" ng-click="hideModal()"></button>
+        <div class="title title-center header-item">确认预约</div>
+    </ion-header-bar>
+    <ion-content>
+        <ul class="floor" style="margin:0;">
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>单号</p>
+                <span><i>&ensp;</i>{{SureOrder.OrrId}}</span>
+            </li>
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>当前日期</p>
+                <span>{{date}} </span>
+            </li>
+        </ul>
+        <ul class="floor">
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>企业名称</p>
+                <span><i>&ensp;</i>A牧场</span>
+            </li>
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>责任人</p>
+                <span>{{SureOrder.Name}}</span>
+            </li>
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>手机号</p>
+                <span><i>&ensp;</i>{{SureOrder.Tel}}</span>
+            </li>
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>预约类型</p>
+                <span>{{SureOrder.AnimalStr}}</span>
+            </li>
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>预约品种</p>
+                <span><i>&ensp;</i>{{SureOrder.SpeciesName}}</span>
+            </li>
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>预约数量</p>
+                <span>{{SureOrder.OrderNum}}只</span>
+            </li>
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>预约时间</p>
+                <span><i>&ensp;</i>{{SureOrder.OrderTime}}</span>
+            </li>
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>收购方式</p>
+                <span>{{SureOrder.SaleTypeeName}}</span>
+            </li>
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>食宿安排</p>
+                <span><i>&ensp;</i>{{SureOrder.BoardTypeName}}</span>
+            </li>
+        </ul>
+        <div class="button-bar" style="margin-top:10px;">
+            <a class="button button-positive" ng-disabled="dis" ng-click="sreyuyue()">确认</a>
+        </div>
+    </ion-content>
+</ion-ion-modal-view>

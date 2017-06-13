@@ -1,5 +1,5 @@
 angular.module('app.controllers', [])
-.controller('CommonCtrl', function ($scope, $ionicLoading, $ionicPopup) {
+.controller('CommonCtrl', function ($scope, $ionicLoading, $state,$ionicPopup,$timeout,$cordovaToast) {
     $scope.showLoad = function () {
         $ionicLoading.show({
             template: "<ion-spinner icon='ios'></ion-spinner>"
@@ -29,11 +29,25 @@ angular.module('app.controllers', [])
             $scope.showAlert(msg);
         }
     };
-
-
-    var firstrun = false;
-    localStorage.setItem('firstrun', firstrun);
-
+    $scope.logout=function() {
+        $ionicPopup.show({
+            template: '<div class="content">确定退出？</div>',
+            title: '消息',
+            scope: $scope,
+            buttons: [{
+                text: '取消',
+                type: 'button-balanced',
+            }, {
+                text: '<b>确定</b>',
+                type: 'button-balanced',
+                onTap: function(e) {
+                    localStorage.clear();
+                    localStorage.setItem('weburl', weburl);
+                    $state.go("login");
+                }
+            }]
+        });
+    };
 })
 .controller('ServiceCtrl', function ($scope) {
 

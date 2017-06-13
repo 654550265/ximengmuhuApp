@@ -1,36 +1,32 @@
 <ion-view title="信息填写">
-    <ion-nav-buttons side="right">
-        <button class="button button-clear icon" style="color:#fff;" ng-click="notmess()">取消</button>
-    </ion-nav-buttons>
     <ion-content style="background-color:#fff;">
         <div class="list">
             <div class="mess-list">
                 <label class="item item-input item-stacked-label" style="border:0;">
                     <span class="input-label">姓名</span>
-                    <input type="text" placeholder="请输入姓名" class="mess-put" style="border-bottom:1px solid #ddd">
+                    <input type="text" placeholder="请输入姓名" class="mess-put" ng-model="mess.name" style="border-bottom:1px solid #ddd">
                 </label>
                 <label class="item item-input item-stacked-label" style="border:0;margin-top:10px;">
                     <span class="input-label">联系方式</span>
-                    <input type="text" placeholder="18951514669" class="mess-put blue-mess-put" ng-disabled="true"
-                           style="border-bottom:1px solid #ddd">
+                    <input type="text" placeholder="请输入您的联系方式" class="mess-put blue-mess-put" ng-disabled="dis" ng-model="mess.tel" style="border-bottom:1px solid #ddd">
                 </label>
-                <label class="item item-input item-stacked-label" style="border:0;margin-top:10px;">
-                    <span class="input-label">农场名称</span>
-                    <input type="text" placeholder="请输入农场名称" class="mess-put" style="border-bottom:1px solid #ddd">
-                </label>
+                <!--<label class="item item-input item-stacked-label" style="border:0;margin-top:10px;">-->
+                    <!--<span class="input-label">农场名称</span>-->
+                    <!--<input type="text" placeholder="请输入农场名称" ng-model="mess.farmName" class="mess-put" style="border-bottom:1px solid #ddd">-->
+                <!--</label>-->
                 <div class="mess-city-box">
                     <span class="input-label mess-city">所属地区</span>
-                    <select name="prvince" id="prvince">
-                        <option value="">请选择</option>
+                    <select name="prvince" id="prvince" ng-model="member.qi" ng-change="getCity()">
+                        <option ng-repeat="item in province" ng-value="item.Id">{{item.Name}}</option>
                     </select>
-                    <select name="city" id="city">
-                        <option value="">请选择</option>
+                    <select name="city" id="city" ng-model="member.sumu" ng-change="getSuMu()">
+                        <option ng-repeat="items in city" ng-value="items.Id">{{items.Name}}</option>
                     </select>
-                    <select name="qu" id="qu">
-                        <option value="">请选择</option>
+                    <select name="qu" id="qu" ng-model="member.sumus">
+                        <option ng-repeat="list in sumu" ng-value="list.Id">{{list.Name}}</option>
                     </select>
                 </div>
-                <button class="button button-block button-positive">完成</button>
+                <button class="button button-block button-positive" ng-click="PostFarmName()">完成</button>
             </div>
         </div>
     </ion-content>

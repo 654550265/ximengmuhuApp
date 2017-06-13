@@ -12,65 +12,113 @@
                 <ul class="floor">
                     <li class="fix">
                         <p><i>&ensp;</i>单号</p>
-                        <span><i>&ensp;</i>12313123412341234124</span>
+                        <span><i>&ensp;</i>{{entry.JHNO}}</span>
                     </li>
                     <li class="fix">
                         <p><i>&ensp;</i>日期</p>
-                        <span>2017-05-10</span>
+                        <span>{{entry.date}} <i class="buyfeed-img-box" ng-click="getDates()"><img src="img/service_03.png" width="100%"></i></span>
                     </li>
                 </ul>
                 <ul class="floor">
-                    <li class="fix">
-                        <p><i>*</i>单号</p>
-                        <span>12313123412341234124</span>
-                    </li>
                     <li class="fix">
                         <p><i>*</i>数量</p>
-                        <span class="fontColor">80</span>
+                        <span class="fontColor">{{numbers}}</span>
                     </li>
                 </ul>
-                <ul class="floor">
+                <div class="list" style="margin:0;border-bottom:1px solid #f5f5f5;">
+                    <label class="item item-input item-select" style="border:0;">
+                        <p class="enter-type"><i class="enter-rad">*</i>喂养对象</p>
+                        <select ng-model="feed.isType">
+                            <option ng-value="1">羊</option>
+                            <option ng-value="3">牛</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="list">
+                    <label class="item item-input item-select" style="border:0;">
+                        <p class="enter-type"><i class="enter-rad">*</i>饲料</p>
+                        <select ng-model="feed.isType">
+                            <option ng-repeat="items in FeedFootList" ng-value="items.Id" >{{items.FeedName}}</option>
+                        </select>
+                    </label>
+                </div>
+                <ul class="floor" ng-click="takePhoto()">
                     <li class="fix" >
                         <p class="fontColor"><i>&ensp;</i>拍照</p>
                     </li>
                 </ul>
-                <ul class="floor">
-                    <li class="fix" >
-                        <p class="fontColor"><i>&ensp;</i>扫描到的耳号</p>
-                    </li>
-                </ul>
+                <div class="out-img-box">
+                    <img src="" id="myImage6" width="100%">
+                </div>
+                <div class="list enter-list" style="margin-bottom:0;">
+                    <div class="item item-button-right fontColor erhao-list" style="border:0;">
+                        扫描到的耳号
+                        <button class="button button-positive" ng-click="connectble()">
+                            <i class="icon ion-wifi"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="lh-list" >
+                    <ul id="FeedListEnter1">
+                        <li>{{saomiao}}</li>
+                    </ul>
+                </div>
             </ion-slide>
             <ion-slide>
                 <ul class="floor">
                     <li class="fix">
                         <p><i>&ensp;</i>单号</p>
-                        <span><i>&ensp;</i>12313123412341234124</span>
+                        <span><i>&ensp;</i>{{entrys.JHNO}}</span>
                     </li>
                     <li class="fix">
                         <p><i>&ensp;</i>日期</p>
-                        <span>2017-05-10</span>
+                        <span>{{entrys.date}} <i class="buyfeed-img-box" ng-click="getD()"><img src="img/service_03.png" width="100%"></i></span>
                     </li>
                 </ul>
                 <ul class="floor">
                     <li class="fix">
-                        <p><i>*</i>喂养对象</p>
-                        <span>12313123412341234124</span>
-                    </li>
-                    <li class="fix">
-                        <p><i>*</i>饲料</p>
-                        <span class="fontColor">80</span>
+                        <p><i>*</i>数量</p>
+                        <span class="fontColor">{{enterListLength}}</span>
                     </li>
                 </ul>
-                <ul class="floor">
+                <div class="list" style="margin:0;border-bottom:1px solid #f5f5f5;">
+                    <label class="item item-input item-select" style="border:0;">
+                        <p class="enter-type"><i class="enter-rad">*</i>喂养对象</p>
+                        <select ng-model="feed.isTypes">
+                            <option ng-value="1">羊</option>
+                            <option ng-value="3">牛</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="list">
+                    <label class="item item-input item-select" style="border:0;">
+                        <p class="enter-type"><i class="enter-rad">*</i>饲料</p>
+                        <select ng-model="feed.FeedFood">
+                            <option ng-repeat="items in FeedFootList" ng-value="items.Id" >{{items.FeedName}}</option>
+                        </select>
+                    </label>
+                </div>
+                <ul class="floor" ng-click="takePhoto()">
                     <li class="fix" >
                         <p class="fontColor"><i>&ensp;</i>拍照</p>
                     </li>
                 </ul>
-                <ul class="floor">
-                    <li class="fix" >
-                        <p class="fontColor"><i>&ensp;</i>扫描到的耳号</p>
-                    </li>
-                </ul>
+                <div class="out-img-box">
+                    <img src="" id="myImage7" width="100%">
+                </div>
+                <div class="list enter-list" style="margin-bottom:0;">
+                    <div class="item item-button-right fontColor erhao-list" style="border:0;">
+                        扫描到的耳号
+                        <button class="button button-positive" ng-click="connectble()">
+                            <i class="icon ion-wifi"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="lh-list" >
+                    <ul id="FeedListEnter2">
+                        <li ng-repeat="item in erbiaList">{{item}}</li>
+                    </ul>
+                </div>
             </ion-slide>
         </ion-slide-box>
     </ion-content>

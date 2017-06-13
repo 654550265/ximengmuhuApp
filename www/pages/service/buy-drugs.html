@@ -1,0 +1,61 @@
+<ion-view view-title="采购药品">
+    <ion-content  style="background-color:#f3f3f3;">
+        <ul class="floor">
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>单号</p>
+                <span><i>&ensp;</i>1234567891112</span>
+            </li>
+            <li class="fix">
+                <p style="color:#444;"><i>&ensp;</i>日期</p>
+                <span>2017-06-12 <i class="buyfeed-img-box"><img src="img/service_03.png" width="100%"></i></span>
+            </li>
+        </ul>
+        <ul class="floor">
+            <!--<li class="fix">-->
+            <!--<p style="color:#444;"><i>&ensp;</i>物质编号</p>-->
+            <!--<span><i>&ensp;</i>XXXXXXXXXXXXXX</span>-->
+            <!--</li>-->
+        </ul>
+        <div class="list" style="margin:0;">
+            <label class="item item-input" >
+                <div class="input-label"><i class="enter-rad">*</i>供应商</div>
+                <input type="text" class="buyfeed-save-put" ng-model="Feed.provider" placeholder="请输入供应商">
+            </label>
+        </div>
+        <div class="list" style="margin:0;">
+            <label class="item item-input item-select" style="border:0;">
+                <p class="enter-type"><i class="enter-rad">*</i>饲料</p>
+                <select ng-model="Feed.FeedName">
+                    <option ng-repeat="items in FeedFootList" ng-value="items.Id" >{{items.FeedName}}</option>
+                </select>
+            </label>
+        </div>
+        <label class="item item-input">
+            <span class="input-label"><i class="enter-rad">*</i>数量&emsp;&emsp;</span>
+            <input type="tel" class="buyfeed-save-put" placeholder="请填写" ng-model="Feed.FeedNum">
+        </label>
+        <label class="item item-input item-select">
+            <span class="input-label"><i class="enter-rad">*</i>购买单位</span>
+            <select ng-model="Feed.FeedUnits">
+                <option ng-repeat="item in Unit" ng-value="item">{{item}}</option>
+            </select>
+        </label>
+        <label class="item item-input">
+            <span class="input-label"><i class="enter-rad">*</i>单价(元)&ensp;</span>
+            <input type="text" class="buyfeed-save-put" placeholder="请填写" ng-change="checkText()" ng-model="Feed.FeedPrice">
+        </label>
+        <ul class="floor" style="margin:0;">
+            <li class="fix">
+                <p><i>&ensp;</i>总金额</p>
+                <span><i>&ensp;</i><span>&ensp;(元)</span><span style="color:#ff7f66;">{{jiaFa}}</span></span>
+            </li>
+        </ul>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="bar bar-footer">
+            <div class="button-bar">
+                <a class="button btn-save" ng-click="Preservation()">提交</a>
+            </div>
+        </div>
+    </div>
+</ion-view>

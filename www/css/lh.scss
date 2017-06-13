@@ -1,355 +1,569 @@
 @charset "UTF-8";
-$designWidth : 750px;
+$designWidth: 750px;
 @function toRem($px) {
     @return $px / ($designWidth/10) * 1rem;
 }
 
 #logo {
-    padding-top   : toRem(120px);
-    margin-bottom : toRem(120px);
+    padding-top: toRem(120px);
+    margin-bottom: toRem(120px);
     img {
-        display : block;
-        width   : toRem(155px);
-        margin  : 0 auto;
+        display: block;
+        width: toRem(155px);
+        margin: 0 auto;
     }
 
 }
 
 .login-list {
-    padding : 0 toRem(50px);
+    padding: 0 toRem(50px);
 }
 
 .login-list .item.username {
-    margin-bottom    : 1px;
-    border-bottom    : 1px solid #ccc;
-    background-color : transparent;
+    margin-bottom: 1px;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
 }
 
 .page_login .login-list .username-icon {
-    background      : url(../img/username_icon.png) no-repeat;
-    width           : toRem(38px);
-    height          : toRem(42px);
-    background-size : toRem(38px) toRem(42px);
+    background: url(../img/username_icon.png) no-repeat;
+    width: toRem(38px);
+    height: toRem(42px);
+    background-size: toRem(38px) toRem(42px);
 }
 
 .page_login .login-list .password-icon {
-    background      : url(../img/password_icon.png) no-repeat;
-    width           : toRem(38px);
-    height          : toRem(43px);
-    background-size : toRem(38px) toRem(43px);
+    background: url(../img/password_icon.png) no-repeat;
+    width: toRem(38px);
+    height: toRem(43px);
+    background-size: toRem(38px) toRem(43px);
 }
 
 .user-name::-webkit-input-placeholder, .user-pwd::-webkit-input-placeholder {
-    color : #fff;
+    color: #fff;
 }
 
 .register-box {
-    position         : fixed;
-    bottom           : 0;
-    left             : 0;
-    background-color : #fff;
-    width            : 100%;
-    opacity          : 0.7;
-    height           : 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    width: 100%;
+    opacity: 0.7;
+    height: 1rem;
 }
 
 .register-text {
-    margin      : 0;
-    position    : absolute;
-    bottom      : 0;
-    left        : 0;
-    line-height : 1rem;
-    width       : 100%;
-    text-align  : center;
-    font-size   : 0.5rem;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    line-height: 1rem;
+    width: 100%;
+    text-align: center;
+    font-size: 0.5rem;
 }
 
 .page_login {
-    background      : url(../img/page_login.png) no-repeat center center fixed;
-    background-size : cover;
+    background: url(../img/page_login.png) no-repeat center center fixed;
+    background-size: cover;
 }
 
 .no-have-text {
-    color : #fff;
+    color: #fff;
 }
 
 .register {
-    color : #54A6FC;
+    color: #54A6FC;
 }
 
 .register-text span {
-    display : inline-block;
+    display: inline-block;
 }
 
 .link_forget a {
-    color     : #6699ff;
-    font-size : 0.5rem;
+    color: #6699ff;
+    font-size: 0.5rem;
 }
 
 .regsiters-list {
-    width  : 90%;
-    margin : 0 auto;
+    width: 90%;
+    margin: 0 auto;
     .active {
-        border-bottom : 2px solid #53A6FC;
+        border-bottom: 2px solid #53A6FC;
     }
 }
 
 .registers-list {
-    display       : inline-block;
-    line-height   : 44px;
-    color         : #000;
-    width         : 50%;
-    text-align    : center;
-    border-bottom : 1px solid #dddddd;
-    font-size     : toRem(40px);
+    display: inline-block;
+    line-height: 44px;
+    color: #000;
+    width: 50%;
+    text-align: center;
+    border-bottom: 1px solid #dddddd;
+    font-size: toRem(40px);
 }
 
 .tel-box {
-    width  : 94%;
-    margin : toRem(50px) auto 0 auto;
+    width: 94%;
+    margin: toRem(50px) auto 0 auto;
 }
 
 .pic-userName {
-    display : inline-block;
-    width   : toRem(30px);
-    height  : toRem(41px);
+    display: inline-block;
+    width: toRem(30px);
+    height: toRem(41px);
 }
 
 .register-tel-icon {
-    background      : url("../img/tel_03.png") no-repeat;
-    width           : toRem(30px);
-    height          : toRem(41px);
-    background-size : toRem(30px) toRem(41px);
+    background: url("../img/tel_03.png") no-repeat;
+    width: toRem(30px);
+    height: toRem(41px);
+    background-size: toRem(30px) toRem(41px);
 }
 
 .register-code-icon {
-    display         : inline-block;
-    float           : left;
-    margin-left     : 14px;
-    margin-top      : toRem(30px);
-    background      : url("../img/tel_06.png") no-repeat;
-    width           : toRem(38px);
-    height          : toRem(41px);
-    background-size : toRem(38px) toRem(41px);
+    display: inline-block;
+    float: left;
+    margin-left: 14px;
+    margin-top: toRem(30px);
+    background: url("../img/tel_06.png") no-repeat;
+    width: toRem(38px);
+    height: toRem(41px);
+    background-size: toRem(38px) toRem(41px);
 }
 
 .register-password-icon {
-    background      : url("../img/tel_10.png") no-repeat;
-    width           : toRem(36px);
-    height          : toRem(42px);
-    background-size : toRem(36px) toRem(42px);
+    background: url("../img/tel_10.png") no-repeat;
+    width: toRem(36px);
+    height: toRem(42px);
+    background-size: toRem(36px) toRem(42px);
 }
 
 .getCode {
-    position  : absolute;
-    right     : toRem(5px);
-    top       : toRem(25px);
-    font-size : toRem(30px);
+    position: absolute;
+    right: toRem(5px);
+    top: toRem(25px);
+    font-size: toRem(30px);
 }
 
 .tijiao {
-    background-color : #53A6FC;
-    color            : #fff;
+    background-color: #53A6FC;
+    color: #fff;
 }
 
 .userName-tel-icon {
-    background      : url("../img/user_03.png") no-repeat;
-    width           : toRem(36px);
-    height          : toRem(35px);
-    background-size : toRem(36px) toRem(35px);
+    background: url("../img/user_03.png") no-repeat;
+    width: toRem(36px);
+    height: toRem(35px);
+    background-size: toRem(36px) toRem(35px);
 }
 
 .mess-list {
-    width  : 90%;
-    margin : toRem(80px) auto 0 auto;
-    border : 0;
+    width: 90%;
+    margin: toRem(80px) auto 0 auto;
+    border: 0;
 }
 
 .input-label {
-    font-size : toRem(40px);
+    font-size: toRem(40px);
 }
 
 .item-stacked-label .mess-put {
-    font-size : toRem(35px);
-}
-
-.blue-mess-put::-webkit-input-placeholder {
-    color : #53A6FC;
+    font-size: toRem(35px);
 }
 
 .mess-city-box {
-    padding : 6px 0 5px 16px;
+    padding: 6px 0 5px 16px;
 }
 
 .mess-city {
-    width      : 50%;
-    margin-top : 10px;
+    width: 50%;
+    margin-top: 10px;
 }
 
 #prvince, #city, #qu {
-    width         : 32%;
-    padding       : 5px 5px 5px 0;
-    border        : 1px solid #ddd;
-    border-radius : 5px;
-    margin-top    : 5px;
+    width: 32%;
+    padding: 5px 5px 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-top: 5px;
 }
 
 .nav-bar-block > .bar-header {
-    background-image : none;
+    background-image: none;
 }
 
 .Announcements-box {
-    width  : 90%;
-    margin : 0 auto;
+    width: 100%;
+    margin-top:toRem(30px);
+    background-color:#fff;
 }
+.danhao{
+    font-size:toRem(40px);
+}
+.danhaoBox{
+    width:92%;
+    margin:0 auto;
+}
+.isType-yang{
+    display:inline-block;
+    width:48%;
+}
+.yuyue-date{
+    width:92%;
+    margin:0 auto;
+    text-align:right;
+    padding:toRem(20px) 0;
+    font-size:toRem(35px);
+}
+.isType-yang:nth-child(2){
+    text-align:right;
+}
+.muchang-Name{
+    margin:0;
+    padding:toRem(20px) 0 ;
+}
+.sure-box{
+    width:92%;
+    margin:0 auto;
+    padding:toRem(10px) 0;
+    position:relative;
+    height:toRem(90px);
 
+}
+.button-lineheight{
+    line-height:toRem(70px);
+    min-height:0;
+}
+.date-right{
+    position:absolute;
+    top:toRem(10px);right:0;
+    line-height:toRem(70px);
+    font-size:toRem(35px);
+}
+.NewMessage-date{
+    width:100%;
+    background-color: #fff;
+    border-bottom:1px solid #ddd;
+}
+.Announcements-danhao{
+    width:94%;
+    margin:0 auto;
+}
+.NewMessage-p{
+    width:92%;
+    margin:0 auto;
+    font-size:toRem(40px);
+    color:#444;
+    position: relative;
+}
+.NewMessage-yuyue{
+    line-height:toRem(100px);
+}
+.rili{
+    position:absolute;
+    top:0;right:toRem(30px);
+    line-height:toRem(118px);
+}
+.NewMessage-date-img{
+    position:absolute;
+    top:0;right:0;
+    line-height:toRem(100px);
+}
 .Announcements-time {
-    text-align : center;
-    font-size  : toRem(30px);
-    color      : #999;
-    margin-top : toRem(20px);
+    text-align: center;
+    font-size: toRem(30px);
+    color: #999;
+    margin-top: toRem(20px);
 }
 
 .Announcements-message-box {
-    background-color : #fff;
-    border-radius    : 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: toRem(10px) toRem(10px) toRem(10px) #e1e1e1;
 }
 
 .dingdan-text {
-    display       : block;
-    padding       : toRem(30px) 0 toRem(30px) toRem(20px);
-    font-size     : toRem(35px);
-    border-bottom : 1px solid #f5f5f5;
+    display: block;
+    padding: toRem(30px) 0 toRem(30px) toRem(20px);
+    font-size: toRem(35px);
+    border-bottom: 1px solid #f5f5f5;
 }
 
 .Announcements-goto-box {
-    overflow   : hidden;
-    border-top : 1px solid #f5f5f5;
+    overflow: hidden;
+    border-top: 1px solid #f5f5f5;
 }
 
 .Announcements-goto-see {
-    float     : left;
-    font-size : toRem(36px);
-    color     : #51a6ff;
-    padding   : toRem(30px) 0 toRem(30px) toRem(20px);
+    float: left;
+    font-size: toRem(36px);
+    color: #51a6ff;
+    padding: toRem(30px) 0 toRem(30px) toRem(20px);
 }
 
 .Announcements-goto-pic {
-    float : right;
+    float: right;
     img {
-        margin : toRem(30px) toRem(20px) 0 0;
-        width  : toRem(25px);
+        margin: toRem(30px) toRem(20px) 0 0;
+        width: toRem(25px);
     }
 }
 
 .Announcements-text-p {
-    width         : 80%;
-    margin        : 0 auto;
-    padding       : toRem(20px) 0;
-    color         : #666;
-    font-size     : toRem(36px);
-    overflow      : hidden;
-    white-space   : nowrap;
-    text-overflow : ellipsis;
+    width: 80%;
+    margin: 0 auto;
+    padding: toRem(20px) 0;
+    color: #666;
+    font-size: toRem(36px);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .AnnouncementsMore-box {
-    width  : 90%;
-    margin : 0 auto;
+    width: 90%;
+    margin: 0 auto;
     h2 {
-        margin-top : toRem(20px);
-        color      : #333333;
-        font-size  : toRem(40px);
+        margin-top: toRem(20px);
+        color: #333333;
+        font-size: toRem(40px);
     }
     h4 {
-        color     : #999999;
-        font-size : toRem(30px);
+        color: #999999;
+        font-size: toRem(30px);
     }
     h3 {
-        color     : #666666;
-        font-size : toRem(36px);
+        color: #666666;
+        font-size: toRem(36px);
     }
 }
 
 .Announcements-name {
-    padding-left   : toRem(20px);
-    color          : #999;
-    font-size      : toRem(30px);
-    margin         : 0;
-    padding-bottom : toRem(30px);
-    border-bottom  : 1px solid #f5f5f5;
+    padding-left: toRem(20px);
+    color: #999;
+    font-size: toRem(30px);
+    margin: 0;
+    padding-bottom: toRem(30px);
+    border-bottom: 1px solid #f5f5f5;
 }
 
 .dingdan-title {
-    border : 0;
+    border: 0;
 }
 
 .release-box {
-    width  : 94%;
-    margin : 0 auto;
+    width: 94%;
+    margin: 0 auto;
     .item-input {
-        margin       : 0;
-        padding-left : 0;
-        border-top   : 0;
-        border-left  : 0;
-        border-right : 0;
+        margin: 0;
+        padding-left: 0;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
         input {
-            padding-right : 0;
-            text-align    : right;
-            font-size     : toRem(35px);
+            padding-right: 0;
+            text-align: right;
+            font-size: toRem(35px);
         }
         .input-label {
-            color : #666;
+            color: #666;
         }
     }
     .item-select {
-        margin : 0;
-        border : 0;
+        margin: 0;
+        border: 0;
     }
 }
 
 #release-text {
-    resize           : none;
-    background-color : #f5f5f5;
-    width            : 100%;
-    height           : toRem(300px);
-    font-size        : toRem(36px);
-    padding          : toRem(20px) 0;
+    resize: none;
+    background-color: #f5f5f5;
+    width: 100%;
+    height: toRem(300px);
+    font-size: toRem(36px);
+    padding: toRem(20px) 0;
 }
 
 .release-btn {
-    position:fixed;
-    left:5%;bottom:toRem(30px);
-    width  : 90%;
-    margin : 0 auto;
-    background-color:#53A6FC;
+    position: fixed;
+    left: 5%;
+    bottom: toRem(30px);
+    width: 90%;
+    margin: 0 auto;
+    background-color: #53A6FC;
     text-align: center;
-    color:#fff;
+    color: #fff;
+    font-size: toRem(40px);
+    border-radius: toRem(60px);
+}
+
+.giveUsMess-box {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid #f5f5f5;
+}
+
+.giveUs-box {
+    width: 90%;
+    margin: 0 auto;
+}
+
+#GiveUsMess {
+    width: 100%;
+    border: 1px solid #ccc;
+    margin-top: toRem(20px);
+    height: toRem(550px);
+    resize: none;
+    padding: toRem(20px);
+}
+
+.button-giveUs {
+    width: 100%;
+    margin: 10px auto 0 auto;
+}
+
+.red-text-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.enter-rad{
+    color:#ff7f66;
+}
+.item .enter-type{
     font-size:toRem(40px);
-    border-radius:toRem(60px);
 }
-.giveUsMess-box{
-    width:90%;
-    margin:0 auto;
-    border:1px solid #f5f5f5;
+.enter-list{
+    margin-top:toRem(30px);
+    margin-bottom:0;
 }
-.giveUs-box{
-    width:90%;
-    margin:0 auto;
+.erhao-list{
+    font-size:toRem(35px);
 }
-#GiveUsMess{
+.lh-list{
     width:100%;
-    border:1px solid #ccc;
+    background-color: #fff;
+    border:1px solid #f5f5f5;
+    ul{
+        width:100%;
+        overflow: hidden;
+        li{
+            float: left;
+            width:50%;
+            text-align: center;
+            line-height: toRem(70px);
+        }
+    }
+}
+.item .buyfeed-save-put{
+    text-align: right;
+    font-size:toRem(40px);
+}
+.buyfeed-img-box{
+    display:inline-block;
+    width:toRem(50px);
+}
+.out-img-box{
+    width:80%;
+    margin:0 auto;
+}
+#beizhu{
+    resize:none;
+    width:95%;
+    margin:0 auto;
     margin-top:toRem(20px);
-    height:toRem(550px);
-    resize : none;
+    height:toRem(300px);
+    font-size:toRem(35px);
+    border-radius: 5px;
     padding:toRem(20px);
 }
-.button-giveUs{
-    width:100%;
-    margin:10px auto 0 auto;
+.setFarm-box{
+    width:94%;
+    margin:0 auto;
 }
-.red-text-message{
+.setFarm-box li{
+    padding:toRem(20px) 0;
+    border-bottom:1px solid #F6F6F6;
+}
+.setFarm-name,.setFarm-text{
+    display: inline-block;
+}
+.setFarm-name{
+    width:30%;
+    font-size:toRem(40px);
+    color:#666;
+}
+.setFarm-text{
+    width:70%;
+    font-size:toRem(40px);
+    color:#333;
+    text-align: right;
+}
+.setFarm-button{
+    width:94%;
+    margin:toRem(30px) auto 0 auto;
+    background-color:#51a6ff;
+    color:#fff;
+    text-align:center;
+    padding:toRem(20px) 0;
+    font-size:toRem(35px);
+    border-radius:5px;
+}
+.setFarm-button:active{
+    background-color:#79b3f1;
+}
+.list .setFarm-textRight{
+    text-align: right;
+    font-size: toRem(40px);
+    color:#333;
+}
+.setFarm-fontColor{
+    color:#666;
+}
+.aboutMe-img-box{
+    width:toRem(250px);
+    margin:toRem(50px) auto 0 auto;
+}
+.soliden{
+    text-align: center;
+    font-size:toRem(40px);
+    margin-top:toRem(30px);
+    font-weight: 600;
+}
+.checkOut{
+    color:red;
+    text-align: center;
+    background-color: #fff;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    padding:toRem(20px) 0;
+    margin-top:toRem(100px);
+}
+.banquan,.Copy{
+    text-align: center;
+}
+.wite-sure{
+    background-color:red;
+    color:#fff;
+    padding:toRem(15px);
+    border-radius:5px;
     position: absolute;
-    top:0;left:0;
+    top:toRem(15px); right:3%;
+}
+.sure-sure{
+    background-color:#39e439;
+    color:#fff;
+    padding:toRem(15px);
+    border-radius:5px;
+    position: absolute;
+    top:toRem(15px); right:3%;
+}
+.item .enter-put{
+    text-align:right;
+    font-size:toRem(40px);
+}
+.swiper-container{
+    overflow: visible;
 }

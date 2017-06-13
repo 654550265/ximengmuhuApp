@@ -9,11 +9,17 @@ a {
 	text-decoration: none;
 	color: #000;
 }
-
+.fix{
+    border-bottom:1px solid #f5f5f5;
+}
 .fix:after {
 	display:block;
 	content:"";
 	clear:both;
+}
+
+.button-bar .regsiters-list .active {
+	color: #53A6FC !important;
 }
 
 //tab-message
@@ -190,8 +196,8 @@ a {
 	margin-top: toRem(30px);
 	background-color: #fff;
 	li {
-		height: toRem(84px);
-		line-height: toRem(84px);
+		height: toRem(100px);
+		line-height: toRem(100px);
 		padding: 0 24px 0 12px;
 		p {
 			>i {
@@ -232,25 +238,9 @@ a {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.tab-item.tab-item-active .tab-title {
+	color: $fontColor;
+}
 
 
 

@@ -1,0 +1,32 @@
+<ion-view title="忘记密码">
+    <ion-content style="background-color:#fff;">
+        <div class="tel-box">
+            <label class="item item-input item-icon-left" style="border:0;background-color:transparent;">
+                <span class="register-tel-icon"></span>
+                <input type="tel" ng-model="loginData.tel" required placeholder="请输入手机号码"
+                       style="color:#000;font-size:0.5rem;border-bottom:1px solid #C9C9C9;padding:0.7rem 0;margin-left:0.5rem;">
+            </label>
+            <div style="position:relative;overflow: hidden;">
+                <!--<label class="item item-input item-icon-left" style="border:0;background-color:transparent;">-->
+                <span class="register-code-icon"></span>
+                <input type="tel" ng-model="loginData.code" required placeholder="请输入验证码"
+                       style="color:#000;font-size:0.5rem;border-bottom:1px solid #C9C9C9;padding:0.7rem 0;margin-left:0.5rem;float:left;">
+                <!--</label>-->
+                <button class="button button-small button-positive getCode" ng-click="getCodes()" ng-disabled="dis">
+                    {{getCodeText}}
+                </button>
+            </div>
+            <label class="item item-input item-icon-left" style="border:0;background-color:transparent;">
+                <span class="register-password-icon"></span>
+                <input type="password" ng-model="loginData.pwd" required placeholder="请输入新密码(6-32位字符)"
+                       style="color:#000;font-size:0.5rem;border-bottom:1px solid #C9C9C9;padding:0.7rem 0;margin-left:0.5rem;">
+            </label>
+            <label class="item item-input item-icon-left" style="border:0;background-color:transparent;">
+                <span class="register-password-icon"></span>
+                <input type="password" ng-model="loginData.pwdTwo" required placeholder="请确认新密码(6-32位字符)"
+                       style="color:#000;font-size:0.5rem;border-bottom:1px solid #C9C9C9;padding:0.7rem 0;margin-left:0.5rem;">
+            </label>
+            <button class="button button-block button-positive" ng-click="telUpData()">提交</button>
+        </div>
+    </ion-content>
+</ion-view>

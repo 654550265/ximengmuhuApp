@@ -1,0 +1,27 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-stable bar bar-header">
+        <button class="button icon-left ion-chevron-left button-calm" ng-click="hideModal()"></button>
+        <div class="title title-center header-item">牧场设置信息</div>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <span class="input-label setFarm-fontColor">牧场名称</span>
+                <input type="text" class="setFarm-textRight" ng-model="setFarmMessage.commName">
+            </label>
+            <label class="item item-input">
+                <span class="input-label setFarm-fontColor">责任人</span>
+                <input type="text" class="setFarm-textRight">
+            </label>
+            <label class="item item-input">
+                <span class="input-label setFarm-fontColor">手机</span>
+                <input type="tel" class="setFarm-textRight" ng-model="setFarmMessage.mobileTel">
+            </label>
+            <label class="item item-input">
+                <span class="input-label setFarm-fontColor">地址</span>
+                <input type="text" class="setFarm-textRight" ng-model="setFarmMessage.address">
+            </label>
+        </div>
+        <div class="setFarm-button" ng-click="setFarmSave()">保存</div>
+    </ion-content>
+</ion-modal-view>

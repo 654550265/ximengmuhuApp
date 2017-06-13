@@ -1,0 +1,64 @@
+<ion-view view-title="预约消息">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear icon" style="color:#fff;" ng-click="gotoSendMessage()">
+            <i class="icon ion-plus"></i>
+        </button>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader" style="background-image:none;padding:0;">
+        <div class="button-bar">
+            <div class="regsiters-list">
+                <a style="color:#000;" ng-repeat="item in buttonBar" ng-class="item.active === 1 ? 'active' : ''"
+                   class="registers-list" ng-click="slideHasChanged($index)">{{item.name}}</a>
+            </div>
+        </div>
+    </div>
+    <ion-content class="has-subheader herdsmanadd">
+        <ion-slides  options="options" slider="data.slider">
+            <!--TODO 收到的预约消息-->
+            <ion-slide-page>
+                <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()" ng-if="activeIndex===0"></ion-refresher>
+                <div class="list Announcements-box" ng-repeat="item in OrderList" ng-click="gotoConfirmOrder($index)">
+                    <div class="item item-button-right danhao" ng-click="gotoMEssageOrder()">
+                        单号：{{item.OrrId}}
+                        <span ng-class="item.OrderStatus=='待确认'?'wite-sure':'sure-sure'">{{item.OrderStatus}}</span>
+                    </div>
+                    <div class="danhaoBox" style="color:#444;">
+                        <p class="danhao muchang-Name">牧户名：{{item.Name}}</p>
+                        <p class="danhao muchang-Name">
+                            <span class="isType-yang">销售类型：{{item.AnimalStr}}</span>
+                            <span class="isType-yang">销售数量：{{item.OrderNum}}</span>
+                        </p>
+                    </div>
+                    <div style="border-top:1px solid #ddd;">
+                        <p class="yuyue-date">{{item.OrderTime}}</p>
+                    </div>
+                </div>
+                <ion-infinite-scroll on-infinite="loadMore()" distance="1%" ng-if="canLoad"></ion-infinite-scroll>
+            </ion-slide-page>
+            <!--TODO 发出的预约消息-->
+            <ion-slide-page>
+                <ion-refresher pulling-text="下拉刷新" on-refresh="doRefreshs()" ng-if="activeIndex===1"></ion-refresher>
+                <div class="list Announcements-box" ng-repeat="x in ReceivedOrder" ng-click="gotoConfirmOrders($index)">
+                    <div class="item item-button-right danhao">
+                        单号：{{x.OrrId}}
+                        <span ng-class="x.OrderStatus=='待确认'?'wite-sure':'sure-sure'">{{x.OrderStatus}}</span>
+                    </div>
+                    <div class="danhaoBox" style="color:#444;">
+                        <p class="danhao muchang-Name">牧场名称：{{x.Name}}</p>
+                        <p class="danhao muchang-Name">
+                            <span class="isType-yang">销售类型：{{x.AnimalStr}}</span>
+                            <span class="isType-yang">销售数量：{{x.OrderNum}}</span>
+                        </p>
+                    </div>
+                    <div style="border-top:1px solid #ddd;">
+                        <p class="sure-box">
+                            <button class="button button-positive button-lineheight" ng-if="x.OrderStatus=='待确认'">确认</button>
+                            <span class="date-right">{{x.OrderTime}}</span>
+                        </p>
+                    </div>
+                </div>
+                <ion-infinite-scroll on-infinite="loadMores()" distance="1%" ng-if="canLoads"></ion-infinite-scroll>
+            </ion-slide-page>
+        </ion-slides>
+    </ion-content>
+</ion-view>

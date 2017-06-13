@@ -1,0 +1,105 @@
+<ion-view view-title="防疫记录">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear addBtn" ng-click="goToAddVaccination()">
+           +
+        </button>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader" style="background-image:none;padding:0;">
+        <div class="button-bar">
+            <div class="regsiters-list">
+                <a style="color:#000;" ng-repeat="item in buttonBar" ng-class="item.active === 1 ? 'active' : ''" class="registers-list3" ng-click="slideHasChanged($index)">{{item.name}}</a>
+            </div>
+        </div>
+    </div>
+    <ion-content class="has-subheader herdsmanadd" style="background-color:#f3f3f3;">
+        <ion-slide-box on-slide-changed="slideHasChanged(index)" show-pager="false">
+            <ion-slide>
+                <div class="floor-record">
+                    <div class="header">单号:&emsp;123456789123</div>
+                    <ul class="fix">
+                        <li>防疫类型:&emsp;羊</li>
+                        <li>数量:&emsp;50</li>
+                        <li>防疫员:&emsp;XXX</li>
+                        <li>日期:&emsp;2017-05-10</li>
+                    </ul>
+                </div>
+                <div class="floor-record">
+                    <div class="header">单号:&emsp;123456789123</div>
+                    <ul class="fix">
+                        <li>防疫类型:&emsp;羊</li>
+                        <li>数量:&emsp;50</li>
+                        <li>防疫员:&emsp;XXX</li>
+                        <li>日期:&emsp;2017-05-10</li>
+                    </ul>
+                </div>
+                <div class="floor-record">
+                    <div class="header">单号:&emsp;123456789123</div>
+                    <ul class="fix">
+                        <li>防疫类型:&emsp;羊</li>
+                        <li>数量:&emsp;50</li>
+                        <li>防疫员:&emsp;XXX</li>
+                        <li>日期:&emsp;2017-05-10</li>
+                    </ul>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="floor-record">
+                    <div class="header">单号:&emsp;123456789123</div>
+                    <ul class="fix">
+                        <li>防疫类型:&emsp;羊</li>
+                        <li>数量:&emsp;50</li>
+                        <li>防疫员:&emsp;XXX</li>
+                        <li>日期:&emsp;2017-05-10</li>
+                    </ul>
+                </div>
+                <div class="floor-record">
+                    <div class="header">单号:&emsp;123456789123</div>
+                    <ul class="fix">
+                        <li>防疫类型:&emsp;羊</li>
+                        <li>数量:&emsp;50</li>
+                        <li>防疫员:&emsp;XXX</li>
+                        <li>日期:&emsp;2017-05-10</li>
+                    </ul>
+                </div>
+                <div class="floor-record">
+                    <div class="header">单号:&emsp;123456789123</div>
+                    <ul class="fix">
+                        <li>防疫类型:&emsp;羊</li>
+                        <li>数量:&emsp;50</li>
+                        <li>防疫员:&emsp;XXX</li>
+                        <li>日期:&emsp;2017-05-10</li>
+                    </ul>
+                </div>
+            </ion-slide>
+            <ion-slide>
+                <div class="floor-record">
+                    <div class="header">单号:&emsp;123456789123</div>
+                    <ul class="fix">
+                        <li>防疫类型:&emsp;羊</li>
+                        <li>数量:&emsp;50</li>
+                        <li>防疫员:&emsp;XXX</li>
+                        <li>日期:&emsp;2017-05-10</li>
+                    </ul>
+                </div>
+                <div class="floor-record">
+                    <div class="header">单号:&emsp;123456789123</div>
+                    <ul class="fix">
+                        <li>防疫类型:&emsp;羊</li>
+                        <li>数量:&emsp;50</li>
+                        <li>防疫员:&emsp;XXX</li>
+                        <li>日期:&emsp;2017-05-10</li>
+                    </ul>
+                </div>
+                <div class="floor-record">
+                    <div class="header">单号:&emsp;123456789123</div>
+                    <ul class="fix">
+                        <li>防疫类型:&emsp;羊</li>
+                        <li>数量:&emsp;50</li>
+                        <li>防疫员:&emsp;XXX</li>
+                        <li>日期:&emsp;2017-05-10</li>
+                    </ul>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+</ion-view>

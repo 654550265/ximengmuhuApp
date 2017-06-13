@@ -138,9 +138,6 @@
 .item-stacked-label .mess-put {
   font-size: 0.46667rem; }
 
-.blue-mess-put::-webkit-input-placeholder {
-  color: #53A6FC; }
-
 .mess-city-box {
   padding: 6px 0 5px 16px; }
 
@@ -159,8 +156,83 @@
   background-image: none; }
 
 .Announcements-box {
-  width: 90%;
+  width: 100%;
+  margin-top: 0.4rem;
+  background-color: #fff; }
+
+.danhao {
+  font-size: 0.53333rem; }
+
+.danhaoBox {
+  width: 92%;
   margin: 0 auto; }
+
+.isType-yang {
+  display: inline-block;
+  width: 48%; }
+
+.yuyue-date {
+  width: 92%;
+  margin: 0 auto;
+  text-align: right;
+  padding: 0.26667rem 0;
+  font-size: 0.46667rem; }
+
+.isType-yang:nth-child(2) {
+  text-align: right; }
+
+.muchang-Name {
+  margin: 0;
+  padding: 0.26667rem 0; }
+
+.sure-box {
+  width: 92%;
+  margin: 0 auto;
+  padding: 0.13333rem 0;
+  position: relative;
+  height: 1.2rem; }
+
+.button-lineheight {
+  line-height: 0.93333rem;
+  min-height: 0; }
+
+.date-right {
+  position: absolute;
+  top: 0.13333rem;
+  right: 0;
+  line-height: 0.93333rem;
+  font-size: 0.46667rem; }
+
+.NewMessage-date {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd; }
+
+.Announcements-danhao {
+  width: 94%;
+  margin: 0 auto; }
+
+.NewMessage-p {
+  width: 92%;
+  margin: 0 auto;
+  font-size: 0.53333rem;
+  color: #444;
+  position: relative; }
+
+.NewMessage-yuyue {
+  line-height: 1.33333rem; }
+
+.rili {
+  position: absolute;
+  top: 0;
+  right: 0.4rem;
+  line-height: 1.57333rem; }
+
+.NewMessage-date-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 1.33333rem; }
 
 .Announcements-time {
   text-align: center;
@@ -170,7 +242,8 @@
 
 .Announcements-message-box {
   background-color: #fff;
-  border-radius: 5px; }
+  border-radius: 5px;
+  box-shadow: 0.13333rem 0.13333rem 0.13333rem #e1e1e1; }
 
 .dingdan-text {
   display: block;
@@ -293,5 +366,143 @@
   position: absolute;
   top: 0;
   left: 0; }
+
+.enter-rad {
+  color: #ff7f66; }
+
+.item .enter-type {
+  font-size: 0.53333rem; }
+
+.enter-list {
+  margin-top: 0.4rem;
+  margin-bottom: 0; }
+
+.erhao-list {
+  font-size: 0.46667rem; }
+
+.lh-list {
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #f5f5f5; }
+  .lh-list ul {
+    width: 100%;
+    overflow: hidden; }
+    .lh-list ul li {
+      float: left;
+      width: 50%;
+      text-align: center;
+      line-height: 0.93333rem; }
+
+.item .buyfeed-save-put {
+  text-align: right;
+  font-size: 0.53333rem; }
+
+.buyfeed-img-box {
+  display: inline-block;
+  width: 0.66667rem; }
+
+.out-img-box {
+  width: 80%;
+  margin: 0 auto; }
+
+#beizhu {
+  resize: none;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 0.26667rem;
+  height: 4rem;
+  font-size: 0.46667rem;
+  border-radius: 5px;
+  padding: 0.26667rem; }
+
+.setFarm-box {
+  width: 94%;
+  margin: 0 auto; }
+
+.setFarm-box li {
+  padding: 0.26667rem 0;
+  border-bottom: 1px solid #F6F6F6; }
+
+.setFarm-name, .setFarm-text {
+  display: inline-block; }
+
+.setFarm-name {
+  width: 30%;
+  font-size: 0.53333rem;
+  color: #666; }
+
+.setFarm-text {
+  width: 70%;
+  font-size: 0.53333rem;
+  color: #333;
+  text-align: right; }
+
+.setFarm-button {
+  width: 94%;
+  margin: 0.4rem auto 0 auto;
+  background-color: #51a6ff;
+  color: #fff;
+  text-align: center;
+  padding: 0.26667rem 0;
+  font-size: 0.46667rem;
+  border-radius: 5px; }
+
+.setFarm-button:active {
+  background-color: #79b3f1; }
+
+.list .setFarm-textRight {
+  text-align: right;
+  font-size: 0.53333rem;
+  color: #333; }
+
+.setFarm-fontColor {
+  color: #666; }
+
+.aboutMe-img-box {
+  width: 3.33333rem;
+  margin: 0.66667rem auto 0 auto; }
+
+.soliden {
+  text-align: center;
+  font-size: 0.53333rem;
+  margin-top: 0.4rem;
+  font-weight: 600; }
+
+.checkOut {
+  color: red;
+  text-align: center;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 0.26667rem 0;
+  margin-top: 1.33333rem; }
+
+.banquan, .Copy {
+  text-align: center; }
+
+.wite-sure {
+  background-color: red;
+  color: #fff;
+  padding: 0.2rem;
+  border-radius: 5px;
+  position: absolute;
+  top: 0.2rem;
+  right: 3%; }
+
+.sure-sure {
+  background-color: #39e439;
+  color: #fff;
+  padding: 0.2rem;
+  border-radius: 5px;
+  position: absolute;
+  top: 0.2rem;
+  right: 3%; }
+
+.item .enter-put {
+  text-align: right;
+  font-size: 0.53333rem; }
+
+.swiper-container {
+  overflow: visible; }
 
 /*# sourceMappingURL=lh.css.map */
